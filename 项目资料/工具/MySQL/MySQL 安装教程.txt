@@ -1,0 +1,11 @@
+MySQL 安装教程
+
+安装有简单，有复杂，而且分不同的系统。这里先说Windows下面最简单的安装方法，至于难的方案，等我整理到文章后发给大家。
+
+需要的文件分别是：mysql-installer-community-5.7.18.1.msi
+
+需要的视频是：How to download and  install MySQL latest version  5.7.16  on Windows 7.(2016)
+
+
+
+安装方法很简单，按照视频启动，一步步的操作下去即可。输入密码的时候自己注意记住哦。

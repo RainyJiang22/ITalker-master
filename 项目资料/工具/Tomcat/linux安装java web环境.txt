@@ -1,0 +1,169 @@
+
+linux下安装java web环境
+
+准备：将jdk和tomcat压缩包通过FTP上传到服务器的/usr/local/目录下
+
+1.Centos安装jdk
+
+	1.1 解压jdk压缩包
+	    cd /usr/local/
+	    tar -zxvf jdk1.7.0_45.tar.gz
+	    # 解压成功后会有一个 jdk1.7.0_45 的文件夹
+	   
+	   
+	1.2 配置环境变量
+	    vi /etc/profile
+        # 在文件最后加上以下配置
+        
+        # jdk evn
+        JAVA_HOME=/usr/local/jdk1.7.0_45
+        PATH=$JAVA_HOME/bin:$PATH
+        CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar        
+        
+        export JAVA_HOME
+        export PATH
+        export CLASSPATH
+        
+        #保存退出后执行下面的命令,使其生效
+        source /etc/profile
+	    
+		
+	1.3 验证jdk是否配置成功
+		java -version
+		
+		若出现下面字符，表示安装成功。
+        java version "1.7.0_45"
+        Java(TM) SE Runtime Environment (build 1.7.0_45-b18)
+        Java HotSpot(TM) 64-Bit Server VM (build 24.45-b08, mixed mode)
+		
+		
+		
+2.安装配置tomcat
+	
+	2.1 解压tomcat压缩包
+		cd /usr/local/
+        tar -zxvf apache-tomcat-7.0.61.tar.gz
+        
+        # 解压成功后得到 apache-tomcat-7.0.61 文件夹，更名为tomcat7
+        mv apache-tomcat-7.0.61 tomcat7
+		
+		
+	2.2 配置环境变量 
+		vi /etc/profile
+        #在文件最后加上以下配置
+        
+        #tomcat evn
+        CATALINA_HOME=/usr/local/tomcat7
+        export CATALINA_HOME
+        #保存退出后执行下面的命令,使其生效
+        source /etc/profile
+		
+		
+	2.3 配置tomcat的catalina.sh文件
+		#进入tomcat的bin目录
+        cd $CATALINA_HOME/bin
+        vi catalina.sh
+        #找到 # OS specific support，然后在这行下面添加以下配置
+        
+        # OS specific support.  $var _must_ be set to either true or false.
+        CATALINA_HOME=/usr/local/tomcat7
+        JAVA_HOME=/usr/local/jdk1.7.0_45
+        #保存退出
+		
+		
+	2.4 安装tomcat服务
+		cd $CATALINA_HOME/bin
+		cp catalina.sh /etc/init.d/tomcat
+		
+		
+	2.5 测试tomcat启动和停用
+	# 启动
+    service tomcat start
+    #停用
+    service tomcat stop
+     
+    #没有报错的话，证明已经配置成功
+	 
+
+	 
+3.安装配置mysql
+	
+	3.1 查看CentOS自带mysql是否已安装。
+		
+		输入：yum list installed | grep mysql
+		
+		
+	3.2 若有自带安装的mysql，如何卸载CentOS系统自带mysql数据库？
+	
+		输入：yum -y remove mysql-libs.x86_64，若有多个依赖文件则依次卸载。
+		当结果显示为Complete！即卸载完毕。
+		
+		
+	3.3 查看yum库上的mysql版本信息(CentOS系统需要正常连接网络)。
+	
+		输入：yum list | grep mysql 或 yum -y list mysql*
+		
+		
+	3.4 使用yum安装mysql数据库。
+	
+		输入：yum -y install mysql-server mysql mysql-devel ，命令将：mysql-server、mysql、mysql-devel都安装好，当结果显示为“Complete！”即安装完毕。
+		注：安装mysql只是安装了数据库，只有安装mysql-server才相当于安装了客户端。
+	
+	
+	3.5 查看刚安装mysql数据库版本信息。
+		输入：rpm -qi mysql-server
+		
+		
+	3.6 开启mysql服务
+		service mysqld start
+		
+		
+	3.6 修改mysql的root用户登陆密码
+        首先登陆mysql(root还未设置密码，所以输入mysql -uroot 后直接回车即可),用UPDATE直接编辑user表
+
+　　	mysql -u root
+		mysql> use mysql;
+　　	mysql> UPDATE user SET Password = PASSWORD('newpass') WHERE user = 'root';
+　　	mysql> FLUSH PRIVILEGES;
+
+
+附：
+1. mysql开启和关闭命令
+	启动：service mysqld start
+	停止：service mysqld stop
+
+2. 解决远程登陆mysql没有权限的问题
+	GRANT ALL PRIVILEGES ON *.* TO 'myuser'@'%' IDENTIFIED BY 'mypassword' WITH GRANT OPTION;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
