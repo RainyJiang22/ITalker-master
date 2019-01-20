@@ -57,10 +57,24 @@ public class Message {
     private LocalDateTime updateAt = LocalDateTime.now();
 
 
-
+    //发送者
+    //多个消息对应一个发送者
+    @JoinColumn(name = "senderId")
+    //多对1 ->多条消息对应当前用户ID
+    @ManyToOne(optional = false)
     private User sender;
+    //这个字段仅仅知识为了对应sender的数据库字段senderId
+    //不允许手动的更新或者插入
+    @Column(updatable = false,insertable = false)
+    private String senderId;
 
+    //接收者 可以为空
+    //多个消息对应一个接收者
+    @ManyToOne
+    @JoinColumn(name = "receiverId")
     private User receiver;
+    @Column(updatable = false,insertable = false)
+    private String recevierId;
 
     public String getId() {
         return id;
@@ -118,11 +132,27 @@ public class Message {
         this.sender = sender;
     }
 
+    public String getSenderId() {
+        return senderId;
+    }
+
+    public void setSenderId(String senderId) {
+        this.senderId = senderId;
+    }
+
     public User getReceiver() {
         return receiver;
     }
 
     public void setReceiver(User receiver) {
         this.receiver = receiver;
+    }
+
+    public String getRecevierId() {
+        return recevierId;
+    }
+
+    public void setRecevierId(String recevierId) {
+        this.recevierId = recevierId;
     }
 }
