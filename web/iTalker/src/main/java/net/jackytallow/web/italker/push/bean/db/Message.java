@@ -140,6 +140,7 @@ public class Message {
         this.senderId = senderId;
     }
 
+
     public User getReceiver() {
         return receiver;
     }
