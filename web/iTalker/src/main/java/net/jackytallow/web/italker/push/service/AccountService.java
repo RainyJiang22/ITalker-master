@@ -1,7 +1,7 @@
 package net.jackytallow.web.italker.push.service;
 
 
-import net.jackytallow.web.italker.push.bean.User;
+import net.jackytallow.web.italker.push.bean.db.User;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
