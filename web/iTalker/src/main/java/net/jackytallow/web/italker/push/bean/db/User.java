@@ -90,6 +90,16 @@ public class User {
     private Set<UserFollow> followers = new HashSet<>();
 
 
+    //我所有创建的群
+    //对应的字段为:Grounp.ownerId
+    @JoinColumn(name = "ownerId")
+    //懒加载集合方式为尽可能的不加载具体的数据
+    //当访问groups.size()仅仅查询数量，不加载具体的Group信息
+    //只有当遍历集合的时候才加载具体的数据
+    @LazyCollection(LazyCollectionOption.EXTRA)
+    //FetchType.LAZY 懒加载 ，加载用户的时候不加载这个集合
+    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    private Set<Group> groups= new HashSet<>();
 
     public String getId() {
         return id;
@@ -187,4 +197,28 @@ public class User {
         this.lastReceivedAt = lastReceivedAt;
     }
 
+
+    public Set<UserFollow> getFollowing() {
+        return following;
+    }
+
+    public void setFollowing(Set<UserFollow> following) {
+        this.following = following;
+    }
+
+    public Set<UserFollow> getFollowers() {
+        return followers;
+    }
+
+    public void setFollowers(Set<UserFollow> followers) {
+        this.followers = followers;
+    }
+
+    public Set<Group> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(Set<Group> groups) {
+        this.groups = groups;
+    }
 }
