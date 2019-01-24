@@ -1,8 +1,13 @@
 package net.jackytallow.web.italker.push.bean.api.account;
 
+import com.google.gson.annotations.Expose;
+
 public class RegisterModel {
+    @Expose
     private String account;
+    @Expose
     private String password;
+    @Expose
     private String name;
 
     public String getAccount() {
