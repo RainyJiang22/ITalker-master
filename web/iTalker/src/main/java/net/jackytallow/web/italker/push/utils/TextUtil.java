@@ -1,15 +1,13 @@
 package net.jackytallow.web.italker.push.utils;
 
-import net.qiujuer.web.italker.push.provider.GsonProvider;
+
+import net.jackytallow.web.italker.push.provider.GsonProvider;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.util.Base64;
 
-/**
- * @author qiujuer Email:qiujuer@live.cn
- * @version 1.0.0
- */
+
 public class TextUtil {
     /**
      * 计算一个字符串的MD5信息

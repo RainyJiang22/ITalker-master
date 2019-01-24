@@ -14,7 +14,6 @@ import java.util.Locale;
  * <p>
  * 该工具类主要是为了解决LocalDateTime与Json字符串相互转换的问题
  *
- * @author qiujuer Email:qiujuer.live.cn
  */
 public class LocalDateTimeConverter implements JsonSerializer<LocalDateTime>, JsonDeserializer<LocalDateTime> {
     /**
