@@ -60,4 +60,77 @@ public class Hib {
             sessionFactory.close();
         }
     }
+
+    //用户的实际的操作的一个接口
+    public interface QueryOnly{
+        void query(Session session);
+    }
+
+
+    //简化Session事物操作的一个工具方法
+    public static void queryOnly(QueryOnly query){
+        //重开一个Session
+        Session session = sessionFactory.openSession();
+        //开启事物
+        final Transaction transaction = session.beginTransaction();
+
+        try{
+            //调用传递进来的接口
+            //并调用接口的方法把Session传递进去
+            query.query(session);
+            //提交
+            transaction.commit();
+        }catch (Exception e) {
+            e.printStackTrace();
+            //回滚
+            try {
+                transaction.rollback();
+            } catch (RuntimeException e1) {
+                e1.printStackTrace();
+            }
+        }finally {
+            //无论成功失败，都需要关闭Session
+            session.close();
+        }
+    }
+
+
+    //用户的实际的操作的一个接口
+    public interface Query<T>{
+        T query(Session session);
+    }
+
+
+    // 简化Session操作的工具方法，
+    // 具有一个返回值
+    public static <T> T query(Query<T> query) {
+        // 重开一个Session
+        Session session = sessionFactory.openSession();
+        // 开启事物
+        final Transaction transaction = session.beginTransaction();
+
+        T t = null;
+        try {
+            // 调用传递进来的接口，
+            // 并调用接口的方法把Session传递进去
+            t = query.query(session);
+            // 提交
+            transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            // 回滚
+            try {
+                transaction.rollback();
+            } catch (RuntimeException e1) {
+                e1.printStackTrace();
+            }
+        } finally {
+            // 无论成功失败，都需要关闭Session
+            session.close();
+        }
+
+        return t;
+    }
+
+
 }
