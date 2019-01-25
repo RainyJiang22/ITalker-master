@@ -45,7 +45,9 @@ public class AccountService {
             card.setName(user.getName());
             card.setPhone(user.getPhone());
             card.setSex(user.getSex());
-            card.setFollow
+            card.setFollow(true);
+            card.setModifyAt(user.getUpdateAt());
+            return card;
         }
 
         return null;
