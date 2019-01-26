@@ -1,1 +1,14 @@
 web/iTalker/.idea/workspace.xml
+web/iTalker/out/production/classes/net/jackytallow/web/italker/push/bean/api/account/AccountRspModel.class
+web/iTalker/.idea/dataSources/39ef1b7d-84c7-4de0-8bf7-7bb2a0ff07dc.xml
+web/iTalker/.idea/modules/iTalker.iTalker.main.iml
+web/iTalker/.idea/workspace.xml
+web/iTalker/out/production/classes/net/jackytallow/web/italker/push/bean/api/account/LoginModel.class
+web/iTalker/out/production/classes/net/jackytallow/web/italker/push/bean/api/base/ResponseModel.class
+web/iTalker/out/production/classes/net/jackytallow/web/italker/push/bean/api/account/RegisterModel.class
+web/iTalker/out/production/classes/net/jackytallow/web/italker/push/bean/card/UserCard.class
+web/iTalker/out/production/classes/net/jackytallow/web/italker/push/factory/UserFactory.class
+web/iTalker/out/production/classes/net/jackytallow/web/italker/push/service/AccountService.class
+web/iTalker/out/production/classes/net/jackytallow/web/italker/push/utils/Hib$Query.class
+web/iTalker/out/production/classes/net/jackytallow/web/italker/push/utils/Hib$QueryOnly.class
+web/iTalker/out/production/classes/net/jackytallow/web/italker/push/utils/Hib.class
