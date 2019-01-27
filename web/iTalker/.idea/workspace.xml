@@ -7,12 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e3b0a198-8df2-4b3c-aefd-210a27fcd804" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/modules/iTalker.iTalker.main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/39ef1b7d-84c7-4de0-8bf7-7bb2a0ff07dc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/iTalker.iTalker.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/iTalker.iTalker.main.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/net/jackytallow/web/italker/push/bean/api/account/RegisterModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/net/jackytallow/web/italker/push/bean/api/account/RegisterModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/net/jackytallow/web/italker/push/service/AccountService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/net/jackytallow/web/italker/push/service/AccountService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/net/jackytallow/web/italker/push/utils/Hib.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/net/jackytallow/web/italker/push/utils/Hib.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -34,17 +30,7 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="db_itpush_test@localhost" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="db_itpush_test@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-    </expand>
+    <expand />
     <select />
   </component>
   <component name="ExternalProjectsData">
@@ -55,6 +41,9 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
@@ -74,17 +63,96 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/Application.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+            <state relative-caret-position="124">
+              <caret line="21" column="19" lean-forward="true" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-254">
+              <caret line="10" column="56" lean-forward="true" selection-start-line="10" selection-start-column="56" selection-end-line="10" selection-end-column="56" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/service/AccountService.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/bean/db/UserFollow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="809">
-              <caret line="77" column="35" lean-forward="true" selection-start-line="77" selection-start-column="35" selection-end-line="77" selection-end-column="35" />
+            <state relative-caret-position="150">
+              <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1805#1806#0" expanded="true" />
+                <element signature="e#1830#1831#0" expanded="true" />
+                <element signature="e#1866#1867#0" expanded="true" />
+                <element signature="e#1894#1895#0" expanded="true" />
+                <element signature="e#1925#1926#0" expanded="true" />
+                <element signature="e#1954#1955#0" expanded="true" />
+                <element signature="e#1996#1997#0" expanded="true" />
+                <element signature="e#2032#2033#0" expanded="true" />
+                <element signature="e#2067#2068#0" expanded="true" />
+                <element signature="e#2098#2099#0" expanded="true" />
+                <element signature="e#2146#2147#0" expanded="true" />
+                <element signature="e#2186#2187#0" expanded="true" />
+                <element signature="e#2217#2218#0" expanded="true" />
+                <element signature="e#2246#2247#0" expanded="true" />
+                <element signature="e#2288#2289#0" expanded="true" />
+                <element signature="e#2324#2325#0" expanded="true" />
+                <element signature="e#2359#2360#0" expanded="true" />
+                <element signature="e#2390#2391#0" expanded="true" />
+                <element signature="e#2438#2439#0" expanded="true" />
+                <element signature="e#2478#2479#0" expanded="true" />
+                <element signature="e#2510#2511#0" expanded="true" />
+                <element signature="e#2538#2539#0" expanded="true" />
+                <element signature="e#2580#2581#0" expanded="true" />
+                <element signature="e#2614#2615#0" expanded="true" />
+                <element signature="e#2656#2657#0" expanded="true" />
+                <element signature="e#2687#2688#0" expanded="true" />
+                <element signature="e#2742#2743#0" expanded="true" />
+                <element signature="e#2782#2783#0" expanded="true" />
+                <element signature="e#2824#2825#0" expanded="true" />
+                <element signature="e#2855#2856#0" expanded="true" />
+                <element signature="e#2910#2911#0" expanded="true" />
+                <element signature="e#2950#2951#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/service/BaseService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="12" column="7" lean-forward="true" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#432#433#0" expanded="true" />
+                <element signature="e#496#497#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/provider/AuthRequestFilter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="600">
+              <caret line="48" column="31" selection-start-line="48" selection-start-column="31" selection-end-line="48" selection-end-column="31" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/factory/UserFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-257">
+              <caret line="176" column="23" lean-forward="true" selection-start-line="176" selection-start-column="23" selection-end-line="176" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -95,37 +163,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/utils/Hib.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2450">
-              <caret line="107" column="27" selection-start-line="107" selection-start-column="27" selection-end-line="107" selection-end-column="27" />
+            <state relative-caret-position="2750">
+              <caret line="119" column="32" selection-start-line="119" selection-start-column="32" selection-end-line="119" selection-end-column="32" />
               <folding>
                 <element signature="e#1231#1232#0" expanded="true" />
                 <element signature="e#1268#1269#0" expanded="true" />
                 <element signature="e#1390#1391#0" expanded="true" />
                 <element signature="e#1447#1448#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/bean/db/User.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1550">
-              <caret line="70" selection-start-line="15" selection-end-line="70" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#4493#4494#0" expanded="true" />
-                <element signature="e#4525#4526#0" expanded="true" />
-                <element signature="e#4584#4585#0" expanded="true" />
-                <element signature="e#4626#4627#0" expanded="true" />
-                <element signature="e#4671#4672#0" expanded="true" />
-                <element signature="e#4703#4704#0" expanded="true" />
-                <element signature="e#4762#4763#0" expanded="true" />
-                <element signature="e#4804#4805#0" expanded="true" />
-                <element signature="e#4841#4842#0" expanded="true" />
-                <element signature="e#4870#4871#0" expanded="true" />
-                <element signature="e#4918#4919#0" expanded="true" />
-                <element signature="e#4954#4955#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -148,24 +192,28 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/bean/db/UserFollow.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/bean/db/Group.java" />
-        <option value="$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/bean/db/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/bean/db/Message.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/bean/db/GroupMember.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/bean/db/PushHistory.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/bean/db/Apply.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/provider/GsonProvider.java" />
-        <option value="$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/Application.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/provider/LocalDateTimeConverter.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/utils/TextUtil.java" />
         <option value="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
         <option value="$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/bean/api/base/ResponseModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/utils/Hib.java" />
-        <option value="$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/bean/card/UserCard.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/bean/api/account/AccountRspModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/bean/api/account/LoginModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/bean/api/account/RegisterModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/factory/UserFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/service/AccountService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/bean/api/user/UpdateInfoModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/bean/card/UserCard.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/factory/UserFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/bean/db/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/provider/AuthRequestFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/Application.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/service/BaseService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/service/UserService.java" />
       </list>
     </option>
   </component>
@@ -175,14 +223,15 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="332" />
-    <option name="width" value="1470" />
-    <option name="height" value="1038" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="463" />
+    <option name="y" value="12" />
+    <option name="width" value="1628" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="PackagesPane" proportions="" version="1">
       <hideEmptyPackages PackagesPane="true" />
       <foldersAlwaysOnTop value="true" />
     </navigator>
@@ -236,7 +285,66 @@
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="push" type="462c0819:PsiDirectoryNode" />
+              <item name="bean" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="iTalker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="iTalker" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="push" type="462c0819:PsiDirectoryNode" />
+              <item name="bean" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="account" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="iTalker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="iTalker" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="push" type="462c0819:PsiDirectoryNode" />
+              <item name="bean" type="462c0819:PsiDirectoryNode" />
+              <item name="card" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="iTalker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="iTalker" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="push" type="462c0819:PsiDirectoryNode" />
+              <item name="bean" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="iTalker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="iTalker" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="push" type="462c0819:PsiDirectoryNode" />
+              <item name="factory" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="iTalker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="iTalker" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="push" type="462c0819:PsiDirectoryNode" />
               <item name="provider" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="iTalker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="iTalker" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="push" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="iTalker" type="b2602c69:ProjectViewProjectNode" />
@@ -281,6 +389,101 @@
               <item name="iTalker" type="58d84e3e:PackageViewProjectNode" />
               <item name="iTalker.iTalker" type="eaaa3913:PackageViewModuleGroupNode" />
             </path>
+            <path>
+              <item name="iTalker" type="58d84e3e:PackageViewProjectNode" />
+              <item name="iTalker.iTalker" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="iTalker.iTalker.main" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="iTalker" type="58d84e3e:PackageViewProjectNode" />
+              <item name="iTalker.iTalker" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="iTalker.iTalker.main" type="616d4139:PackageViewModuleNode" />
+              <item name="net.jackytallow.web.italker.push" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="iTalker" type="58d84e3e:PackageViewProjectNode" />
+              <item name="iTalker.iTalker" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="iTalker.iTalker.main" type="616d4139:PackageViewModuleNode" />
+              <item name="net.jackytallow.web.italker.push" type="1f31426a:PackageElementNode" />
+              <item name="bean" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="iTalker" type="58d84e3e:PackageViewProjectNode" />
+              <item name="iTalker.iTalker" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="iTalker.iTalker.main" type="616d4139:PackageViewModuleNode" />
+              <item name="net.jackytallow.web.italker.push" type="1f31426a:PackageElementNode" />
+              <item name="bean" type="1f31426a:PackageElementNode" />
+              <item name="api" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="iTalker" type="58d84e3e:PackageViewProjectNode" />
+              <item name="iTalker.iTalker" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="iTalker.iTalker.main" type="616d4139:PackageViewModuleNode" />
+              <item name="net.jackytallow.web.italker.push" type="1f31426a:PackageElementNode" />
+              <item name="bean" type="1f31426a:PackageElementNode" />
+              <item name="api" type="1f31426a:PackageElementNode" />
+              <item name="account" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="iTalker" type="58d84e3e:PackageViewProjectNode" />
+              <item name="iTalker.iTalker" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="iTalker.iTalker.main" type="616d4139:PackageViewModuleNode" />
+              <item name="net.jackytallow.web.italker.push" type="1f31426a:PackageElementNode" />
+              <item name="bean" type="1f31426a:PackageElementNode" />
+              <item name="api" type="1f31426a:PackageElementNode" />
+              <item name="base" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="iTalker" type="58d84e3e:PackageViewProjectNode" />
+              <item name="iTalker.iTalker" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="iTalker.iTalker.main" type="616d4139:PackageViewModuleNode" />
+              <item name="net.jackytallow.web.italker.push" type="1f31426a:PackageElementNode" />
+              <item name="bean" type="1f31426a:PackageElementNode" />
+              <item name="api" type="1f31426a:PackageElementNode" />
+              <item name="user" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="iTalker" type="58d84e3e:PackageViewProjectNode" />
+              <item name="iTalker.iTalker" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="iTalker.iTalker.main" type="616d4139:PackageViewModuleNode" />
+              <item name="net.jackytallow.web.italker.push" type="1f31426a:PackageElementNode" />
+              <item name="bean" type="1f31426a:PackageElementNode" />
+              <item name="card" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="iTalker" type="58d84e3e:PackageViewProjectNode" />
+              <item name="iTalker.iTalker" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="iTalker.iTalker.main" type="616d4139:PackageViewModuleNode" />
+              <item name="net.jackytallow.web.italker.push" type="1f31426a:PackageElementNode" />
+              <item name="bean" type="1f31426a:PackageElementNode" />
+              <item name="db" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="iTalker" type="58d84e3e:PackageViewProjectNode" />
+              <item name="iTalker.iTalker" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="iTalker.iTalker.main" type="616d4139:PackageViewModuleNode" />
+              <item name="net.jackytallow.web.italker.push" type="1f31426a:PackageElementNode" />
+              <item name="factory" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="iTalker" type="58d84e3e:PackageViewProjectNode" />
+              <item name="iTalker.iTalker" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="iTalker.iTalker.main" type="616d4139:PackageViewModuleNode" />
+              <item name="net.jackytallow.web.italker.push" type="1f31426a:PackageElementNode" />
+              <item name="provider" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="iTalker" type="58d84e3e:PackageViewProjectNode" />
+              <item name="iTalker.iTalker" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="iTalker.iTalker.main" type="616d4139:PackageViewModuleNode" />
+              <item name="net.jackytallow.web.italker.push" type="1f31426a:PackageElementNode" />
+              <item name="service" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="iTalker" type="58d84e3e:PackageViewProjectNode" />
+              <item name="iTalker.iTalker" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="iTalker.iTalker.test" type="616d4139:PackageViewModuleNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -291,17 +494,20 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548491070528" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548556282057" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.5241379" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Jacky\AndroidStudioProjects\ITalker-master\web\iTalker\src\main\java\net\jackytallow\web\italker\push\provider" />
       <recent name="C:\Users\Jacky\AndroidStudioProjects\ITalker-master\web\iTalker\src\main\java\net\jackytallow\web\italker\push\bean\api\base" />
       <recent name="C:\Users\Jacky\AndroidStudioProjects\ITalker-master\web\iTalker\src\main\java\net\jackytallow\web\italker\push\utils" />
-      <recent name="C:\Users\Jacky\AndroidStudioProjects\ITalker-master\web\iTalker\src\main\java\net\jackytallow\web\italker\push\provider" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -409,18 +615,28 @@
       <workItem from="1548156141381" duration="1090000" />
       <workItem from="1548246203047" duration="601000" />
       <workItem from="1548319305875" duration="13744000" />
-      <workItem from="1548490627974" duration="482000" />
+      <workItem from="1548490627974" duration="6574000" />
+      <workItem from="1548514308016" duration="174000" />
+      <workItem from="1548552610995" duration="3237000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26975000" />
+    <option name="totallyTimeSpent" value="36478000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="266" y="0" width="1176" height="830" extended-state="1" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info id="Persistence" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.026833631" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24329759" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -428,33 +644,34 @@
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Web" order="7" side_tool="true" />
+      <window_info id="Persistence" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32825485" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932975" weight="0.6146409" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.19772118" weight="0.2776204" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
       <window_info anchor="bottom" id="Build" order="7" sideWeight="0.49932975" weight="0.26345608" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3286119" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50067025" side_tool="true" weight="0.42550144" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.8022788" side_tool="true" weight="0.2776204" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="13" />
       <window_info anchor="bottom" id="Application Servers" order="14" weight="0.32909605" />
-      <window_info anchor="bottom" id="Messages" order="15" weight="0.32132965" />
+      <window_info anchor="bottom" id="Messages" order="15" weight="0.3209169" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.3336315" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.33310992" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Maven" order="5" weight="0.3291592" />
+      <window_info anchor="right" id="Maven" order="5" weight="0.30428955" />
       <window_info anchor="right" id="Gradle" order="6" weight="0.3297587" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info anchor="right" id="Database" order="9" weight="0.25313058" />
-      <window_info anchor="right" id="Bean Validation" order="10" visible="true" weight="0.3291592" />
+      <window_info anchor="right" id="Database" order="9" visible="true" weight="0.18632708" />
+      <window_info anchor="right" id="Bean Validation" order="10" weight="0.32908848" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -535,34 +752,6 @@
             <element signature="e#3494#3495#0" expanded="true" />
             <element signature="e#3540#3541#0" expanded="true" />
             <element signature="e#3578#3579#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/bean/db/Message.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="13" selection-start-line="13" selection-end-line="14" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2810#2811#0" expanded="true" />
-            <element signature="e#2839#2840#0" expanded="true" />
-            <element signature="e#2881#2882#0" expanded="true" />
-            <element signature="e#2917#2918#0" expanded="true" />
-            <element signature="e#2952#2953#0" expanded="true" />
-            <element signature="e#2983#2984#0" expanded="true" />
-            <element signature="e#3031#3032#0" expanded="true" />
-            <element signature="e#3071#3072#0" expanded="true" />
-            <element signature="e#3344#3345#0" expanded="true" />
-            <element signature="e#3388#3389#0" expanded="true" />
-            <element signature="e#3610#3611#0" expanded="true" />
-            <element signature="e#3638#3639#0" expanded="true" />
-            <element signature="e#3679#3680#0" expanded="true" />
-            <element signature="e#3713#3714#0" expanded="true" />
-            <element signature="e#3747#3748#0" expanded="true" />
-            <element signature="e#3777#3778#0" expanded="true" />
-            <element signature="e#3823#3824#0" expanded="true" />
-            <element signature="e#3861#3862#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -655,94 +844,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/bean/db/UserFollow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="27" column="22" lean-forward="true" selection-start-line="19" selection-start-column="2" selection-end-line="27" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1805#1806#0" expanded="true" />
-            <element signature="e#1830#1831#0" expanded="true" />
-            <element signature="e#1866#1867#0" expanded="true" />
-            <element signature="e#1894#1895#0" expanded="true" />
-            <element signature="e#1925#1926#0" expanded="true" />
-            <element signature="e#1954#1955#0" expanded="true" />
-            <element signature="e#1996#1997#0" expanded="true" />
-            <element signature="e#2032#2033#0" expanded="true" />
-            <element signature="e#2067#2068#0" expanded="true" />
-            <element signature="e#2098#2099#0" expanded="true" />
-            <element signature="e#2146#2147#0" expanded="true" />
-            <element signature="e#2186#2187#0" expanded="true" />
-            <element signature="e#2217#2218#0" expanded="true" />
-            <element signature="e#2246#2247#0" expanded="true" />
-            <element signature="e#2288#2289#0" expanded="true" />
-            <element signature="e#2324#2325#0" expanded="true" />
-            <element signature="e#2359#2360#0" expanded="true" />
-            <element signature="e#2390#2391#0" expanded="true" />
-            <element signature="e#2438#2439#0" expanded="true" />
-            <element signature="e#2478#2479#0" expanded="true" />
-            <element signature="e#2510#2511#0" expanded="true" />
-            <element signature="e#2538#2539#0" expanded="true" />
-            <element signature="e#2580#2581#0" expanded="true" />
-            <element signature="e#2614#2615#0" expanded="true" />
-            <element signature="e#2656#2657#0" expanded="true" />
-            <element signature="e#2687#2688#0" expanded="true" />
-            <element signature="e#2742#2743#0" expanded="true" />
-            <element signature="e#2782#2783#0" expanded="true" />
-            <element signature="e#2824#2825#0" expanded="true" />
-            <element signature="e#2855#2856#0" expanded="true" />
-            <element signature="e#2910#2911#0" expanded="true" />
-            <element signature="e#2950#2951#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/bean/db/Apply.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="99" column="5" lean-forward="true" selection-start-line="99" selection-start-column="5" selection-end-line="99" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1679#1680#0" expanded="true" />
-            <element signature="e#1704#1705#0" expanded="true" />
-            <element signature="e#1740#1741#0" expanded="true" />
-            <element signature="e#1768#1769#0" expanded="true" />
-            <element signature="e#1806#1807#0" expanded="true" />
-            <element signature="e#1840#1841#0" expanded="true" />
-            <element signature="e#1894#1895#0" expanded="true" />
-            <element signature="e#1940#1941#0" expanded="true" />
-            <element signature="e#1973#1974#0" expanded="true" />
-            <element signature="e#2002#2003#0" expanded="true" />
-            <element signature="e#2046#2047#0" expanded="true" />
-            <element signature="e#2082#2083#0" expanded="true" />
-            <element signature="e#2110#2111#0" expanded="true" />
-            <element signature="e#2137#2138#0" expanded="true" />
-            <element signature="e#2174#2175#0" expanded="true" />
-            <element signature="e#2206#2207#0" expanded="true" />
-            <element signature="e#2241#2242#0" expanded="true" />
-            <element signature="e#2272#2273#0" expanded="true" />
-            <element signature="e#2320#2321#0" expanded="true" />
-            <element signature="e#2360#2361#0" expanded="true" />
-            <element signature="e#2402#2403#0" expanded="true" />
-            <element signature="e#2433#2434#0" expanded="true" />
-            <element signature="e#2488#2489#0" expanded="true" />
-            <element signature="e#2528#2529#0" expanded="true" />
-            <element signature="e#2570#2571#0" expanded="true" />
-            <element signature="e#2601#2602#0" expanded="true" />
-            <element signature="e#2656#2657#0" expanded="true" />
-            <element signature="e#2696#2697#0" expanded="true" />
-            <element signature="e#2730#2731#0" expanded="true" />
-            <element signature="e#2762#2763#0" expanded="true" />
-            <element signature="e#2810#2811#0" expanded="true" />
-            <element signature="e#2852#2853#0" expanded="true" />
-            <element signature="e#2890#2891#0" expanded="true" />
-            <element signature="e#2924#2925#0" expanded="true" />
-            <element signature="e#2978#2979#0" expanded="true" />
-            <element signature="e#3024#3025#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/provider/GsonProvider.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="550">
@@ -808,37 +909,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/factory/UserFactory.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.validation/validation-api/1.1.0.Final/7d49b53caed9bd81d172807c3e096d24f3c57090/validation-api-1.1.0.Final-sources.jar!/javax/validation/constraints/Size.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="127" lean-forward="true" selection-start-line="127" selection-end-line="127" />
+        <state relative-caret-position="-76">
+          <caret line="50" column="18" selection-start-line="50" selection-start-column="18" selection-end-line="50" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/bean/api/account/LoginModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="32" column="31" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#662#663#0" expanded="true" />
+            <element signature="e#706#707#0" expanded="true" />
+            <element signature="e#742#743#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/bean/api/account/RegisterModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
-        </state>
-      </provider>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/65de8190-8830-41b3-86ae-1f05443db600/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/utils/Hib.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2450">
-          <caret line="107" column="27" selection-start-line="107" selection-start-column="27" selection-end-line="107" selection-end-column="27" />
+        <state relative-caret-position="2750">
+          <caret line="119" column="32" selection-start-line="119" selection-start-column="32" selection-end-line="119" selection-end-column="32" />
           <folding>
             <element signature="e#1231#1232#0" expanded="true" />
             <element signature="e#1268#1269#0" expanded="true" />
@@ -848,10 +945,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/factory/UserFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-257">
+          <caret line="176" column="23" lean-forward="true" selection-start-line="176" selection-start-column="23" selection-end-line="176" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/bean/db/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1550">
-          <caret line="70" selection-start-line="15" selection-end-line="70" />
+        <state relative-caret-position="375">
+          <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#4493#4494#0" expanded="true" />
@@ -870,51 +977,296 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/bean/api/account/LoginModel.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/bean/db/Message.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="32" column="6" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
+        <state relative-caret-position="350">
+          <caret line="14" column="27" lean-forward="true" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3610#3611#0" expanded="true" />
+            <element signature="e#3638#3639#0" expanded="true" />
+            <element signature="e#3679#3680#0" expanded="true" />
+            <element signature="e#3713#3714#0" expanded="true" />
+            <element signature="e#3747#3748#0" expanded="true" />
+            <element signature="e#3777#3778#0" expanded="true" />
+            <element signature="e#3823#3824#0" expanded="true" />
+            <element signature="e#3861#3862#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/bean/card/UserCard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="631">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
+        <state relative-caret-position="1250">
+          <caret line="52" column="35" selection-start-line="52" selection-start-column="35" selection-end-line="52" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1893#1894#0" expanded="true" />
-            <element signature="e#1931#1932#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.validation/validation-api/1.1.0.Final/7d49b53caed9bd81d172807c3e096d24f3c57090/validation-api-1.1.0.Final-sources.jar!/javax/validation/constraints/Size.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/bean/db/Apply.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-76">
-          <caret line="50" column="18" selection-start-line="50" selection-start-column="18" selection-end-line="50" selection-end-column="18" />
+        <state relative-caret-position="422">
+          <caret line="18" column="54" lean-forward="true" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1679#1680#0" expanded="true" />
+            <element signature="e#1704#1705#0" expanded="true" />
+            <element signature="e#1740#1741#0" expanded="true" />
+            <element signature="e#1768#1769#0" expanded="true" />
+            <element signature="e#1806#1807#0" expanded="true" />
+            <element signature="e#1840#1841#0" expanded="true" />
+            <element signature="e#1894#1895#0" expanded="true" />
+            <element signature="e#1940#1941#0" expanded="true" />
+            <element signature="e#1973#1974#0" expanded="true" />
+            <element signature="e#2002#2003#0" expanded="true" />
+            <element signature="e#2046#2047#0" expanded="true" />
+            <element signature="e#2082#2083#0" expanded="true" />
+            <element signature="e#2110#2111#0" expanded="true" />
+            <element signature="e#2137#2138#0" expanded="true" />
+            <element signature="e#2174#2175#0" expanded="true" />
+            <element signature="e#2206#2207#0" expanded="true" />
+            <element signature="e#2241#2242#0" expanded="true" />
+            <element signature="e#2272#2273#0" expanded="true" />
+            <element signature="e#2320#2321#0" expanded="true" />
+            <element signature="e#2360#2361#0" expanded="true" />
+            <element signature="e#2402#2403#0" expanded="true" />
+            <element signature="e#2433#2434#0" expanded="true" />
+            <element signature="e#2488#2489#0" expanded="true" />
+            <element signature="e#2528#2529#0" expanded="true" />
+            <element signature="e#2570#2571#0" expanded="true" />
+            <element signature="e#2601#2602#0" expanded="true" />
+            <element signature="e#2656#2657#0" expanded="true" />
+            <element signature="e#2696#2697#0" expanded="true" />
+            <element signature="e#2730#2731#0" expanded="true" />
+            <element signature="e#2762#2763#0" expanded="true" />
+            <element signature="e#2810#2811#0" expanded="true" />
+            <element signature="e#2852#2853#0" expanded="true" />
+            <element signature="e#2890#2891#0" expanded="true" />
+            <element signature="e#2924#2925#0" expanded="true" />
+            <element signature="e#2978#2979#0" expanded="true" />
+            <element signature="e#3024#3025#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/service/BaseService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="59" column="44" selection-start-line="59" selection-start-column="44" selection-end-line="59" selection-end-column="44" />
+        <state relative-caret-position="300">
+          <caret line="12" column="7" lean-forward="true" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#432#433#0" expanded="true" />
+            <element signature="e#496#497#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="22" column="55" lean-forward="true" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/bean/api/account/RegisterModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#363#364#0" expanded="true" />
+            <element signature="e#393#394#0" expanded="true" />
+            <element signature="e#439#440#0" expanded="true" />
+            <element signature="e#477#478#0" expanded="true" />
+            <element signature="e#512#513#0" expanded="true" />
+            <element signature="e#543#544#0" expanded="true" />
+            <element signature="e#591#592#0" expanded="true" />
+            <element signature="e#631#632#0" expanded="true" />
+            <element signature="e#662#663#0" expanded="true" />
+            <element signature="e#689#690#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/bean/api/user/UpdateInfoModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1025">
+          <caret line="53" column="31" lean-forward="true" selection-start-line="53" selection-start-column="31" selection-end-line="53" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#848#849#0" expanded="true" />
+            <element signature="e#874#875#0" expanded="true" />
+            <element signature="e#909#910#0" expanded="true" />
+            <element signature="e#939#940#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/service/AccountService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="809">
-          <caret line="77" column="35" lean-forward="true" selection-start-line="77" selection-start-column="35" selection-end-line="77" selection-end-column="35" />
+        <state relative-caret-position="175">
+          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/provider/AuthRequestFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="48" column="31" selection-start-line="48" selection-start-column="31" selection-end-line="48" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-core/5.2.9.Final/48cd5241964e6c85952626a2d197f60f415554e1/hibernate-core-5.2.9.Final-sources.jar!/org/hibernate/cfg/AnnotationBinder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7">
+          <caret line="1759" selection-start-line="1759" selection-end-line="1759" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="21" column="19" lean-forward="true" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-254">
+          <caret line="10" column="56" lean-forward="true" selection-start-line="10" selection-start-column="56" selection-end-line="10" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/jackytallow/web/italker/push/bean/db/UserFollow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1805#1806#0" expanded="true" />
+            <element signature="e#1830#1831#0" expanded="true" />
+            <element signature="e#1866#1867#0" expanded="true" />
+            <element signature="e#1894#1895#0" expanded="true" />
+            <element signature="e#1925#1926#0" expanded="true" />
+            <element signature="e#1954#1955#0" expanded="true" />
+            <element signature="e#1996#1997#0" expanded="true" />
+            <element signature="e#2032#2033#0" expanded="true" />
+            <element signature="e#2067#2068#0" expanded="true" />
+            <element signature="e#2098#2099#0" expanded="true" />
+            <element signature="e#2146#2147#0" expanded="true" />
+            <element signature="e#2186#2187#0" expanded="true" />
+            <element signature="e#2217#2218#0" expanded="true" />
+            <element signature="e#2246#2247#0" expanded="true" />
+            <element signature="e#2288#2289#0" expanded="true" />
+            <element signature="e#2324#2325#0" expanded="true" />
+            <element signature="e#2359#2360#0" expanded="true" />
+            <element signature="e#2390#2391#0" expanded="true" />
+            <element signature="e#2438#2439#0" expanded="true" />
+            <element signature="e#2478#2479#0" expanded="true" />
+            <element signature="e#2510#2511#0" expanded="true" />
+            <element signature="e#2538#2539#0" expanded="true" />
+            <element signature="e#2580#2581#0" expanded="true" />
+            <element signature="e#2614#2615#0" expanded="true" />
+            <element signature="e#2656#2657#0" expanded="true" />
+            <element signature="e#2687#2688#0" expanded="true" />
+            <element signature="e#2742#2743#0" expanded="true" />
+            <element signature="e#2782#2783#0" expanded="true" />
+            <element signature="e#2824#2825#0" expanded="true" />
+            <element signature="e#2855#2856#0" expanded="true" />
+            <element signature="e#2910#2911#0" expanded="true" />
+            <element signature="e#2950#2951#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>Gradle : iTalker : iTalker-1.0-SNAPSHOT.war</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Hibernate</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.5241379" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.5241379" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.5241379" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>iTalker.iTalker</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.5241379" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Gradle: org.hibernate:hibernate-core:5.2.9.Final</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.5241379" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
