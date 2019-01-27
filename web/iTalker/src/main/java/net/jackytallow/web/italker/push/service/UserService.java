@@ -15,29 +15,23 @@ import javax.ws.rs.HeaderParam;
  */
 
 //localhost/italker/api/user/...
-public class UserService {
+public class UserService extends BaseService {
 
 
-    public ResponseModel<UserCard> update(@HeaderParam("token")String token,
-                                          UpdateInfoModel model){
-        if (Strings.isNullOrEmpty(token)||!UpdateInfoModel.check(model)){
+    public ResponseModel<UserCard> update(UpdateInfoModel model) {
+        if (!UpdateInfoModel.check(model)) {
             return ResponseModel.buildParameterError();
         }
 
-        //拿到自己的个人信息
-        User user = UserFactory.findByToken(token);
-        if (user != null){
+           User self = getSelf();
 
-            //更新用户信息
-            user = model.updateToUser(user);
-            user = UserFactory.update(user);
-            //构架自己的用户信息
-            UserCard card = new UserCard(user,true);
-            //返回
-            return ResponseModel.buildOk(card);
-        }else{
-            //Token失效，所有无法进行绑定
-            return ResponseModel.buildAccountError();
-        }
+        //更新用户信息
+        self = model.updateToUser(self);
+        self = UserFactory.update(self);
+
+        //构架自己的用户信息
+        UserCard card = new UserCard(self,true);
+        //返回
+        return ResponseModel.buildOk();
     }
 }
