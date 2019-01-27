@@ -1,6 +1,7 @@
 package net.jackytallow.web.italker.push;
 
 import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
+import net.jackytallow.web.italker.push.provider.AuthRequestFilter;
 import net.jackytallow.web.italker.push.provider.GsonProvider;
 import net.jackytallow.web.italker.push.service.AccountService;
 import org.glassfish.jersey.server.ResourceConfig;
@@ -12,6 +13,9 @@ public class Application extends ResourceConfig {
         //注册逻辑处理的包名
         packages(AccountService.class.getPackage().getName());
 
+      //注册我们的全局请求拦截器
+
+      register(AuthRequestFilter.class);
 
         //注册Json解析器
        // register(JacksonJsonProvider.class);
