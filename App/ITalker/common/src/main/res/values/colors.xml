@@ -19,11 +19,12 @@
     <color name="textLight">@color/colorLight</color>
     <color name="textDark">#202020</color>
 
-    <!--提示色-->
+    <!--提示色彩-->
     <color name="alertNormal">#4ce275</color>
     <color name="alertImportant">#f98d2c</color>
 
     <!--遮罩颜色-->
     <color name="maskChatHeader">@color/black_alpha_48</color>
+    <!--导航栏Icon遮罩色-->
     <color name="navIconTintLight">@color/white_alpha_240</color>
 </resources>
