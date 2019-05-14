@@ -1,4 +1,26 @@
-## 一款实用的基于MVP模式的IM即时聊天APP
+## 一款实用的基于MVP模式的IM即时聊天APP(轻聊)
+
+
+### 目录
+* [框架与技术](#框架与技术)
+* [服务端实现](#服务端实现)
+* [客户端实现](#客户端实现)
+* [所示用的技术与框架](#所使用的技术与框架)
+
+
+
+### app结构图
+
+-整体结构图
+![](https://github.com/jackytallow/ITalker-master/blob/master/%E9%A1%B9%E7%9B%AE%E8%B5%84%E6%96%99/%E7%BB%93%E6%9E%84%E5%9B%BE/%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84.png)
+
+
+- app功能结构图
+![](https://github.com/jackytallow/ITalker-master/blob/master/%E9%A1%B9%E7%9B%AE%E8%B5%84%E6%96%99/%E7%BB%93%E6%9E%84%E5%9B%BE/app%E5%8A%9F%E8%83%BD%E7%BB%93%E6%9E%84%E5%9B%BE.png)
+
+- 相关技术
+![](https://github.com/jackytallow/ITalker-master/blob/master/%E9%A1%B9%E7%9B%AE%E8%B5%84%E6%96%99/%E7%BB%93%E6%9E%84%E5%9B%BE/%E7%9B%B8%E5%85%B3%E6%8A%80%E6%9C%AF.png)
+
 
 ### 框架与技术
 
