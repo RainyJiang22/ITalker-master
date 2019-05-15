@@ -1,8 +1,11 @@
 package net.jackytallow.web.italker.push.service;
 
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
+import net.jackytallow.web.italker.push.bean.User;
+
+import javax.print.attribute.standard.Media;
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 
 /**
  * @author Jacky
@@ -19,4 +22,16 @@ public class AccountService {
         return "you get the login";
     }
 
+
+    @POST
+    @Path("/login")
+    //指定请求与返回的相应体为JSON
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public User post(){
+        User user = new User();
+        user.setUsername("帅哥");
+        user.setSex(1);
+        return user;
+    }
 }
