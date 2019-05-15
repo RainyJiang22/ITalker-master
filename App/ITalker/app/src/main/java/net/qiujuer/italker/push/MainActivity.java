@@ -8,6 +8,7 @@ import net.qiujuer.italker.common.app.Activity;
 import butterknife.BindView;
 import butterknife.OnClick;
 
+//使用MVP模式开发，存储用户信息
 public class MainActivity extends Activity implements IView {
     @BindView(R.id.txt_result)
     TextView mResultText;

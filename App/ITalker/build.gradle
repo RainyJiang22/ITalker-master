@@ -1,16 +1,13 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    
     repositories {
-        google()
         jcenter()
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.1'
-        classpath 'com.jakewharton:butterknife-gradle-plugin:8.4.0'
-
+        classpath 'com.android.tools.build:gradle:2.3.1'
+        classpath 'com.jakewharton:butterknife-gradle-plugin:8.5.1'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -18,11 +15,10 @@ buildscript {
 
 allprojects {
     repositories {
-        google()
         jcenter()
-
+        mavenCentral()
+        maven { url "https://www.jitpack.io" }
     }
-
 }
 
 task clean(type: Delete) {
@@ -30,14 +26,11 @@ task clean(type: Delete) {
 }
 
 ext{
-    //版本号
+    // 版本号相关
     versionCode = 1;
     versionName = '1.0.0'
 
-    //相关依赖库版本
-    supportVersion = '28.0.0'
-    butterknifeVersion = '8.4.0'
-    geniusVersion = '2.0.0'
-    glideVersion = '3.7.0'
-    circleimageviewVersion = '2.1.0'
+    // 相关依赖库版本
+    supportVersion = '25.3.1'
+    butterknifeVersion = '8.5.1'
 }

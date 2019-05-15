@@ -1,7 +1,7 @@
 package net.qiujuer.italker.common;
 
 /**
- * @author qiujuer
+ * 公共模块
  */
 
 public class Common {

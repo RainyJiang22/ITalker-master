@@ -3,7 +3,7 @@ package net.qiujuer.italker.push;
 import android.text.TextUtils;
 
 /**
- * @author qiujuer Email:qiujuer@live.cn
+ * 逻辑设计
  * @version 1.0.0
  */
 public class Presenter implements IPresenter {

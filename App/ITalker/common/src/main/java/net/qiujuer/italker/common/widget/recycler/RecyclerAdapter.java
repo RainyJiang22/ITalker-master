@@ -17,7 +17,6 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 /**
- * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
 @SuppressWarnings({"unchecked", "unused"})
@@ -54,6 +53,7 @@ public abstract class RecyclerAdapter<Data>
     public int getItemViewType(int position) {
         return getItemViewType(position, mDataList.get(position));
     }
+
 
     /**
      * 得到布局的类型
