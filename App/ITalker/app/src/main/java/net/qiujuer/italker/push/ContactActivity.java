@@ -1,10 +1,8 @@
 package net.qiujuer.italker.push;
 
-
 import android.support.design.widget.BottomNavigationView;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -16,11 +14,8 @@ import net.qiujuer.italker.common.app.Activity;
 import net.qiujuer.italker.common.widget.PortraitView;
 
 import butterknife.BindView;
-import butterknife.OnClick;
 
-
-public class MainActivity extends Activity  {
-
+public class ContactActivity  extends Activity {
     @BindView(R.id.appbar)
     View mLayAppbar;
 
@@ -38,42 +33,35 @@ public class MainActivity extends Activity  {
 
     @Override
     protected int getContentLayoutId() {
-        return R.layout.activity_main;
+        return R.layout.layout_contact;
     }
 
+
     @Override
-    protected void initWidget() {
-        super.initWidget();
+    protected void initData() {
+        super.initData();
 
 
-
-      //背景裁剪,制作沉浸式导航栏背景
+        //添加顶部标题背景,开发沉浸式标题栏背景
         Glide.with(this)
                 .load(R.drawable.bg_src_morning)
                 .centerCrop()
                 .into(new ViewTarget<View,GlideDrawable>(mLayAppbar) {
                     @Override
                     public void onResourceReady(GlideDrawable resource, GlideAnimation<? super GlideDrawable> glideAnimation) {
-                      this.view.setBackground(resource.getCurrent());
+                        this.view.setBackground(resource.getCurrent());
                     }
                 });
 
+
     }
+
 
     @Override
-    protected void initData() {
-        super.initData();
+    protected void initWidget() {
+        super.initWidget();
     }
 
 
-    @OnClick(R.id.im_search)
-    void onSearchMenuClick(){
-
-    }
-
-    @OnClick(R.id.btn_action)
-    void onActionClick(){
-
-    }
 
 }
