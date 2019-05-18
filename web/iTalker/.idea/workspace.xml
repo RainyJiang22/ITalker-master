@@ -112,8 +112,8 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="-253" />
-    <option name="y" value="42" />
+    <option name="x" value="-8" />
+    <option name="y" value="10" />
     <option name="width" value="1918" />
     <option name="height" value="1028" />
   </component>
@@ -186,7 +186,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558086931374" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558157013019" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -294,7 +294,7 @@
     <option name="totallyTimeSpent" value="3124000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-202" y="34" width="1534" height="822" extended-state="1" />
+    <frame x="-6" y="8" width="1534" height="822" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Designer" />

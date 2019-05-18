@@ -3,14 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.italker_master.frags.main.GroupFragment">
+    tools:context=".fragment.main.GroupFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
         android:text="Group"
-        android:textColor="@color/blue_500" />
+        android:textColor="@color/colorPrimary"
+        android:layout_gravity="center"
+        android:gravity="center"/>
 
 </FrameLayout>
