@@ -66,7 +66,7 @@ public class UiTool {
 
     /**
      * 得到屏幕的高度
-     * @param activity
+     * @param activity*
      * @return
      */
     public static int getScreenHeight(Activity activity) {

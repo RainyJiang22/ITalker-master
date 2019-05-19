@@ -3,255 +3,39 @@
 
     <item
         is-multidex="false"
-        jar="C:\Users\Jacky\AndroidStudioProjects\App\ITalker\lang\build\intermediates\bundles\default\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="471865cf03604c97858cdab5c858cd33bdc29439">
-        <dex dex="C:\Users\Jacky\AndroidStudioProjects\App\ITalker\app\build\intermediates\pre-dexed\debug\classes_0d698af970f2d2e20c8d94812d5cb400e0d08f75.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Jacky\.android\build-cache\8806384bd7dedb4bdb554c228a2b0eb87a5ef1c9\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
-        <dex dex="C:\Users\Jacky\AndroidStudioProjects\App\ITalker\app\build\intermediates\pre-dexed\debug\classes_d281c4f01fded1d4ce8375e222094df4f3fa2cc9.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Jacky\.android\build-cache\bddc3298261ee1aad7c04379deab97039d20eab7\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="24497dd7ccdf848dde14335011e715dcc1110275">
-        <dex dex="C:\Users\Jacky\AndroidStudioProjects\App\ITalker\app\build\intermediates\pre-dexed\debug\classes_50abdf4c33fe8cfb5390e6562e51cd432ae42ea6.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Jacky\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
-        <dex dex="C:\Users\Jacky\AndroidStudioProjects\App\ITalker\app\build\intermediates\pre-dexed\debug\constraint-layout-solver-1.0.2_a21b1d7b9e4fcf378228458487a956137680d71f.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Jacky\.android\build-cache\f8eb323c55768b3cfac884b8d09bed551bc61f57\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="95519720620b553f63afc789beba9ad582807f7c">
-        <dex dex="C:\Users\Jacky\AndroidStudioProjects\App\ITalker\app\build\intermediates\pre-dexed\debug\classes_58bc97546d6b92a9c709c0f6af7ffd6c5e78e491.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Jacky\.android\build-cache\d03ee4ee8d9ed77cd5ba0dfe868a8dd1a389c157\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
-        <dex dex="C:\Users\Jacky\AndroidStudioProjects\App\ITalker\app\build\intermediates\pre-dexed\debug\classes_9c9dbf3d51a6f861dc5dd8967904a0e319f43186.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Jacky\.android\build-cache\04a6f16405cced014145dd40283ab1cb444ae4df\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
-        <dex dex="C:\Users\Jacky\AndroidStudioProjects\App\ITalker\app\build\intermediates\pre-dexed\debug\classes_2e945061969651cb4ee04a11f8b4cd8e3be269f9.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Jacky\.android\build-cache\a0da4262ae113d7dddd924a1a5f3aa553d08fd82\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
-        <dex dex="C:\Users\Jacky\AndroidStudioProjects\App\ITalker\app\build\intermediates\pre-dexed\debug\classes_6671ab4d53a6b397bd7f60ebfc062746c030c6fd.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Jacky\.android\build-cache\5b51a70d2a2863ce07315419fb78ff315ad44c34\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
-        <dex dex="C:\Users\Jacky\AndroidStudioProjects\App\ITalker\app\build\intermediates\pre-dexed\debug\classes_a5e7610f7bb3ec4d68a1c037027f01be4146199b.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Jacky\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.7.0\9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4\glide-3.7.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
-        <dex dex="C:\Users\Jacky\AndroidStudioProjects\App\ITalker\app\build\intermediates\pre-dexed\debug\glide-3.7.0_a084d04ae1fc603c6133ccfda4611846aeccad29.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Jacky\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife-annotations\8.5.1\bb67dad90bab7cd77a8f7f1b8442b47e3a2326bc\butterknife-annotations-8.5.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="bb67dad90bab7cd77a8f7f1b8442b47e3a2326bc">
-        <dex dex="C:\Users\Jacky\AndroidStudioProjects\App\ITalker\app\build\intermediates\pre-dexed\debug\butterknife-annotations-8.5.1_129b3766033847f36037efc5b97e14cb460e109f.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Jacky\AndroidStudioProjects\App\ITalker\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
-        <dex dex="C:\Users\Jacky\AndroidStudioProjects\App\ITalker\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_5b1abccc686eea54ab9f713eccdc4a93b7d0f0ec\classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Jacky\.android\build-cache\83c2996595df606e1bcd8716ddc52c3dbb91db65\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
-        <dex dex="C:\Users\Jacky\AndroidStudioProjects\App\ITalker\app\build\intermediates\pre-dexed\debug\classes_7166c4569a56e97494c818f7cc68ff066a889b26.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Jacky\AndroidStudioProjects\App\ITalker\common\build\intermediates\bundles\default\classes.jar"
+        jar="C:\Users\Jacky\AndroidStudioProjects\ITalker-master\App\ITalker\common\build\intermediates\bundles\default\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="abf733b7dc2f26cda4af92ec1ec0c55bc079ee25">
-        <dex dex="C:\Users\Jacky\AndroidStudioProjects\App\ITalker\app\build\intermediates\pre-dexed\debug\classes_45e586f40f1ebad02f29643f02f2507fce664d1f.jar" />
+        <dex dex="C:\Users\Jacky\AndroidStudioProjects\ITalker-master\App\ITalker\app\build\intermediates\pre-dexed\debug\classes_1a09a8a25e4210c3ce98da901866658e300991b0.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Jacky\.android\build-cache\09f3c9c7b0b8180db45cbdfb63455505636f68a9\output\jars\classes.jar"
+        jar="C:\Users\Jacky\AndroidStudioProjects\ITalker-master\App\ITalker\lang\build\intermediates\bundles\default\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="19f281a785ca0eb5f6799fc7bf7ca199a9ca1e8b">
-        <dex dex="C:\Users\Jacky\AndroidStudioProjects\App\ITalker\app\build\intermediates\pre-dexed\debug\classes_bf86885ac66c1c0dd8a9c2f8d2147036fa6e3fb7.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Jacky\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.9.0\f824591a0016efbaeddb8300bee54832a1398cfa\okio-1.9.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="f824591a0016efbaeddb8300bee54832a1398cfa">
-        <dex dex="C:\Users\Jacky\AndroidStudioProjects\App\ITalker\app\build\intermediates\pre-dexed\debug\okio-1.9.0_c355617c64ea189dbbac082fc5a060c1ce7d982d.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Jacky\.android\build-cache\753b8a7fabe263eadc4abd9a0d646dd87c137220\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
-        <dex dex="C:\Users\Jacky\AndroidStudioProjects\App\ITalker\app\build\intermediates\pre-dexed\debug\classes_c94d4513a4ebf3f27dc975f6a5534c9384673633.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Jacky\.android\build-cache\1d1457578e530c4513b0f28709335d226de08b63\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="C:\Users\Jacky\AndroidStudioProjects\App\ITalker\app\build\intermediates\pre-dexed\debug\classes_d499fafbed60556c30483666a2b858ddd157be8d.jar" />
+        sha1="471865cf03604c97858cdab5c858cd33bdc29439">
+        <dex dex="C:\Users\Jacky\AndroidStudioProjects\ITalker-master\App\ITalker\app\build\intermediates\pre-dexed\debug\classes_d1503f1beb1f3a804ce5a97eebf21e9fa6929764.jar" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Jacky\AndroidStudioProjects\App\ITalker\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jar="C:\Users\Jacky\AndroidStudioProjects\ITalker-master\App\ITalker\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="9921889dc13204d6449b8a176ba9e1ba37119d96">
-        <dex dex="C:\Users\Jacky\AndroidStudioProjects\App\ITalker\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_bbc229f351b3189b8a43efff55609fe58863429e\classes.dex" />
+        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        <dex dex="C:\Users\Jacky\AndroidStudioProjects\ITalker-master\App\ITalker\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_34ee610b4ac2ffda38512f2dd90bc2570dd250cd\classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="C:\Users\Jacky\.android\build-cache\5c2d6e643d3064c313fde92a0f3f3f31c8bfd2d5\output\jars\classes.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="C:\Users\Jacky\AndroidStudioProjects\ITalker-master\App\ITalker\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
-        <dex dex="C:\Users\Jacky\AndroidStudioProjects\App\ITalker\app\build\intermediates\pre-dexed\debug\classes_39f213180322026fc92db92b97bc3c6c0d4c71e9.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Jacky\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.4.1\c7c4f9e35c2fd5900da24f9872e3971801f08ce0\okhttp-3.4.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="c7c4f9e35c2fd5900da24f9872e3971801f08ce0">
-        <dex dex="C:\Users\Jacky\AndroidStudioProjects\App\ITalker\app\build\intermediates\pre-dexed\debug\okhttp-3.4.1_6484a6eb6f51afe08cb69b0cffc8dc06de4147a6.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Jacky\.android\build-cache\eb57092c5e89d84f9491325f6529648ed09b21ee\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="a2af9c72ccaa4c5c049b500ca6ea664a4ce1f7d4">
-        <dex dex="C:\Users\Jacky\AndroidStudioProjects\App\ITalker\app\build\intermediates\pre-dexed\debug\classes_8555feb22879a69f87c1959a0a251a8cb025e21d.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Jacky\.android\build-cache\a8224cfedaa01384914ad9818a9952bfe70b3f24\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0778ea4b81f3a30ae9724880870eaf15610d0aa0">
-        <dex dex="C:\Users\Jacky\AndroidStudioProjects\App\ITalker\app\build\intermediates\pre-dexed\debug\classes_2cc36ff84d5f3a58b4ca97d0f908507c2c17260a.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Jacky\.android\build-cache\3ad376277a38cc077ab1d0c46884989a63732339\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
-        <dex dex="C:\Users\Jacky\AndroidStudioProjects\App\ITalker\app\build\intermediates\pre-dexed\debug\classes_ce25c3ba731c03defddb96f47aca703b986479f2.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Jacky\.android\build-cache\0221d2d0e0354e748f148db8982c7b240c7f6dd5\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
-        <dex dex="C:\Users\Jacky\AndroidStudioProjects\App\ITalker\app\build\intermediates\pre-dexed\debug\classes_cbda2b14fe82c8e8be23cb923c1fc6c854a1c12f.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Jacky\.android\build-cache\35cbf264ccc7c83b7119878c02cd96d05799d613\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="7946fd3c2b9371f3462537431b6756361f56ebe7">
-        <dex dex="C:\Users\Jacky\AndroidStudioProjects\App\ITalker\app\build\intermediates\pre-dexed\debug\classes_c2cfad1d412ebf453a3d2f38479fd94e5ea9b0cb.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Jacky\.android\build-cache\bda4e9e5dc44006f99efc26a10c89eeeccfa1fcc\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
-        <dex dex="C:\Users\Jacky\AndroidStudioProjects\App\ITalker\app\build\intermediates\pre-dexed\debug\classes_c34088ae7e663ef52527c73fc0088941633ffb14.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Jacky\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
-        <dex dex="C:\Users\Jacky\AndroidStudioProjects\App\ITalker\app\build\intermediates\pre-dexed\debug\support-annotations-25.3.1_b9515722073c45e01c0b22fd548e574f8ed816aa.jar" />
+        sha1="bcb4ffcbcddaba25f333537c90384e0f1d1ba00c">
+        <dex dex="C:\Users\Jacky\AndroidStudioProjects\ITalker-master\App\ITalker\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_10d2b7f0dae858513b3444e514a7ce1bd45fc008\classes.dex" />
     </item>
 
 </items>
