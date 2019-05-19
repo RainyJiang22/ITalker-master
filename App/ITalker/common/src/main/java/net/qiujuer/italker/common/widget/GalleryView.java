@@ -1,6 +1,5 @@
 package net.qiujuer.italker.common.widget;
 
-
 import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -98,12 +97,11 @@ public class GalleryView extends RecyclerView {
             notifyRefresh = true;
         } else {
             if (mSelectedImages.size() >= MAX_IMAGE_COUNT) {
-             //TODO: Toast一下
+                // 得到提示文字
                 String str = getResources().getString(R.string.label_gallery_select_max_size);
-
-                //格式化填充
+                // 格式化填充
                 str = String.format(str, MAX_IMAGE_COUNT);
-                Toast.makeText(getContext(),str,Toast.LENGTH_SHORT).show();;
+                Toast.makeText(getContext(), str, Toast.LENGTH_SHORT).show();
                 notifyRefresh = false;
             } else {
                 mSelectedImages.add(image);
@@ -274,7 +272,7 @@ public class GalleryView extends RecyclerView {
 
         @Override
         protected int getItemViewType(int position, Image image) {
-            return R.layout.cell_gallery;
+            return R.layout.cell_galley;
         }
 
         @Override

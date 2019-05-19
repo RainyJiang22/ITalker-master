@@ -6,7 +6,7 @@ import android.content.Intent;
 import net.qiujuer.italker.common.app.Activity;
 import net.qiujuer.italker.common.app.Fragment;
 import net.qiujuer.italker.push.R;
-import net.qiujuer.italker.push.fragment.account.UpdateInfoFragment;
+import net.qiujuer.italker.push.frags.account.UpdateInfoFragment;
 
 public class AccountActivity extends Activity {
     private Fragment mCurFragment;

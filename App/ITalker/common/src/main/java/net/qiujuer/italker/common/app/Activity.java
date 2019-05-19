@@ -11,7 +11,7 @@ import java.util.List;
 import butterknife.ButterKnife;
 
 /**
- * 自定义Activity
+ * @author qiujuer
  */
 
 public abstract class Activity extends AppCompatActivity {

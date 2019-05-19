@@ -1,16 +1,17 @@
 <resources>
 
     <style name="AppTheme" parent="AppTheme.Base">
-        <!--<item name="toolbarStyle">@style/Widget.Toolbar</item>-->
-        <!--<item name="toolbarNavigationButtonStyle">@style/Widget.ToolbarNavigationButtonStyle</item>-->
-        <!--<item name="actionOverflowButtonStyle">@style/Widget.ActionButton.Overflow</item>-->
-        <!--<item name="actionOverflowMenuStyle">@style/Widget.PopupMenu.Overflow</item>-->
+        <!--
+        <item name="toolbarStyle">@style/Widget.Toolbar</item>
+        <item name="toolbarNavigationButtonStyle">@style/Widget.ToolbarNavigationButtonStyle</item>
+        <item name="actionOverflowButtonStyle">@style/Widget.ActionButton.Overflow</item>
+        <item name="actionOverflowMenuStyle">@style/Widget.PopupMenu.Overflow</item>
+        -->
 
-        <!--顶部导航条和二级字体的颜色-->
+        <!--顶部导航条中的Icon和二级字体的颜色-->
         <item name="colorControlNormal">@color/white_alpha_240</item>
         <item name="colorControlActivated">@color/textPrimary</item>
     </style>
-
 
     <style name="AppTheme.TransStatusBar.Base" parent="AppTheme">
         <!--去除顶部的状态栏-->
@@ -22,7 +23,6 @@
     </style>
 
     <style name="AppTheme.TransStatusBar" parent="AppTheme.TransStatusBar.Base" />
-    <style name="AppTheme.Account" parent="AppTheme.TransStatusBar" />
 
     <style name="AppTheme.Main" parent="AppTheme.TransStatusBar">
         <item name="toolbarTitleColor">@color/white</item>
@@ -30,6 +30,8 @@
         <item name="colorControlHighlight">@color/textSecond</item>
         <item name="android:windowBackground">@color/windowsBackgroundLight</item>
     </style>
+
+    <style name="AppTheme.Account" parent="AppTheme.TransStatusBar" />
 
     <style name="TextAppearance.Title" parent="@style/TextAppearance.AppCompat.Title">
         <item name="android:textSize">?attr/toolbarTitleSize</item>

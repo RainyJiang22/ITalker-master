@@ -3,17 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.AccountActivity">
+    tools:context="net.qiujuer.italker.push.activities.AccountActivity">
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+        android:layout_height="match_parent" />
 
     <FrameLayout
         android:id="@+id/lay_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        
-    </FrameLayout>
+        android:layout_height="match_parent" />
 </FrameLayout>

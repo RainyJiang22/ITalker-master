@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--基础主色-->
     <color name="colorPrimary">#31373d</color>
     <color name="colorPrimaryDark">#31373d</color>
     <color name="colorAccent">#1572fc</color>
@@ -24,6 +25,6 @@
 
     <!--遮罩颜色-->
     <color name="maskChatHeader">@color/black_alpha_48</color>
-    <!--导航栏Icon的颜色-->
+    <!--导航栏Icon遮罩色-->
     <color name="navIconTintLight">@color/white_alpha_240</color>
 </resources>

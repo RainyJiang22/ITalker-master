@@ -7,7 +7,8 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 
 /**
- * 自定义正方形控件
+ * @author qiujuer Email:qiujuer@live.cn
+ * @version 1.0.0
  */
 public class SquareLayout extends FrameLayout {
     public SquareLayout(@NonNull Context context) {
@@ -24,8 +25,8 @@ public class SquareLayout extends FrameLayout {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-       //给父类传递的测量值都为宽度
-        //那么就是基于宽度的正方形控件了
+        // 给父类传递的测量值都为宽度，
+        // 那么就是基于宽度的正方形控件了
         super.onMeasure(widthMeasureSpec, widthMeasureSpec);
     }
 }

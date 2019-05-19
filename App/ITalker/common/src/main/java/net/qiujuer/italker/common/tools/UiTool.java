@@ -53,22 +53,12 @@ public class UiTool {
         return STATUS_BAR_HEIGHT;
     }
 
-    /**
-     * 得到屏幕的宽度
-     * @param activity
-     * @return
-     */
     public static int getScreenWidth(Activity activity) {
         DisplayMetrics displayMetrics = activity.getResources().getDisplayMetrics();
         //int width = activity.getWindowManager().getDefaultDisplay().getWidth();
         return displayMetrics.widthPixels;
     }
 
-    /**
-     * 得到屏幕的高度
-     * @param activity*
-     * @return
-     */
     public static int getScreenHeight(Activity activity) {
         DisplayMetrics displayMetrics = activity.getResources().getDisplayMetrics();
         //int width = activity.getWindowManager().getDefaultDisplay().getWidth();
