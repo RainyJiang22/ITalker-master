@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--底部导航栏-->
+    <string name="action_home">Home</string>
+    <string name="action_group">Group</string>
+    <string name="action_contact">Contact</string>
+</resources>
