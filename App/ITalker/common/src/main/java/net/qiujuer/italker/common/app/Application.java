@@ -10,7 +10,6 @@ import net.qiujuer.genius.kit.handler.runable.Action;
 import java.io.File;
 
 /**
- * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
 public class Application extends android.app.Application {
@@ -67,6 +66,7 @@ public class Application extends android.app.Application {
     }
 
     /**
+     * 获取声音文件的缓存地址（为之后做准备 ）
      * 获取声音文件的本地地址
      *
      * @param isTmp 是否是缓存文件， True，每次返回的文件地址是一样的
