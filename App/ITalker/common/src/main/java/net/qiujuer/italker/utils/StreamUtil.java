@@ -13,8 +13,8 @@ import java.io.OutputStream;
 
 /**
  * @version 1.0.0
- *          <p>
- *          对文件流的操作工具类
+ *<p>
+ * 对文件流的操作工具类
  */
 
 @SuppressWarnings("WeakerAccess")
@@ -99,7 +99,6 @@ public class StreamUtil {
 
     /**
      * 把一个输入流定向到输出流
-     *
      * @param inputStream  输入流
      * @param outputStream 输出流
      * @return 是否输出成功
