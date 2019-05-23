@@ -2,7 +2,9 @@ package net.qiujuer.italker.push.activities;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -37,6 +39,8 @@ public class MainActivity extends Activity
         implements BottomNavigationView.OnNavigationItemSelectedListener,
         NavHelper.OnTabChangedListener<Integer> {
 
+
+
     @BindView(R.id.appbar)
     View mLayAppbar;
 
@@ -65,6 +69,9 @@ public class MainActivity extends Activity
     public static void show(Context context) {
         context.startActivity(new Intent(context, MainActivity.class));
     }
+
+
+
 
     @Override
     protected int getContentLayoutId() {

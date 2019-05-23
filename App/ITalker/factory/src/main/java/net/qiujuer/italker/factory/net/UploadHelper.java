@@ -19,7 +19,6 @@ import java.util.Date;
 /**
  * 上传工具类，用于上传任意文件到阿里OSS存储
  *
- * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
 public class UploadHelper {
@@ -31,7 +30,7 @@ public class UploadHelper {
 
 
     private static OSS getClient() {
-        // 明文设置secret的方式建议只在测试时使用，更多鉴权模式请参考后面的`访问控制`章节
+        // 明文设置secret的方式建议只在测试时使用
         OSSCredentialProvider credentialProvider = new OSSPlainTextAKSKCredentialProvider(
                 "LTAIzY0LDP0z6emZ", "YVWt7DtO71KbICKNq5Vge3V96UKE5g");
         return new OSSClient(Factory.app(), ENDPOINT, credentialProvider);
