@@ -20,10 +20,14 @@ public class Apply {
     public static final int TYPE_ADD_USER = 1; // 添加好友
     public static final int TYPE_ADD_GROUP = 2; // 加入群
 
+
+    //设置主键的Id
     @Id
     @PrimaryKeyJoinColumn
+    //设置主键的Id类型为uuid
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
+    //不允许为空，不允许为null
     @Column(updatable = false, nullable = false)
     private String id;
 
