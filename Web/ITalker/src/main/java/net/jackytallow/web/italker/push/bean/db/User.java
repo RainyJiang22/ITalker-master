@@ -55,7 +55,7 @@ public class User {
     private int sex = 0;
 
     //token可以拉取用户信息，所有tokekn必须唯一
-    @Column(unique = false)
+    @Column(unique = true)
     private String token;
 
     //用于推送的设备ID

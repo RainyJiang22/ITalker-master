@@ -45,3 +45,13 @@ web/iTalker/src/main/resources/hibernate.cfg.xml
 web/iTalker/src/main/resources/hibernate.cfg.xml
 Web/ITalker/build/libs/ITalker-1.0-SNAPSHOT.war
 *.war
+Web/ITalker/build/libs/exploded/ITalker-1.0-SNAPSHOT.war/WEB-INF/classes/net/jackytallow/web/italker/push/Application.class
+Web/ITalker/build/libs/exploded/ITalker-1.0-SNAPSHOT.war/WEB-INF/classes/net/jackytallow/web/italker/push/bean/User.class
+Web/ITalker/build/libs/exploded/ITalker-1.0-SNAPSHOT.war/WEB-INF/classes/net/jackytallow/web/italker/push/service/AccountService.class
+Web/ITalker/out/production/classes/net/jackytallow/web/italker/push/provider/GsonProvider.class
+Web/ITalker/out/production/classes/net/jackytallow/web/italker/push/utils/TextUtil.class
+Web/ITalker/out/production/classes/net/jackytallow/web/italker/push/provider/LocalDateTimeConverter.class
+*.class
+Web/ITalker/build/libs/exploded/ITalker-1.0-SNAPSHOT.war/WEB-INF/classes/net/jackytallow/web/italker/push/service/AccountService.class
+Web/ITalker/build/libs/exploded/ITalker-1.0-SNAPSHOT.war/WEB-INF/classes/net/jackytallow/web/italker/push/bean/User.class
+Web/ITalker/build/libs/exploded/ITalker-1.0-SNAPSHOT.war/WEB-INF/classes/net/jackytallow/web/italker/push/Application.class

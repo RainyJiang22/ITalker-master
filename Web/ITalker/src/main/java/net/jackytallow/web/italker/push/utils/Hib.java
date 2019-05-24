@@ -8,8 +8,8 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 /**
- * Created by qiujuer
- * on 2017/2/17.
+ * Created by jacky
+ * on 2019/5/24.
  */
 public class Hib {
     // 全局SessionFactory

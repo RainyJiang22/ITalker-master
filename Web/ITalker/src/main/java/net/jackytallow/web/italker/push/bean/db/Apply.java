@@ -1,7 +1,6 @@
 package net.jackytallow.web.italker.push.bean.db;
 
 
-import net.jackytallow.web.italker.push.bean.User;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
