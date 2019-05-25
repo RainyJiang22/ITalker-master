@@ -4,9 +4,22 @@ import net.jackytallow.web.italker.push.bean.db.User;
 import net.jackytallow.web.italker.push.utils.Hib;
 import net.jackytallow.web.italker.push.utils.TextUtil;
 import org.hibernate.Session;
-import sun.security.util.Password;
 
 public class UserFactory {
+
+    public static User findByPhone(String phone){
+       return Hib.query(session -> (User) session.createQuery("from User where phone=:inPhone")
+                 .setParameter("inPhone",phone)
+                 .uniqueResult());
+    }
+
+
+    public static User findByName(String name){
+        return Hib.query(session -> (User) session.createQuery("from User where name=:name")
+                .setParameter("name",name)
+                .uniqueResult());
+    }
+
 
     /**
      * 用户注册

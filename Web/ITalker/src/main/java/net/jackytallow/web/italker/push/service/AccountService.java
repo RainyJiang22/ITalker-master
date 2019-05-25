@@ -24,7 +24,23 @@ public class AccountService {
     @Produces(MediaType.APPLICATION_JSON)
     public UserCard register(RegisterModel model){
 
-        User user = UserFactory.register(model.getAccount(),
+
+        User user = UserFactory.findByPhone(model.getAccount().trim());
+        if (user != null){
+            UserCard card = new UserCard();
+            card.setName("已有了Phone");
+            return card;
+        }
+
+        user = UserFactory.findByName(model.getName().trim());
+        if (user != null){
+            UserCard card = new UserCard();
+            card.setName("已有了Name");
+            return card;
+        }
+
+
+        user = UserFactory.register(model.getAccount(),
                 model.getPassword(),model.getName());
 
 
