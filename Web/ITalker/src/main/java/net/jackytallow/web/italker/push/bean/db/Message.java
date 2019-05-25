@@ -1,17 +1,16 @@
 package net.jackytallow.web.italker.push.bean.db;
 
-
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 /**
- * 消息的Model
- * 注意发送消息的类型
+ * @author jacky
+ * @version 1.0.0
  */
-
 @Entity
 @Table(name = "TB_MESSAGE")
 public class Message {
@@ -19,7 +18,6 @@ public class Message {
     public static final int TYPE_PIC = 1; // 图片类型
     public static final int TYPE_FILE = 3; // 文件类型
     public static final int TYPE_AUDIO = 4; // 语音类型
-
 
     // 这是一个主键
     @Id
@@ -34,19 +32,17 @@ public class Message {
     @Column(updatable = false, nullable = false)
     private String id;
 
-
-    @Column(nullable = false,columnDefinition = "TEXT")
+    // 内容不允许为空，类型为text
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String content;
 
-
-    //附件
+    // 附件
     @Column
     private String attach;
 
-    //消息类型
+    // 消息类型
     @Column(nullable = false)
     private int type;
-
 
 
     // 定义为创建时间戳，在创建时就已经写入
@@ -59,8 +55,9 @@ public class Message {
     @Column(nullable = false)
     private LocalDateTime updateAt = LocalDateTime.now();
 
-    //发送者 不为空
-    //多个消息对应一个发送者
+
+    // 发送者 不为空
+    // 多个消息对应一个发送者
     @JoinColumn(name = "senderId")
     @ManyToOne(optional = false)
     private User sender;
@@ -69,8 +66,9 @@ public class Message {
     @Column(nullable = false, updatable = false, insertable = false)
     private String senderId;
 
-    //接收者
-    //多个消息对应一个接收者
+
+    // 接收者 可为空
+    // 多个消息对应一个接收者
     @ManyToOne
     @JoinColumn(name = "receiverId")
     private User receiver;
@@ -78,7 +76,7 @@ public class Message {
     private String receiverId;
 
 
-    //一个群可以接收多个消息
+    // 一个群可以接收多个消息
     @ManyToOne
     @JoinColumn(name = "groupId")
     private Group group;

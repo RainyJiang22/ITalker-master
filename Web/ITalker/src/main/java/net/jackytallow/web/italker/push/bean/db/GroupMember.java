@@ -1,16 +1,16 @@
 package net.jackytallow.web.italker.push.bean.db;
 
-
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 /**
- * 成员列表的Model
+ * @author jacky
+ * @version 1.0.0
  */
-
 @Entity
 @Table(name = "TB_GROUP_MEMBER")
 public class GroupMember {
@@ -22,17 +22,12 @@ public class GroupMember {
     public static final int NOTIFY_LEVEL_NONE = 0; // 默认通知级别
     public static final int NOTIFY_LEVEL_CLOSE = 1; // 接收消息不提示
 
-    //这是一个主键
     @Id
     @PrimaryKeyJoinColumn
-    //主键生成存储的类型为UUID
     @GeneratedValue(generator = "uuid")
-    //把uuid的生成器定义为uuid2，uuid2是常规的UUID中的string
     @GenericGenerator(name = "uuid", strategy = "uuid2")
-    //不允许为空，不允许为null
-    @Column(updatable = false,nullable = false)
+    @Column(updatable = false, nullable = false)
     private String id;
-
 
     // 别名
     @Column
@@ -154,5 +149,3 @@ public class GroupMember {
         this.groupId = groupId;
     }
 }
-
-

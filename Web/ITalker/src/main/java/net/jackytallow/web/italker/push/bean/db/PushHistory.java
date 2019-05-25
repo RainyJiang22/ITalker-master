@@ -9,12 +9,13 @@ import java.time.LocalDateTime;
 
 /**
  * 消息推送历史记录表
+ *
+ * @author jacky
+ * @version 1.0.0
  */
-
 @Entity
 @Table(name = "TB_PUSH_HISTORY")
 public class PushHistory {
-
     @Id
     @PrimaryKeyJoinColumn
     @GeneratedValue(generator = "uuid")
@@ -23,17 +24,17 @@ public class PushHistory {
     private String id;
 
 
-
-    //推送的具体实体存储的都是JSON字符串
-    //BLOB是比TEXT更多的一个大字段类型
+    // 推送的具体实体存储的都是JSON字符串
+    // BLOB 是比TEXT更多的一个大字段类型
     @Lob
-    @Column(nullable = false,columnDefinition = "BLOB")
+    @Column(nullable = false, columnDefinition = "BLOB")
     private String entity;
 
 
-    //推送的实体类型
+    // 推送的实体类型
     @Column(nullable = false)
     private int entityType;
+
 
     // 接收者
     // 接收者不允许为空
@@ -62,8 +63,6 @@ public class PushHistory {
     @Column
     private String receiverPushId;
 
-
-
     // 定义为创建时间戳，在创建时就已经写入
     @CreationTimestamp
     @Column(nullable = false)
@@ -77,6 +76,7 @@ public class PushHistory {
     // 消息送达的时间，可为空
     @Column
     private LocalDateTime arrivalAt;
+
 
     public String getId() {
         return id;
@@ -165,6 +165,4 @@ public class PushHistory {
     public void setArrivalAt(LocalDateTime arrivalAt) {
         this.arrivalAt = arrivalAt;
     }
-
-
 }

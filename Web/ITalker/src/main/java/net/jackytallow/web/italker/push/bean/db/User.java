@@ -3,62 +3,63 @@ package net.jackytallow.web.italker.push.bean.db;
 
 import org.hibernate.annotations.*;
 
-import javax.persistence.*;
 import javax.persistence.CascadeType;
+import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.security.Principal;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
- * 用户的model，对应数据库
+ * 用户的Model，对应数据库
+ *
+ * @author jacky
+ * @version 1.0.0
  */
-
-
 @Entity
 @Table(name = "TB_USER")
-public class User {
+public class User implements Principal {
 
-    //这是一个主键
+    // 这是一个主键
     @Id
     @PrimaryKeyJoinColumn
-    //主键生成存储的类型为UUID
+    // 主键生成存储的类型为UUID
     @GeneratedValue(generator = "uuid")
-    //把uuid的生成器定义为uuid2，uuid2是常规的UUID中的string
+    // 把uuid的生成器定义为uuid2，uuid2是常规的UUID toString
     @GenericGenerator(name = "uuid", strategy = "uuid2")
-    //不允许为空，不允许为null
-    @Column(updatable = false,nullable = false)
+    // 不允许更改，不允许为null
+    @Column(updatable = false, nullable = false)
     private String id;
 
-    //用户名必须唯一
-    @Column(nullable = false,length = 128,unique = true)
+    // 用户名必须唯一
+    @Column(nullable = false, length = 128, unique = true)
     private String name;
 
-   //电话必须唯一
-    @Column(nullable = false,length = 62,unique = false)
+    // 电话必须唯一
+    @Column(nullable = false, length = 62, unique = true)
     private String phone;
 
     @Column(nullable = false)
     private String password;
 
-
-    //头像允许为空
+    // 头像允许为null
     @Column
     private String portrait;
 
     @Column
     private String description;
 
-    //性别有初始值，所有不为空
+    // 性别有初始值，所有不为空
     @Column(nullable = false)
     private int sex = 0;
 
-    //token可以拉取用户信息，所有tokekn必须唯一
+    // token 可以拉取用户信息，所有token必须唯一
     @Column(unique = true)
     private String token;
 
-    //用于推送的设备ID
+    // 用于推送的设备ID
     @Column
     private String pushId;
 
@@ -77,10 +78,10 @@ public class User {
     private LocalDateTime lastReceivedAt = LocalDateTime.now();
 
 
-    //我关注的人的列表方法
-    //对应的数据库字段为TB_USER_FOLLOW.orginId
+    // 我关注的人的列表方法
+    // 对应的数据库表字段为TB_USER_FOLLOW.originId
     @JoinColumn(name = "originId")
-    //定义为懒加载，默认加载User信息的时候，并不查询这个集合
+    // 定义为懒加载，默认加载User信息的时候，并不查询这个集合
     @LazyCollection(LazyCollectionOption.EXTRA)
     // 1对多，一个用户可以有很多关注人，每一次关注都是一个记录
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -107,30 +108,6 @@ public class User {
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Group> groups = new HashSet<>();
 
-
-    public Set<UserFollow> getFollowing() {
-        return following;
-    }
-
-    public void setFollowing(Set<UserFollow> following) {
-        this.following = following;
-    }
-
-    public Set<UserFollow> getFollowers() {
-        return followers;
-    }
-
-    public void setFollowers(Set<UserFollow> followers) {
-        this.followers = followers;
-    }
-
-    public Set<Group> getGroups() {
-        return groups;
-    }
-
-    public void setGroups(Set<Group> groups) {
-        this.groups = groups;
-    }
 
     public String getId() {
         return id;
@@ -226,5 +203,29 @@ public class User {
 
     public void setLastReceivedAt(LocalDateTime lastReceivedAt) {
         this.lastReceivedAt = lastReceivedAt;
+    }
+
+    public Set<UserFollow> getFollowing() {
+        return following;
+    }
+
+    public void setFollowing(Set<UserFollow> following) {
+        this.following = following;
+    }
+
+    public Set<UserFollow> getFollowers() {
+        return followers;
+    }
+
+    public void setFollowers(Set<UserFollow> followers) {
+        this.followers = followers;
+    }
+
+    public Set<Group> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(Set<Group> groups) {
+        this.groups = groups;
     }
 }

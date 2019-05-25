@@ -4,6 +4,7 @@ package net.jackytallow.web.italker.push.service;
 import net.jackytallow.web.italker.push.bean.api.account.RegisterModel;
 import net.jackytallow.web.italker.push.bean.card.UserCard;
 import net.jackytallow.web.italker.push.bean.db.User;
+import net.jackytallow.web.italker.push.factory.UserFactory;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -23,11 +24,22 @@ public class AccountService {
     @Produces(MediaType.APPLICATION_JSON)
     public UserCard register(RegisterModel model){
 
-        UserCard card = new UserCard();
-        card.setName(model.getName());
-        card.setisFollow(true);
+        User user = UserFactory.register(model.getAccount(),
+                model.getPassword(),model.getName());
 
-        return card;
+
+        if (user != null){
+            UserCard card = new UserCard();
+            card.setName(user.getName());
+            card.setPhone(user.getPhone());
+            card.setSex(user.getSex());
+            card.setisFollow(true);
+            card.setModfiyAt(user.getUpdateAt());
+            return card;
+        }
+
+
+       return null;
     }
 
 }

@@ -1,6 +1,5 @@
 package net.jackytallow.web.italker.push.bean.db;
 
-
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -10,8 +9,9 @@ import java.time.LocalDateTime;
 
 /**
  * 申请记录表
+ *
+ * @author jacky
  */
-
 @Entity
 @Table(name = "TB_APPLY")
 public class Apply {
@@ -19,37 +19,37 @@ public class Apply {
     public static final int TYPE_ADD_USER = 1; // 添加好友
     public static final int TYPE_ADD_GROUP = 2; // 加入群
 
-
-    //设置主键的Id
     @Id
     @PrimaryKeyJoinColumn
-    //设置主键的Id类型为uuid
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
-    //不允许为空，不允许为null
     @Column(updatable = false, nullable = false)
     private String id;
 
 
-
-    //增加描述部分
+    // 描述部分，对我们的申请信息做描述
+    // eg: 我想加你为好友！！
     @Column(nullable = false)
     private String description;
 
 
-    //附件 可为空
-    //可以附带
-    @Column(columnDefinition = "Text")
+    // 附件 可为空
+    // 可以附带图片地址，或者其他
+    @Column(columnDefinition = "TEXT")
     private String attach;
 
 
-    //当前申请的类型
+    // 当前申请的类型
     @Column(nullable = false)
     private int type;
 
-    //目标Id不进行强关联，不建立主外键关系
+
+    // 目标Id 不进行强关联，不建立主外键关系
+    // type->TYPE_ADD_USER：User.id
+    // type->TYPE_ADD_GROUP：Group.id
     @Column(nullable = false)
-    private String tragetId;
+    private String targetId;
+
 
     // 定义为创建时间戳，在创建时就已经写入
     @CreationTimestamp
@@ -62,14 +62,13 @@ public class Apply {
     private LocalDateTime updateAt = LocalDateTime.now();
 
 
-    //申请人 可为空 为系统信息
-    //一个人可以有很多个申请
+    // 申请人 可为空 为系统信息
+    // 一个人可以有很多个申请
     @ManyToOne
-    @JoinColumn(name = "applicanId")
+    @JoinColumn(name = "applicantId")
     private User applicant;
-    @Column(updatable = false,insertable = false)
-    private String applicanId;
-
+    @Column(updatable = false, insertable = false)
+    private String applicantId;
 
 
     public String getId() {
@@ -104,12 +103,12 @@ public class Apply {
         this.type = type;
     }
 
-    public String getTragetId() {
-        return tragetId;
+    public String getTargetId() {
+        return targetId;
     }
 
-    public void setTragetId(String tragetId) {
-        this.tragetId = tragetId;
+    public void setTargetId(String targetId) {
+        this.targetId = targetId;
     }
 
     public LocalDateTime getCreateAt() {
@@ -136,11 +135,11 @@ public class Apply {
         this.applicant = applicant;
     }
 
-    public String getApplicanId() {
-        return applicanId;
+    public String getApplicantId() {
+        return applicantId;
     }
 
-    public void setApplicanId(String applicanId) {
-        this.applicanId = applicanId;
+    public void setApplicantId(String applicantId) {
+        this.applicantId = applicantId;
     }
 }

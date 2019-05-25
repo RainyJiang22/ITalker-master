@@ -1,6 +1,5 @@
 package net.jackytallow.web.italker.push.bean.db;
 
-
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -9,9 +8,9 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 /**
- * 群组的Model
+ * @author jacky
+ * @version 1.0.0
  */
-
 @Entity
 @Table(name = "TB_GROUP")
 public class Group {
@@ -27,14 +26,13 @@ public class Group {
     @Column(updatable = false, nullable = false)
     private String id;
 
-    //群名称
+    // 群名称
     @Column(nullable = false)
     private String name;
 
-    //群描述
+    // 群描述
     @Column(nullable = false)
     private String description;
-
 
     @Column(nullable = false)
     private String picture;
@@ -50,7 +48,6 @@ public class Group {
     @Column(nullable = false)
     private LocalDateTime updateAt = LocalDateTime.now();
 
-
     // 群的创建者
     // optional: 可选为false，必须有一个创建者
     // fetch: 加载方式FetchType.EAGER，急加载，
@@ -61,6 +58,7 @@ public class Group {
     private User owner;
     @Column(nullable = false, updatable = false, insertable = false)
     private String ownerId;
+
 
     public String getId() {
         return id;
