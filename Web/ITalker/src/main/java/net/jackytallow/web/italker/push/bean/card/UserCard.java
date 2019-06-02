@@ -2,8 +2,7 @@ package net.jackytallow.web.italker.push.bean.card;
 
 
 import com.google.gson.annotations.Expose;
-
-import javax.persistence.Column;
+import net.jackytallow.web.italker.push.bean.db.User;
 import java.time.LocalDateTime;
 
 public class UserCard {
@@ -42,7 +41,28 @@ public class UserCard {
 
     //用户信息最后的更新时间
     @Expose
-    private LocalDateTime modfiyAt;
+    private LocalDateTime modifyAt;
+
+    public UserCard(final User user) {
+         this(user,false);
+    }
+
+    public UserCard(final User user, boolean isFollow) {
+        this.isFollow = isFollow;
+
+        this.id = user.getId();
+        this.name = user.getName();
+        this.phone = user.getPhone();
+        this.portrait = user.getPortrait();
+        this.desc = user.getDescription();
+        this.sex = user.getSex();
+        this.modifyAt = user.getUpdateAt();
+
+        // TODO 得到关注人和粉丝的数量
+        // user.getFollowers().size()
+        // 懒加载会报错，因为没有Session
+
+    }
 
 
     public String getId() {
@@ -118,10 +138,10 @@ public class UserCard {
     }
 
     public LocalDateTime getModfiyAt() {
-        return modfiyAt;
+        return modifyAt;
     }
 
     public void setModfiyAt(LocalDateTime modfiyAt) {
-        this.modfiyAt = modfiyAt;
+        this.modifyAt = modfiyAt;
     }
 }

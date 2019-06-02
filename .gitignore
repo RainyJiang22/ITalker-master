@@ -62,3 +62,6 @@ Web/ITalker/.idea/dataSources/a8ab9845-b18d-4224-88a0-1a1e463def23.xml
 web/iTalker/.idea/workspace.xml
 Web/ITalker/build/libs/exploded/ITalker-1.0-SNAPSHOT.war/WEB-INF/classes/hibernate.cfg.xml
 Web/ITalker/build/libs/exploded/ITalker-1.0-SNAPSHOT.war/WEB-INF/classes/net/jackytallow/web/italker/push/service/AccountService.class
+Web/ITalker/build/libs/ITalker-1.0-SNAPSHOT.war
+Web/ITalker/build/libs/exploded/ITalker-1.0-SNAPSHOT.war/WEB-INF/classes/net/jackytallow/web/italker/push/service/AccountService.class
+web/iTalker/.idea/workspace.xml

@@ -1,6 +1,7 @@
 package net.jackytallow.web.italker.push.bean.api.account;
 
 
+import com.google.common.base.Strings;
 import com.google.gson.annotations.Expose;
 
 /**
@@ -15,6 +16,8 @@ public class RegisterModel {
     private String password;
     @Expose
     private String name;
+    @Expose
+    private String pushId;
 
     public String getAccount() {
         return account;
@@ -38,5 +41,24 @@ public class RegisterModel {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPushId() {
+        return pushId;
+    }
+
+
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
+    }
+
+    // 校验
+    public static boolean check(RegisterModel model) {
+        return model != null
+                && !Strings.isNullOrEmpty(model.account)
+                && !Strings.isNullOrEmpty(model.password)
+                && !Strings.isNullOrEmpty(model.name);
+
     }
 }
