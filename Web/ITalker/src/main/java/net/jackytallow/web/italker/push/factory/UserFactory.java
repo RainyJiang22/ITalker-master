@@ -8,56 +8,53 @@ import java.util.List;
 import java.util.UUID;
 
 public class UserFactory {
-
-    //通过Token找到User
-    //token信息只能自己查询，自己使用
-    public static User findByToken(String token){
-        return Hib.query(session -> (User) session.createQuery("from User where token=:token")
-                .setParameter("token",token)
+    // 通过Token字段查询用户信息
+    // 只能自己使用，查询的信息是个人信息，非他人信息
+    public static User findByToken(String token) {
+        return Hib.query(session -> (User) session
+                .createQuery("from User where token=:token")
+                .setParameter("token", token)
                 .uniqueResult());
     }
 
-
-
-    //通过Phone找到User
-    public static User findByPhone(String phone){
-       return Hib.query(session -> (User) session.createQuery("from User where phone=:inPhone")
-                 .setParameter("inPhone",phone)
-                 .uniqueResult());
-    }
-
-
-    //通过Name找到User
-    public static User findByName(String name){
-        return Hib.query(session -> (User) session.createQuery("from User where name=:name")
-                .setParameter("name",name)
+    // 通过Phone找到User
+    public static User findByPhone(String phone) {
+        return Hib.query(session -> (User) session
+                .createQuery("from User where phone=:inPhone")
+                .setParameter("inPhone", phone)
                 .uniqueResult());
     }
 
+    // 通过Name找到User
+    public static User findByName(String name) {
+        return Hib.query(session -> (User) session
+                .createQuery("from User where name=:name")
+                .setParameter("name", name)
+                .uniqueResult());
+    }
 
     /**
      * 更新用户信息到数据库
      *
-     * @param user
-     * @return
+     * @param user User
+     * @return User
      */
-    public static User update(User user){
-       return Hib.query(session -> {
-          session.saveOrUpdate(user);
-          return user;
-       });
+    public static User update(User user) {
+        return Hib.query(session -> {
+            session.saveOrUpdate(user);
+            return user;
+        });
     }
 
 
     /**
      * 给当前的账户绑定PushId
      *
-     * @param user 自己的User
+     * @param user   自己的User
      * @param pushId 自己设备的PushId
-     * @return
+     * @return User
      */
-    public static User bindPushId(User user, String pushId){
-
+    public static User bindPushId(User user, String pushId) {
         if (Strings.isNullOrEmpty(pushId))
             return null;
 
@@ -65,19 +62,20 @@ public class UserFactory {
         // 取消绑定，避免推送混乱
         // 查询的列表不能包括自己
         Hib.queryOnly(session -> {
-                    @SuppressWarnings("unchecked")
-                    List<User> userList = (List<User>) session
-                            .createQuery("from User where lower(pushId)=:pushId and id!=:userId")
-                            .setParameter("pushId", pushId.toLowerCase())
-                            .setParameter("userId", user.getId())
-                            .list();
+            @SuppressWarnings("unchecked")
+            List<User> userList = (List<User>) session
+                    .createQuery("from User where lower(pushId)=:pushId and id!=:userId")
+                    .setParameter("pushId", pushId.toLowerCase())
+                    .setParameter("userId", user.getId())
+                    .list();
 
-                    for(User u : userList){
-                        //更新为null
-                        u.setPushId(null);
-                        session.saveOrUpdate(u);
-                    }
-                });
+            for (User u : userList) {
+                // 更新为null
+                u.setPushId(null);
+                session.saveOrUpdate(u);
+            }
+        });
+
         if (pushId.equalsIgnoreCase(user.getPushId())) {
             // 如果当前需要绑定的设备Id，之前已经绑定过了
             // 那么不需要额外绑定
@@ -94,9 +92,7 @@ public class UserFactory {
             user.setPushId(pushId);
             return update(user);
         }
-      }
-
-
+    }
 
     /**
      * 使用账户和密码进行登录
@@ -106,7 +102,7 @@ public class UserFactory {
         // 把原文进行同样的处理，然后才能匹配
         final String encodePassword = encodePassword(password);
 
-        // 寻找账户
+        // 寻找
         User user = Hib.query(session -> (User) session
                 .createQuery("from User where phone=:phone and password=:password")
                 .setParameter("phone", accountStr)
@@ -119,35 +115,31 @@ public class UserFactory {
         }
         return user;
 
-    }
 
+    }
 
 
     /**
      * 用户注册
-     * 注册的操作需要写入数据并返回数据库的user
-     * @param account 账户
-     * @param password  密码
-     * @param name  用户名
-     * @return
+     * 注册的操作需要写入数据库，并返回数据库中的User信息
+     *
+     * @param account  账户
+     * @param password 密码
+     * @param name     用户名
+     * @return User
      */
-    public static User register(String account, String password,String name) {
-        //去除账户中首位空格
+    public static User register(String account, String password, String name) {
+        // 去除账户中的首位空格
         account = account.trim();
-        //处理密码
+        // 处理密码
         password = encodePassword(password);
 
-
-
-        User user = createUser(account,password,name);
-        if (user != null){
-            user =  login(user);
+        User user = createUser(account, password, name);
+        if (user != null) {
+            user = login(user);
         }
-
         return user;
-
     }
-
 
 
     /**
@@ -173,7 +165,6 @@ public class UserFactory {
     }
 
 
-
     /**
      * 把一个User进行登录操作
      * 本质上是对Token进行操作
@@ -188,21 +179,23 @@ public class UserFactory {
         newToken = TextUtil.encodeBase64(newToken);
         user.setToken(newToken);
 
-
         return update(user);
     }
 
 
-
-    public static String encodePassword(String password){
-
-        //对密码进行首位空格
+    /**
+     * 对密码进行加密操作
+     *
+     * @param password 原文
+     * @return 密文
+     */
+    private static String encodePassword(String password) {
+        // 密码去除首位空格
         password = password.trim();
-
-        //进行非对称MD5加密
+        // 进行MD5非对称加密，加盐会更安全，盐也需要存储
         password = TextUtil.getMD5(password);
-
-        //再一次进行对称Base64加密，可以进行加盐的操作，让之更安全
+        // 再进行一次对称的Base64加密，当然可以采取加盐的方案
         return TextUtil.encodeBase64(password);
     }
+
 }

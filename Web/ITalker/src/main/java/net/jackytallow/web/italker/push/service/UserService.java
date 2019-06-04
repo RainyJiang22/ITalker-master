@@ -27,19 +27,30 @@ public class UserService extends BaseService {
     //@Path("") //127.0.0.1/api/user 不需要写，就是当前目录
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public ResponseModel<UserCard> update(UpdateInfoModel model) {
-        if (!UpdateInfoModel.check(model)) {
+    public ResponseModel<UserCard> update(@HeaderParam("token") String token,
+                                          UpdateInfoModel model) {
+        if ( Strings.isNullOrEmpty(token) || !UpdateInfoModel.check(model)) {
             return ResponseModel.buildParameterError();
         }
 
-        User self = getSelf();
-        // 更新用户信息
-        self = model.updateToUser(self);
-        self = UserFactory.update(self);
-        // 构架自己的用户信息
-        UserCard card = new UserCard(self, true);
-        // 返回
-        return ResponseModel.buildOk(card);
+        //拿到自己的个人信息
+        User user  = UserFactory.findByToken(token);
+
+        if(user != null){
+            // 更新用户信息
+            user = model.updateToUser(user);
+            user = UserFactory.update(user);
+
+            // 构架自己的用户信息
+            UserCard card = new UserCard(user, true);
+            // 返回
+            return ResponseModel.buildOk(card);
+        } else{
+            //绑定Token失效
+            return ResponseModel.buildAccountError();
+        }
+
+//        User self = getSelf();
 
     }
 

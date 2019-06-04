@@ -9,20 +9,14 @@ import net.jackytallow.web.italker.push.bean.db.User;
  * 用户更新信息，完善消息的Model
  */
 public class UpdateInfoModel {
-
     @Expose
     private String name;
     @Expose
     private String portrait;
-
     @Expose
     private String desc;
-
     @Expose
     private int sex;
-
-
-
 
     public String getName() {
         return name;
@@ -56,33 +50,30 @@ public class UpdateInfoModel {
         this.sex = sex;
     }
 
-
     /**
-     *把填充的用户信息填充到Model中
-     * @param user Model
-     * @return userModel
+     * 把当前的信息，填充到用户Model中
+     * 方便UserModel进行写入
+     *
+     * @param user User Model
+     * @return User Model
      */
     public User updateToUser(User user) {
-        if (!Strings.isNullOrEmpty(name)){
-            user.getName();
-        }
-        if (!Strings.isNullOrEmpty(portrait)){
-            user.getPortrait();
-        }
-        if (!Strings.isNullOrEmpty(desc)){
-            user.getDescription();
-        }
-        if (sex != 0){
-            user.getSex();
-        }
+        if (!Strings.isNullOrEmpty(name))
+            user.setName(name);
 
+        if (!Strings.isNullOrEmpty(portrait))
+            user.setPortrait(portrait);
 
+        if (!Strings.isNullOrEmpty(desc))
+            user.setDescription(desc);
+
+        if (sex != 0)
+            user.setSex(sex);
 
         return user;
     }
 
-    //校验
-    public static boolean check(UpdateInfoModel model){
+    public static boolean check(UpdateInfoModel model) {
         // Model 不允许为null，
         // 并且只需要具有一个及其以上的参数即可
         return model != null
@@ -91,8 +82,5 @@ public class UpdateInfoModel {
                 !Strings.isNullOrEmpty(model.desc) ||
                 model.sex != 0);
     }
-
-
-
 
 }

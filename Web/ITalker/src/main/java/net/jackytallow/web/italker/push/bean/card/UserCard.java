@@ -6,14 +6,10 @@ import net.jackytallow.web.italker.push.bean.db.User;
 import java.time.LocalDateTime;
 
 public class UserCard {
-
-
     @Expose
     private String id;
-
     @Expose
     private String name;
-
     @Expose
     private String phone;
     @Expose
@@ -21,30 +17,26 @@ public class UserCard {
     @Expose
     private String desc;
     @Expose
-    private int sex;
+    private int sex = 0;
 
-
-
-    //用户关注人的数量
+    // 用户关注人的数量
     @Expose
     private int follows;
 
-
-    //用户粉丝的数量
+    // 用户粉丝的数量
     @Expose
     private int following;
 
-
-    //我与当前User的关系状态，是否已经关注了这个用户
+    // 我与当前User的关系状态，是否已经关注了这个人
     @Expose
     private boolean isFollow;
 
-    //用户信息最后的更新时间
+    // 用户信息最后的更新时间
     @Expose
     private LocalDateTime modifyAt;
 
     public UserCard(final User user) {
-         this(user,false);
+        this(user, false);
     }
 
     public UserCard(final User user, boolean isFollow) {
@@ -133,15 +125,15 @@ public class UserCard {
         return isFollow;
     }
 
-    public void setisFollow(boolean follow) {
+    public void setFollow(boolean follow) {
         isFollow = follow;
     }
 
-    public LocalDateTime getModfiyAt() {
+    public LocalDateTime getModifyAt() {
         return modifyAt;
     }
 
-    public void setModfiyAt(LocalDateTime modfiyAt) {
-        this.modifyAt = modfiyAt;
+    public void setModifyAt(LocalDateTime modifyAt) {
+        this.modifyAt = modifyAt;
     }
 }
