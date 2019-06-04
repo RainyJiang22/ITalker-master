@@ -22,7 +22,7 @@ public class Application extends ResourceConfig {
 
 
         //注册全局请求拦截器
-      //  register(AuthRequestFilte.class);
+        register(AuthRequestFilte.class);
 
         //注册Json解析器
 //       register(JacksonJsonProvider.class);
