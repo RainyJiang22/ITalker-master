@@ -21,7 +21,7 @@ public class UserCard {
     @Expose
     private String desc;
     @Expose
-    private int sex = 0;
+    private int sex;
 
 
 

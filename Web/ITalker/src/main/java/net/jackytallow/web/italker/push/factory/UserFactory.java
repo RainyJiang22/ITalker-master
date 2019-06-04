@@ -4,8 +4,6 @@ import com.google.common.base.Strings;
 import net.jackytallow.web.italker.push.bean.db.User;
 import net.jackytallow.web.italker.push.utils.Hib;
 import net.jackytallow.web.italker.push.utils.TextUtil;
-import org.hibernate.Session;
-
 import java.util.List;
 import java.util.UUID;
 
@@ -189,6 +187,7 @@ public class UserFactory {
         // 进行一次Base64格式化
         newToken = TextUtil.encodeBase64(newToken);
         user.setToken(newToken);
+
 
         return update(user);
     }
