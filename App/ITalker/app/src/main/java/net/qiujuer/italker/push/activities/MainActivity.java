@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,6 +21,7 @@ import net.qiujuer.genius.ui.Ui;
 import net.qiujuer.genius.ui.widget.FloatActionButton;
 import net.qiujuer.italker.common.app.Activity;
 import net.qiujuer.italker.common.widget.PortraitView;
+import net.qiujuer.italker.factory.persistence.Account;
 import net.qiujuer.italker.push.R;
 import net.qiujuer.italker.push.activities.AccountActivity;
 import net.qiujuer.italker.push.frags.assist.PermissionsFragment;
@@ -38,8 +38,6 @@ import butterknife.OnClick;
 public class MainActivity extends Activity
         implements BottomNavigationView.OnNavigationItemSelectedListener,
         NavHelper.OnTabChangedListener<Integer> {
-
-
 
     @BindView(R.id.appbar)
     View mLayAppbar;
@@ -70,8 +68,16 @@ public class MainActivity extends Activity
         context.startActivity(new Intent(context, MainActivity.class));
     }
 
-
-
+    @Override
+    protected boolean initArgs(Bundle bundle) {
+        if(Account.isComplete()) {
+            // 判断用户信息是否完全，完全则走正常流程
+            return super.initArgs(bundle);
+        }else{
+            UserActivity.show(this);
+            return false;
+        }
+    }
 
     @Override
     protected int getContentLayoutId() {
