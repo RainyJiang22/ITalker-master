@@ -5,7 +5,7 @@ import android.support.annotation.StringRes;
 /**
  * MVP模式中公共的基本契约
  *
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  */
 public interface BaseContract {

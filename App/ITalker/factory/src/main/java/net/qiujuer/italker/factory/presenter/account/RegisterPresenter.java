@@ -16,7 +16,7 @@ import net.qiujuer.italker.factory.presenter.BasePresenter;
 import java.util.regex.Pattern;
 
 /**
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  */
 public class RegisterPresenter extends BasePresenter<RegisterContract.View>

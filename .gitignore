@@ -66,3 +66,4 @@ Web/ITalker/build/libs/ITalker-1.0-SNAPSHOT.war
 Web/ITalker/build/libs/exploded/ITalker-1.0-SNAPSHOT.war/WEB-INF/classes/net/jackytallow/web/italker/push/service/AccountService.class
 web/iTalker/.idea/workspace.xml
 *.ser
+*.java___jb_tmp___
