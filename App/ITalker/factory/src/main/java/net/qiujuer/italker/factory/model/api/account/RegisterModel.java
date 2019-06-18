@@ -3,7 +3,7 @@ package net.qiujuer.italker.factory.model.api.account;
 /**
  * 注册使用的请求Model
  *
- * @author jacky
+ * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
 public class RegisterModel {

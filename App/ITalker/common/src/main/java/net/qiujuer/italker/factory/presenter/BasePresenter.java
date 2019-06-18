@@ -30,6 +30,7 @@ public class BasePresenter<T extends BaseContract.View> implements BaseContract.
         return mView;
     }
 
+
     @Override
     public void start() {
         // 开始的时候进行Loading调用

@@ -1,26 +1,23 @@
 package net.qiujuer.italker.common.app;
 
 import android.content.Context;
-import android.support.design.widget.AppBarLayout;
-import android.widget.BaseAdapter;
 
 import net.qiujuer.italker.factory.presenter.BaseContract;
 
 /**
- * @author jacky
+ * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
-
 public abstract class PresenterFragment<Presenter extends BaseContract.Presenter> extends Fragment
-                   implements BaseContract.View<Presenter>{
+        implements BaseContract.View<Presenter> {
 
     protected Presenter mPresenter;
-
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        //在界面OnAttach中就触发初始化
+
+        // 在界面onAttach之后就触发初始化Presenter
         initPresenter();
     }
 
@@ -30,22 +27,20 @@ public abstract class PresenterFragment<Presenter extends BaseContract.Presenter
      */
     protected abstract Presenter initPresenter();
 
-
     @Override
     public void showError(int str) {
-        //显示错误
+        // 显示错误
         Application.showToast(str);
     }
 
     @Override
     public void showLoading() {
-          //Todo 显示一个LOADING
+        // TODO 显示一个Loading
     }
 
     @Override
     public void setPresenter(Presenter presenter) {
-
-        //View中赋值给presenter
+        // View中赋值Presenter
         mPresenter = presenter;
     }
 }

@@ -5,7 +5,7 @@ import android.support.annotation.StringRes;
 /**
  * MVP模式中公共的基本契约
  *
- * @author jacky
+ * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
 public interface BaseContract {
@@ -27,4 +27,5 @@ public interface BaseContract {
         // 共用的销毁触发
         void destroy();
     }
+
 }

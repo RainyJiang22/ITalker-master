@@ -19,7 +19,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
- * @author jacky
+ * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
 public class AccountHelper {

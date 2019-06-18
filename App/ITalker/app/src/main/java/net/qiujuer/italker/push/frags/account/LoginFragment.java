@@ -98,6 +98,7 @@ public class LoginFragment extends PresenterFragment<LoginContract.Presenter>
         mSubmit.setEnabled(false);
     }
 
+
     @Override
     public void loginSuccess() {
         MainActivity.show(getContext());

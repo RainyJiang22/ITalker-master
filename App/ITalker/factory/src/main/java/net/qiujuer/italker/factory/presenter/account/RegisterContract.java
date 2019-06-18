@@ -3,7 +3,7 @@ package net.qiujuer.italker.factory.presenter.account;
 import net.qiujuer.italker.factory.presenter.BaseContract;
 
 /**
- * @author jacky
+ * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
 public interface RegisterContract {
