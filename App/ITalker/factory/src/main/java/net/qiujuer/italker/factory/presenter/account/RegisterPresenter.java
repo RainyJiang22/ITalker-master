@@ -1,6 +1,7 @@
 package net.qiujuer.italker.factory.presenter.account;
 
 import android.text.TextUtils;
+import android.widget.TextView;
 
 import net.qiujuer.genius.kit.handler.Run;
 import net.qiujuer.genius.kit.handler.runable.Action;
@@ -16,7 +17,7 @@ import net.qiujuer.italker.factory.presenter.BasePresenter;
 import java.util.regex.Pattern;
 
 /**
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  */
 public class RegisterPresenter extends BasePresenter<RegisterContract.View>
@@ -49,6 +50,8 @@ public class RegisterPresenter extends BasePresenter<RegisterContract.View>
             RegisterModel model = new RegisterModel(phone, password, name, Account.getPushId());
             // 进行网络请求，并设置回送接口为自己
             AccountHelper.register(model, this);
+
+         
         }
     }
 
@@ -65,7 +68,7 @@ public class RegisterPresenter extends BasePresenter<RegisterContract.View>
                 && Pattern.matches(Common.Constance.REGEX_MOBILE, phone);
     }
 
-    @Override
+      @Override
     public void onDataLoaded(User user) {
         // 当网络请求成功，注册好了，回送一个用户信息回来
         // 告知界面，注册成功

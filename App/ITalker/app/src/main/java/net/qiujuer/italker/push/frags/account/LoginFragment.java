@@ -99,9 +99,12 @@ public class LoginFragment extends PresenterFragment<LoginContract.Presenter>
     }
 
 
+    //登录成功
     @Override
     public void loginSuccess() {
         MainActivity.show(getContext());
         getActivity().finish();
     }
+
+
 }
