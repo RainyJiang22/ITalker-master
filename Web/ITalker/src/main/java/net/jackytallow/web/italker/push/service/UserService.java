@@ -8,9 +8,7 @@ import net.jackytallow.web.italker.push.bean.db.User;
 import net.jackytallow.web.italker.push.factory.UserFactory;
 
 import javax.ws.rs.*;
-import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.SecurityContext;
 
 /**
  *
@@ -32,6 +30,8 @@ public class UserService extends BaseService {
 //        if ( Strings.isNullOrEmpty(token) || !UpdateInfoModel.check(model)) {
 //            return ResponseModel.buildParameterError();
 //        }
+//
+//        User self = getSelf();
 //
 //        //拿到自己的个人信息
 //        User user  = UserFactory.findByToken(token);

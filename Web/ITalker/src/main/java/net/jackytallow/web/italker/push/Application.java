@@ -21,7 +21,7 @@ public class Application extends ResourceConfig {
         packages(AccountService.class.getPackage().getName());
 
 
-        //注册全局请求拦截器
+        //注册全局请求拦截
         register(AuthRequestFilte.class);
 
         //注册Json解析器

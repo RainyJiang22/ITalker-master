@@ -17,7 +17,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 /**
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  */
 public class Factory {
@@ -40,7 +40,7 @@ public class Factory {
                 // 设置时间格式
                 .setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS")
                 // 设置一个过滤器，数据库级别的Model不进行Json转换
-                .setExclusionStrategies(new DBFlowExclusionStrategy())
+               // .setExclusionStrategies(new DBFlowExclusionStrategy())
                 .create();
     }
 

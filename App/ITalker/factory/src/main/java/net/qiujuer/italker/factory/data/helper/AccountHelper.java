@@ -31,12 +31,73 @@ public class AccountHelper {
      * @param callback 成功与失败的接口回送
      */
     public static void register(final RegisterModel model, final DataSource.Callback<User> callback) {
-        // 调用Retrofit对我们的网络请求接口做代理
-        RemoteService service = Network.remote();
-        // 得到一个Call
-        Call<RspModel<AccountRspModel>> call = service.accountRegister(model);
-        // 异步的请求
-        call.enqueue(new AccountRspCallback(callback));
+
+        //调用Retrofit对我们的网络请求接口做代理
+        RemoteService service = Network.getRetrofit().create(RemoteService.class);
+        //得到一个Call
+        Call<RspModel<AccountRspModel>> call =  service.accountRegister(model);
+        //异步请求
+        call.enqueue(new Callback<RspModel<AccountRspModel>>() {
+            @Override
+            public void onResponse(Call<RspModel<AccountRspModel>> call,
+                                   Response<RspModel<AccountRspModel>> response) {
+               //请求成功返回
+                //从返回中得到我们的全局Model，内部是使用的Gson进行解析
+                RspModel<AccountRspModel> rspModel =  response.body();
+                if (rspModel.success()){
+                    //得到实体
+                    AccountRspModel accountRspModel = rspModel.getResult();
+                    //判断绑定状态，是否绑定设备
+                    if (accountRspModel.isBind()){
+                        User user = accountRspModel.getUser();
+                        //进行的是数据库写入和缓存绑定
+                        //然后返回
+                        callback.onDataLoaded(user);
+                    }else{
+                        //进行绑定的唤醒
+                        bindPush(callback);
+                    }
+                } else{
+                    //TODO 对返回的RspModel中的失败的Code进行解析，解析到对于的String资源上面
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<RspModel<AccountRspModel>> call, Throwable t) {
+                //网络请求失败
+                callback.onDataNotAvailable(R.string.data_network_error);
+            }
+        });
+
+
+//        // 调用Retrofit对我们的网络请求接口做代理
+//        RemoteService service = Network.remote();
+//        // 得到一个Call
+//        Call<RspModel<AccountRspModel>> call = service.accountRegister(model);
+//        // 异步的请求
+//        call.enqueue(new AccountRspCallback(callback));
+//
+//
+
+
+//        /**
+//         * 模拟网络请求
+//         */
+//        new Thread(){
+//            @Override
+//            public void run() {
+//                super.run();
+//
+//                try{
+//                    Thread.sleep(3000);
+//                }catch (InterruptedException e){
+//                    e.printStackTrace();
+//                }
+//
+//                callback.onDataNotAvailable(R.string.data_rsp_error_parameters);
+//            }
+//        }.start();
     }
 
     /**

@@ -51,7 +51,7 @@ public class RegisterPresenter extends BasePresenter<RegisterContract.View>
             // 进行网络请求，并设置回送接口为自己
             AccountHelper.register(model, this);
 
-         
+
         }
     }
 
