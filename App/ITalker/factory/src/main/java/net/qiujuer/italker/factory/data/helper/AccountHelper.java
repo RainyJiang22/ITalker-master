@@ -54,7 +54,9 @@ public class AccountHelper {
                         //然后返回
                         callback.onDataLoaded(user);
                     }else{
-                        //进行绑定的唤醒
+                        //每次绑定的pushId都是一致的
+                       // callback.onDataLoaded(accountRspModel.getUser());
+                       // 进行绑定的唤醒
                         bindPush(callback);
                     }
                 } else{

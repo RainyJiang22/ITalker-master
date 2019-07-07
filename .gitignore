@@ -67,3 +67,5 @@ Web/ITalker/build/libs/exploded/ITalker-1.0-SNAPSHOT.war/WEB-INF/classes/net/jac
 web/iTalker/.idea/workspace.xml
 *.ser
 *.class
+App/ITalker/app/build.gradle
+Web/iTalker/.idea/artifacts/Gradle___iTalker___iTalker_1_0_SNAPSHOT_war__exploded_.xml

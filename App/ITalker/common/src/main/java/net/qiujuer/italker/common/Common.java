@@ -17,7 +17,7 @@ public class Common {
 
 
         //基础的网络请求地址
-        String API_URL = "http://10.4.116.245:9900/api/";
+        String API_URL = "http://192.168.1.102:9090/api/";
     }
 
 //    public interface Constance {
