@@ -8,7 +8,7 @@ import android.util.DisplayMetrics;
 import android.view.Window;
 
 /**
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  */
 public class UiTool {
