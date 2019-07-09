@@ -2,6 +2,12 @@ package net.qiujuer.italker.factory.data.helper;
 
 import android.text.TextUtils;
 
+import com.raizlabs.android.dbflow.annotation.Database;
+import com.raizlabs.android.dbflow.config.DatabaseDefinition;
+import com.raizlabs.android.dbflow.config.FlowManager;
+import com.raizlabs.android.dbflow.structure.database.DatabaseWrapper;
+import com.raizlabs.android.dbflow.structure.database.transaction.ITransaction;
+
 import net.qiujuer.italker.factory.Factory;
 import net.qiujuer.italker.factory.R;
 import net.qiujuer.italker.factory.data.DataSource;
@@ -9,6 +15,7 @@ import net.qiujuer.italker.factory.model.api.RspModel;
 import net.qiujuer.italker.factory.model.api.account.AccountRspModel;
 import net.qiujuer.italker.factory.model.api.account.LoginModel;
 import net.qiujuer.italker.factory.model.api.account.RegisterModel;
+import net.qiujuer.italker.factory.model.db.AppDatabase;
 import net.qiujuer.italker.factory.model.db.User;
 import net.qiujuer.italker.factory.net.Network;
 import net.qiujuer.italker.factory.net.RemoteService;
@@ -155,7 +162,7 @@ public class AccountHelper {
                 AccountRspModel accountRspModel = rspModel.getResult();
                 // 获取我的信息
                 User user = accountRspModel.getUser();
-                // 第一种，之间保存
+                // 第一种，直接保存
                 user.save();
                     /*
                     // 第二种通过ModelAdapter

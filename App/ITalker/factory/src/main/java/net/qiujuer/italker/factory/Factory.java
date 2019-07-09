@@ -40,7 +40,7 @@ public class Factory {
                 // 设置时间格式
                 .setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS")
                 // 设置一个过滤器，数据库级别的Model不进行Json转换
-               // .setExclusionStrategies(new DBFlowExclusionStrategy())
+                .setExclusionStrategies(new DBFlowExclusionStrategy())
                 .create();
     }
 
@@ -50,7 +50,7 @@ public class Factory {
     public static void setup() {
         // 初始化数据库
         FlowManager.init(new FlowConfig.Builder(app())
-                .openDatabasesOnInit(true) // 数据库初始化的时候就开始打开
+                .openDatabasesOnInit(true) //数据库初始化的时候就开始打开
                 .build());
 
         // 持久化的数据进行初始化

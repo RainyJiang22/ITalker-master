@@ -109,7 +109,7 @@ public class Account {
                     && !TextUtils.isEmpty(self.getPortrait())
                     && self.getSex() != 0;
         }
-        // 未登录返回信息不完全
+        // 未登录返回信息不完全,直接返回false
         return false;
     }
 

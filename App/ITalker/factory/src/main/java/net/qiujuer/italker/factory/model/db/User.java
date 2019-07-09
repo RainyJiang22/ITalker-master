@@ -8,11 +8,12 @@ import com.raizlabs.android.dbflow.structure.BaseModel;
 import java.util.Date;
 
 /**
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  */
 @Table(database = AppDatabase.class)
 public class User extends BaseModel {
+    //性别
     public static final int SEX_MAN = 1;
     public static final int SEX_WOMAN = 2;
 
