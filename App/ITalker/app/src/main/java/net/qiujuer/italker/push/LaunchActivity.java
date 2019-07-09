@@ -155,7 +155,7 @@ public class LaunchActivity extends Activity {
         }
 
         @Override
-        public Object get(LaunchActivity object) {
+        public Object get(LaunchActivity object){
             return object.mBgDrawable.getColor();
         }
     };

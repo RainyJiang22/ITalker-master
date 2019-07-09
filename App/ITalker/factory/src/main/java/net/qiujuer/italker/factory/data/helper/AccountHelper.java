@@ -80,8 +80,6 @@ public class AccountHelper {
 //        // 异步的请求
 //        call.enqueue(new AccountRspCallback(callback));
 //
-//
-
 
 //        /**
 //         * 模拟网络请求
