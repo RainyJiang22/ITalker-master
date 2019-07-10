@@ -46,6 +46,7 @@ public class UserHelper {
 
             @Override
             public void onFailure(Call<RspModel<UserCard>> call, Throwable t) {
+                //网络错误
                 callback.onDataNotAvailable(R.string.data_network_error);
             }
         });
