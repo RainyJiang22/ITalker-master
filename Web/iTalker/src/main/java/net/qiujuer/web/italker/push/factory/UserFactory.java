@@ -262,6 +262,8 @@ public class UserFactory {
             originFollow.setAlias(alias);
 
             //发起者是他，我是被关注的人的记录
+          //关注别人的时候，我需要被别人关注，所以setOrigin的参数是target
+          //setTarget的参数origin
             UserFollow targetFollow = new UserFollow();
             targetFollow.setOrigin(target);
             targetFollow.setTarget(origin);
