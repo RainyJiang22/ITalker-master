@@ -126,4 +126,35 @@ public class UserHelper {
             }
         });
         }
+
+
+
+    // 刷新联系人的操作
+    public static void refreshContacts(final DataSource.Callback<List<UserCard>> callback) {
+        // 调用Retrofit对我们的网络请求接口做代理
+        RemoteService service = Network.remote();
+
+        //网络请求
+        service.userContacts()
+                .enqueue(new Callback<RspModel<List<UserCard>>>() {
+            @Override
+            public void onResponse(Call<RspModel<List<UserCard>>> call, Response<RspModel<List<UserCard>>> response) {
+                RspModel<List<UserCard>> rspModel = response.body();
+                if (rspModel.success()){
+                    //返回数据
+                    callback.onDataLoaded(rspModel.getResult());
+                }else{
+                    // 错误情况下进行错误分配
+                    Factory.decodeRspCode(rspModel, callback);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<RspModel<List<UserCard>>> call, Throwable t) {
+                //网络错误
+                callback.onDataNotAvailable(R.string.data_network_error);
+            }
+        });
+    }
+
 }

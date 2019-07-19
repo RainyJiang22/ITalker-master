@@ -68,6 +68,9 @@
             android:label="@string/title_search"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.TransStatusBar" />
+        <activity
+            android:name=".activities.MessageActivity"
+            android:label="@string/title_activity_message"></activity>
     </application>
 
 </manifest>
