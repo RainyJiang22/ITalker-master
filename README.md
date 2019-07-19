@@ -100,7 +100,7 @@ localhost:9090/contact
 拿到自己的联系人列表，转换为UserCard
 直接返回
 
-### 用户关注人，关注人的操作，双方同时需要关注
+#### 用户关注人，关注人的操作，双方同时需要关注
 localhost：9090/follow/followId
 需要判断一下不能关注自己
 User self = getSelf()
