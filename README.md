@@ -64,9 +64,9 @@ PUT /messages/status 批量更新消息状态(主要为标记离线/未读消息
 PUT /messages/status/{mid} 更新指定消息状态
 
 
-### 用户注册接口设计
+#### 用户注册接口设计
 localhost:9090/api/account/register
-- 封装json格式为
+封装json格式为
 {
 	"account":
 	"password":
@@ -75,7 +75,7 @@ localhost:9090/api/account/register
 	"portrait"
 }
 
-### 用户登录接口设计
+#### 用户登录接口设计
 localhost:9090/api/account/login
 -封装json格式为
 {
@@ -84,18 +84,18 @@ localhost:9090/api/account/login
 	“pushId”
 }
 
-## 用户pushId+token
+#### 用户pushId+token
 localhost:9090/api/bind/2123231
 加个token
 mccm
 
-## 用户更新消息接口设计
+#### 用户更新消息接口设计
 localhost:9090/api/user
 加入token值
 传入的是portrait，desc，sex
 
 
-### 用户拉取联系人
+#### 用户拉取联系人
 localhost:9090/contact
 拿到自己的联系人列表，转换为UserCard
 直接返回
@@ -108,7 +108,7 @@ User self = getSelf()
 需要通过UserFactory去获取关注的人，备注默认是没有的
 如果关注失败，直接返回服务器异常
 
-### 获取某人的信息
+#### 获取某人的信息
 GET请求
 localhost:9090/api/id
 @path("{id}")
@@ -118,7 +118,7 @@ localhost:9090/api/user/getid
 isFollow显示为true
 如果获取的是当前用户没有关注的id，则isFollow显示为false
 
-### 搜索人接口的实现
+#### 搜索人接口的实现
 localhost:9090/api/search/name
 
 
