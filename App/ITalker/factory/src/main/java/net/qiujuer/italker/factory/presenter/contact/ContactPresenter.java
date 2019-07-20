@@ -2,6 +2,7 @@ package net.qiujuer.italker.factory.presenter.contact;
 
 import android.drm.DrmStore;
 import android.support.annotation.NonNull;
+import android.support.v7.util.DiffUtil;
 
 import com.raizlabs.android.dbflow.config.DatabaseDefinition;
 import com.raizlabs.android.dbflow.config.FlowManager;
@@ -20,6 +21,7 @@ import net.qiujuer.italker.factory.model.db.User_Table;
 import net.qiujuer.italker.factory.persistence.Account;
 import net.qiujuer.italker.factory.presenter.BaseContract;
 import net.qiujuer.italker.factory.presenter.BasePresenter;
+import net.qiujuer.italker.factory.utils.DiUiDataCallback;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -85,9 +87,35 @@ public class ContactPresenter extends BasePresenter<ContactContract.View>
                     }
                 }).build().execute();
 
+
                 //网络的数据往往是新的，我们需要直接刷新界面
-                getView().getRecyclerAdapter().replace(users);
+                List<User> old =  getView().getRecyclerAdapter().getItems();
+                //会导致数据顺序全部为新的数据集合
+                //getView().getRecyclerAdapter().replace(users);
+                diff(old,users);
+            }
+
+            /**
+             * 1. 关注后虽然存储了数据库，但是没有刷新联系人
+             * 2. 如果刷新数据库，或者从网络刷新，最终刷新的时候是全局刷新
+             * 3. 加载数据是异步操作，不知道什么时候进行触发
+             * 4. 但是本地刷新和网络刷新在显示添加到界面的时候，会有可能冲突：导致数据显示异常j
+             */
+
+            private void diff(List<User> oldList, List<User> newList){
+                //进行数据对比
+                DiffUtil.Callback callback =  new DiUiDataCallback<>(oldList,newList);
+                DiffUtil.DiffResult result = DiffUtil.calculateDiff(callback);
+
+
+                //在对比完成后进行数据进行赋值
+                getView().getRecyclerAdapter().replace(newList);
+
+                //尝试刷新界面
+                result.dispatchUpdatesTo(getView().getRecyclerAdapter());
                 getView().onAdapterDataChanged();
+
+
             }
         });
     }

@@ -70,7 +70,10 @@
             android:theme="@style/AppTheme.TransStatusBar" />
         <activity
             android:name=".activities.MessageActivity"
-            android:label="@string/title_activity_message"></activity>
+            android:label="@string/title_activity_message" />
+        <activity
+            android:name=".activities.PersonalActivity"
+            android:label="@string/title_activity_personal"></activity>
     </application>
 
 </manifest>
