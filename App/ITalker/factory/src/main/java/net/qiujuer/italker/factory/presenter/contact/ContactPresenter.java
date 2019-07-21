@@ -21,7 +21,7 @@ import net.qiujuer.italker.factory.model.db.User_Table;
 import net.qiujuer.italker.factory.persistence.Account;
 import net.qiujuer.italker.factory.presenter.BaseContract;
 import net.qiujuer.italker.factory.presenter.BasePresenter;
-import net.qiujuer.italker.factory.utils.DiUiDataCallback;
+import net.qiujuer.italker.factory.utils.DiffUiDataCallback;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -104,7 +104,7 @@ public class ContactPresenter extends BasePresenter<ContactContract.View>
 
             private void diff(List<User> oldList, List<User> newList){
                 //进行数据对比
-                DiffUtil.Callback callback =  new DiUiDataCallback<>(oldList,newList);
+                DiffUtil.Callback callback =  new DiffUiDataCallback<>(oldList,newList);
                 DiffUtil.DiffResult result = DiffUtil.calculateDiff(callback);
 
 
