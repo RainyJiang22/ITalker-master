@@ -27,7 +27,8 @@ public abstract class ToolBarActivity  extends Activity{
         if (toolbar != null){
             setSupportActionBar(toolbar);
         }
-        initTitleNeedBack();
+
+       initTitleNeedBack();
     }
 
     protected void initTitleNeedBack(){

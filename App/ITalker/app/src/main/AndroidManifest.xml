@@ -73,7 +73,7 @@
             android:label="@string/title_activity_message" />
         <activity
             android:name=".activities.PersonalActivity"
-            android:label="@string/title_activity_personal"></activity>
+            android:label="@string/title_activity_personal" />
     </application>
 
 </manifest>

@@ -19,9 +19,11 @@ import net.qiujuer.italker.factory.presenter.contact.ContactContract;
 import net.qiujuer.italker.factory.presenter.contact.ContactPresenter;
 import net.qiujuer.italker.push.R;
 import net.qiujuer.italker.push.activities.MessageActivity;
+import net.qiujuer.italker.push.activities.PersonalActivity;
 import net.qiujuer.italker.push.frags.search.SearchUserFragment;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 public class ContactFragment extends PresenterFragment<ContactContract.Presenter>
      implements ContactContract.View{
@@ -128,6 +130,12 @@ public class ContactFragment extends PresenterFragment<ContactContract.Presenter
             mPortraitView.setup(Glide.with(ContactFragment.this),user);
             mName.setText(user.getName());
             mDesc.setText(user.getDesc());
+        }
+
+        @OnClick(R.id.im_portrait)
+        void onPortraitClick() {
+            // 显示信息
+            PersonalActivity.show(getContext(), mData.getId());
         }
     }
 

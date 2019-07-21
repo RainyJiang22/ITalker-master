@@ -6,7 +6,7 @@ import com.raizlabs.android.dbflow.annotation.Table;
 import com.raizlabs.android.dbflow.structure.BaseModel;
 
 import net.qiujuer.italker.factory.model.Author;
-import net.qiujuer.italker.factory.utils.DiffUiDataCallback;
+import net.qiujuer.italker.factory.utils.DiUiDataCallback;
 
 import java.util.Date;
 import java.util.Objects;
@@ -16,11 +16,11 @@ import java.util.Objects;
  * @version 1.0.0
  */
 @Table(database = AppDatabase.class)
-public class User extends BaseModel  implements Author, DiffUiDataCallback.UiDataDiffer<User> {
+
+public class User extends BaseModel  implements Author, DiUiDataCallback.UiDataDiffer<User> {
     //性别
     public static final int SEX_MAN = 1;
     public static final int SEX_WOMAN = 2;
-
     // 主键
     @PrimaryKey
     private String id;

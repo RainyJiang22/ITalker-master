@@ -6,6 +6,8 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 
+import net.qiujuer.italker.common.widget.convention.PlaceHolderView;
+
 import java.util.List;
 
 import butterknife.ButterKnife;
@@ -15,6 +17,9 @@ import butterknife.ButterKnife;
  */
 
 public abstract class Activity extends AppCompatActivity {
+
+    protected PlaceHolderView mPlaceHolderView;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +36,14 @@ public abstract class Activity extends AppCompatActivity {
         } else {
             finish();
         }
+    }
+
+
+    /**
+     * 在之前初始化
+     */
+    protected void initBefore(){
+
     }
 
     /**
@@ -100,5 +113,14 @@ public abstract class Activity extends AppCompatActivity {
 
         super.onBackPressed();
         finish();
+    }
+
+    /**
+     * 设置占位布局
+     * @param placeHolderView 继承了占位布局规范的View
+     */
+    public void setPlaceHolderView(PlaceHolderView placeHolderView){
+        this.mPlaceHolderView = placeHolderView;
+
     }
 }
