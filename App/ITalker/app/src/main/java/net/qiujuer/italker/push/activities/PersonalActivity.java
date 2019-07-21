@@ -1,11 +1,14 @@
 package net.qiujuer.italker.push.activities;
 
 
+import net.qiujuer.genius.res.Resource;
 import net.qiujuer.italker.common.app.ToolBarActivity;
 import net.qiujuer.italker.push.R;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -39,7 +42,9 @@ public class PersonalActivity extends ToolBarActivity {
     @BindView(R.id.btn_say_hello)
     Button mSayHello;
 
-    private MenuItem mFollow;
+    //关注
+    private MenuItem mFollowItem;
+    private boolean mIsFollowUser = false;
 
     public static void show(Context context, String userId) {
         Intent intent = new Intent(context, PersonalActivity.class);
@@ -68,8 +73,25 @@ public class PersonalActivity extends ToolBarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.personal, menu);
-        mFollow = menu.findItem(R.id.action_follow);
+        mFollowItem = menu.findItem(R.id.action_follow);
+        changeFollowItemStatus();
         return true;
+    }
+
+    /**
+     * 更改关注菜单状态
+     */
+    private void changeFollowItemStatus() {
+        if (mFollowItem == null)
+            return;
+
+        // 根据状态设置颜色
+        Drawable drawable = mIsFollowUser ? getResources()
+                .getDrawable(R.drawable.ic_favorite) :
+                getResources().getDrawable(R.drawable.ic_favorite_border);
+        drawable = DrawableCompat.wrap(drawable);
+        DrawableCompat.setTint(drawable, Resource.Color.WHITE);
+        mFollowItem.setIcon(drawable);
     }
 
     @Override
