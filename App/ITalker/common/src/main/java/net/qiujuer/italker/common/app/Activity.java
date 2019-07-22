@@ -30,7 +30,7 @@ public abstract class Activity extends AppCompatActivity {
             // 得到界面Id并设置到Activity界面中
             int layId = getContentLayoutId();
             setContentView(layId);
-
+            initBefore();
             initWidget();
             initData();
         } else {

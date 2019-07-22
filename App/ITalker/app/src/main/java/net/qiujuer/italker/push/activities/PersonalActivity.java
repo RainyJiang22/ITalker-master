@@ -2,8 +2,14 @@ package net.qiujuer.italker.push.activities;
 
 
 import net.qiujuer.genius.res.Resource;
+import net.qiujuer.italker.common.app.PresenterToolbarActivity;
 import net.qiujuer.italker.common.app.ToolBarActivity;
+import net.qiujuer.italker.factory.model.db.User;
+import net.qiujuer.italker.factory.presenter.contact.PersonalContract;
+import net.qiujuer.italker.factory.presenter.contact.PersonalPresenter;
 import net.qiujuer.italker.push.R;
+
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -13,9 +19,13 @@ import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+import com.raizlabs.android.dbflow.list.IFlowCursorIterator;
 
 import net.qiujuer.italker.common.widget.PortraitView;
 import net.qiujuer.italker.push.R;
@@ -23,7 +33,8 @@ import net.qiujuer.italker.push.R;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class PersonalActivity extends ToolBarActivity {
+public class PersonalActivity extends PresenterToolbarActivity<PersonalContract.Presenter>
+   implements PersonalContract.View{
     private static final String BOUND_KEY_ID = "BOUND_KEY_ID";
     private String userId;
 
@@ -69,6 +80,13 @@ public class PersonalActivity extends ToolBarActivity {
         setTitle("");
     }
 
+
+    @Override
+    protected void initData() {
+        super.initData();
+        mPresenter.start();
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
@@ -105,7 +123,44 @@ public class PersonalActivity extends ToolBarActivity {
 
     @OnClick(R.id.btn_say_hello)
     void onSayHelloClick() {
-        // TODO
-        //MessageActivity.show(this, null);
+        // 发起聊天的点击
+        User user = mPresenter.getUserPersonal();
+        if (user == null)
+            return;
+        MessageActivity.show(this,user);
+    }
+
+    @Override
+    protected PersonalContract.Presenter initPresenter() {
+        return new PersonalPresenter(this);
+    }
+
+    @Override
+    public String getUserId() {
+        return userId;
+    }
+
+    @SuppressLint("StringFormatMatches")
+    @Override
+    public void onLoadDone(User user) {
+        if (user == null)
+            return;
+        mPortrait.setup(Glide.with(this),user);
+        mName.setText(user.getName());
+        mDesc.setText(user.getDesc());
+        mFollows.setText(String.format(getString(R.string.label_follows), user.getFollows()));
+        mFollowing.setText(String.format(getString(R.string.label_following),user.getFollowing()));
+        hideLoading();
+    }
+
+    @Override
+    public void allowSayHello(boolean isAllow) {
+         mSayHello.setVisibility(isAllow? View.VISIBLE : View.GONE);
+    }
+
+    @Override
+    public void setFollowStatus(boolean isFollow) {
+         mIsFollowUser = isFollow;
+         changeFollowItemStatus();
     }
 }
