@@ -163,4 +163,6 @@ public class PersonalActivity extends PresenterToolbarActivity<PersonalContract.
          mIsFollowUser = isFollow;
          changeFollowItemStatus();
     }
+
+
 }

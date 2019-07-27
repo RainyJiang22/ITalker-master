@@ -39,4 +39,5 @@ public abstract class ToolBarActivity  extends Activity{
             actionBar.setHomeButtonEnabled(true);
         }
     }
+
 }
