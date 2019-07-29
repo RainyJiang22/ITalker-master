@@ -140,9 +140,11 @@ public class Message extends BaseModel implements DiUiDataCallback.UiDataDiffer<
      * @return 和我聊天的人
      */
     User getOther() {
+        //如果我是发送者，那么和我聊天就是接收者
         if (Account.getUserId().equals(sender.getId())) {
             return receiver;
         } else {
+            //反之，如果我不是发送者，那么和我聊天的就是发送者
             return sender;
         }
     }

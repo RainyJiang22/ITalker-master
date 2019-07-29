@@ -142,6 +142,5 @@ public class Group extends BaseModel implements Serializable,DiUiDataCallback.Ui
               && Objects.equals(this.desc,old.desc)
               && Objects.equals(this.Pictrue,old.Pictrue)
               && Objects.equals(this.holder,old.holder);
-
     }
 }

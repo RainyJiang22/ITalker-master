@@ -21,7 +21,7 @@ import java.util.Objects;
 @Table(database = AppDatabase.class)
 public class Session extends BaseModel implements DiUiDataCallback.UiDataDiffer<Session> {
     @PrimaryKey
-    private String id; // Id, 是Message中的接收者User的Id或者群的Id
+    private String id; //对应的是接受者的Id Id, 是Message中的接收者User的Id或者群的Id
     @Column
     private String picture; // 图片，接收者用户的头像，或者群的图片
     @Column

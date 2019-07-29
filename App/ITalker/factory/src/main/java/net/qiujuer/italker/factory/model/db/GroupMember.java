@@ -117,8 +117,10 @@ public class GroupMember extends BaseModel {
                 && Objects.equals(user, that.user);
     }
 
+    //最主要的外层判断
     @Override
     public int hashCode() {
+        //一个是人，一个是工作者
         return id != null ? id.hashCode() : 0;
     }
 }
