@@ -62,16 +62,12 @@ public class ContactPresenter extends BasePresenter<ContactContract.View>
 
         //加载网络数据
 
-        UserHelper.refreshContacts(new DataSource.Callback<List<UserCard>>() {
-            @Override
-            public void onDataNotAvailable(int strRes) {
-                //网络失败，因为本地有数据，不管错误
-            }
+        UserHelper.refreshContacts();
 
-            @Override
-            public void onDataLoaded(final List<UserCard> userCards) {
 
-                //转换成User
+
+        /*
+        //转换成User
                 final List<User> users = new ArrayList<>();
                 for(UserCard userCard: userCards){
                     users.add(userCard.build());
@@ -93,30 +89,32 @@ public class ContactPresenter extends BasePresenter<ContactContract.View>
                 //会导致数据顺序全部为新的数据集合
                 //getView().getRecyclerAdapter().replace(users);
                 diff(old,users);
-            }
-
-            /**
-             * 1. 关注后虽然存储了数据库，但是没有刷新联系人
-             * 2. 如果刷新数据库，或者从网络刷新，最终刷新的时候是全局刷新
-             * 3. 加载数据是异步操作，不知道什么时候进行触发
-             * 4. 但是本地刷新和网络刷新在显示添加到界面的时候，会有可能冲突：导致数据显示异常j
-             */
-
-            private void diff(List<User> oldList, List<User> newList){
-                //进行数据对比
-                DiffUtil.Callback callback =  new DiUiDataCallback<>(oldList,newList);
-                DiffUtil.DiffResult result = DiffUtil.calculateDiff(callback);
+         */
 
 
-                //在对比完成后进行数据进行赋值
-                getView().getRecyclerAdapter().replace(newList);
-
-                //尝试刷新界面
-                result.dispatchUpdatesTo(getView().getRecyclerAdapter());
-                getView().onAdapterDataChanged();
 
 
-            }
-        });
+        /**
+         * 1. 关注后虽然存储了数据库，但是没有刷新联系人
+         * 2. 如果刷新数据库，或者从网络刷新，最终刷新的时候是全局刷新
+         * 3. 加载数据是异步操作，不知道什么时候进行触发
+         * 4. 但是本地刷新和网络刷新在显示添加到界面的时候，会有可能冲突：导致数据显示异常j
+         */
+/*
+        private void diff(List<User> oldList, List<User> newList){
+            //进行数据对比
+            DiffUtil.Callback callback =  new DiUiDataCallback<>(oldList,newList);
+            DiffUtil.DiffResult result = DiffUtil.calculateDiff(callback);
+
+
+            //在对比完成后进行数据进行赋值
+            getView().getRecyclerAdapter().replace(newList);
+
+            //尝试刷新界面
+            result.dispatchUpdatesTo(getView().getRecyclerAdapter());
+            getView().onAdapterDataChanged();
+
+
+        }*/
     }
 }

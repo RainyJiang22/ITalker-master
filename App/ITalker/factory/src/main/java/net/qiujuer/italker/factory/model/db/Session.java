@@ -185,6 +185,10 @@ public class Session extends BaseModel implements DiUiDataCallback.UiDataDiffer<
         return identify;
     }
 
+    public void refreshToNow() {
+         //TODO 刷新会话对应的信息为当前Messgae的最新状态
+    }
+
 
     /**
      * 对于会话信息，最重要的部分进行提取

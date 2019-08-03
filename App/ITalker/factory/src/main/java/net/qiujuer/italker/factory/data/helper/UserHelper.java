@@ -15,7 +15,9 @@ import net.qiujuer.italker.factory.model.db.User_Table;
 import net.qiujuer.italker.factory.net.Network;
 import net.qiujuer.italker.factory.net.RemoteService;
 import net.qiujuer.italker.factory.presenter.contact.FollowPresenter;
+import net.qiujuer.italker.utils.CollectionUtil;
 
+import java.util.Collection;
 import java.util.List;
 
 import retrofit2.Call;
@@ -40,11 +42,8 @@ public class UserHelper {
                     RspModel<UserCard> rspModel = response.body();
                     if (rspModel.success()) {
                         UserCard userCard = rspModel.getResult();
-                        // 数据库的存储操作，需要把UserCard转换为User
-                        // 保存用户信息
-                        User user = userCard.build();
-                        //异步统一的保存
-                        DbHelper.save(User.class,user);
+                        //唤起进行保存的操作
+                        Factory.getUserCenter().dispatch(userCard);
                         // user.save();
                         // 返回成功
                         callback.onDataLoaded(userCard);
@@ -110,11 +109,11 @@ public class UserHelper {
             public void onResponse(Call<RspModel<UserCard>> call, Response<RspModel<UserCard>> response) {
                 RspModel<UserCard> rspModel = response.body();
                 if (rspModel.success()){
-                    //保存到本地数据库
-                  UserCard userCard = rspModel.getResult();
-                   User user = userCard.build();
-                  //保存和通知都在里面
-                   DbHelper.save(User.class,user);
+                    UserCard userCard = rspModel.getResult();
+
+                    //唤起进行保存的操作
+                   Factory.getUserCenter().dispatch(userCard);
+
                    //user.save();
 
                     //返回数据
@@ -135,8 +134,10 @@ public class UserHelper {
 
 
 
-    // 刷新联系人的操作
-    public static void refreshContacts(final DataSource.Callback<List<UserCard>> callback) {
+    // 刷新联系人的操作,不需要Callback，直接存储到数据库，
+    // 并且通过数据库观察者进行通知界面进行更新
+    // 界面更新的时候进行对比，然后差异更新
+    public static void refreshContacts() {
         // 调用Retrofit对我们的网络请求接口做代理
         RemoteService service = Network.remote();
 
@@ -147,18 +148,25 @@ public class UserHelper {
             public void onResponse(Call<RspModel<List<UserCard>>> call, Response<RspModel<List<UserCard>>> response) {
                 RspModel<List<UserCard>> rspModel = response.body();
                 if (rspModel.success()){
-                    //返回数据
-                    callback.onDataLoaded(rspModel.getResult());
+                     //拿到集合
+                    List<UserCard> cards = rspModel.getResult();
+                    if (cards == null || cards.size()==0)
+                        return;
+
+                    //第二种方法
+                    //UserCard[] cards1 = cards.toArray(new UserCard[0]);
+                    UserCard[] cards1 = CollectionUtil.toArray(cards,UserCard.class);
+                    Factory.getUserCenter().dispatch(CollectionUtil.toArray(cards,UserCard.class));
                 }else{
                     // 错误情况下进行错误分配
-                    Factory.decodeRspCode(rspModel, callback);
+                    Factory.decodeRspCode(rspModel, null);
+
                 }
             }
 
             @Override
             public void onFailure(Call<RspModel<List<UserCard>>> call, Throwable t) {
-                //网络错误
-                callback.onDataNotAvailable(R.string.data_network_error);
+                //nothing
             }
         });
 
@@ -181,16 +189,16 @@ public class UserHelper {
             Response<RspModel<UserCard>> response = remoteService.userFind(id).execute();
             UserCard card = response.body().getResult();
             if (card != null) {
-                //数据库的存储并且通知
                 User user = card.build();
-                DbHelper.save(User.class,user);
-
+                //数据库的存储并且通知
+                Factory.getUserCenter().dispatch(card);
                 return user;
             }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+
 
         return null;
     }
