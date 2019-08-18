@@ -38,11 +38,10 @@ public abstract class Activity extends AppCompatActivity {
         }
     }
 
-
     /**
-     * 在之前初始化
+     * 初始化控件调用之前
      */
-    protected void initBefore(){
+    protected void initBefore() {
 
     }
 
@@ -117,10 +116,10 @@ public abstract class Activity extends AppCompatActivity {
 
     /**
      * 设置占位布局
+     *
      * @param placeHolderView 继承了占位布局规范的View
      */
-    public void setPlaceHolderView(PlaceHolderView placeHolderView){
+    public void setPlaceHolderView(PlaceHolderView placeHolderView) {
         this.mPlaceHolderView = placeHolderView;
-
     }
 }

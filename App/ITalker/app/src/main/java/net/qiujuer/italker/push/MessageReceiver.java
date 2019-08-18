@@ -15,11 +15,10 @@ import net.qiujuer.italker.factory.persistence.Account;
 /**
  * 个推的消息接收器
  *
- * @author jacky
+ * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
 public class MessageReceiver extends BroadcastReceiver {
-    //打印日志
     private static final String TAG = MessageReceiver.class.getSimpleName();
 
     @Override
@@ -55,14 +54,13 @@ public class MessageReceiver extends BroadcastReceiver {
     }
 
     /**
-     * 当Id初始化的时候
+     * 当Id初始化的试试
      *
      * @param cid 设备Id
      */
     private void onClientInit(String cid) {
         // 设置设备Id
         Account.setPushId(cid);
-        //如果用户处于登录状态
         if (Account.isLogin()) {
             // 账户登录状态，进行一次PushId绑定
             // 没有登录是不能绑定PushId的

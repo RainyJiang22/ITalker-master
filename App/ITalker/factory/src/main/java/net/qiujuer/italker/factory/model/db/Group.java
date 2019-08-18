@@ -4,41 +4,40 @@ import com.raizlabs.android.dbflow.annotation.Column;
 import com.raizlabs.android.dbflow.annotation.ForeignKey;
 import com.raizlabs.android.dbflow.annotation.PrimaryKey;
 import com.raizlabs.android.dbflow.annotation.Table;
-import com.raizlabs.android.dbflow.structure.BaseModel;
-
-import net.qiujuer.italker.factory.utils.DiUiDataCallback;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
+
 /**
- * 群消息Model
+ * 群信息Model
+ *
+ * @author qiujuer Email:qiujuer@live.cn
+ * @version 1.0.0
  */
-
 @Table(database = AppDatabase.class)
-public class Group extends BaseModel implements Serializable,DiUiDataCallback.UiDataDiffer<Group> {
+public class Group extends BaseDbModel<Group> implements Serializable {
     @PrimaryKey
-    private String id; //群Id
+    private String id; // 群Id
     @Column
-    private String name; //群名称
+    private String name;// 群名称
     @Column
-    private String desc; //群描述
+    private String desc;// 群描述
     @Column
-    private String Pictrue; //群图片
+    private String picture;// 群图片
     @Column
-    private int notifyLevel; //我在群中的消息通知级别-对象是我当前登录的账户
+    private int notifyLevel;// 我在群中的消息通知级别-对象是我当前登录的账户
     @Column
-    private Date joinAt; //我的加入时间
+    private Date joinAt;// 我的加入时间
     @Column
-    private Date modifyAt; //信息修改时间
+    private Date modifyAt;// 信息修改时间
 
-    @ForeignKey(tableClass = User.class,stubbedRelationship = true)
-    private User owner; //创建者外键
+    @ForeignKey(tableClass = User.class, stubbedRelationship = true)
+    private User owner;// 创建者外键
 
-    //不会出现在数据库中
-    public Object holder; //预留字段，用于界面显示
 
+    public Object holder; // 预留字段，用于界面显示
 
     public String getId() {
         return id;
@@ -64,12 +63,12 @@ public class Group extends BaseModel implements Serializable,DiUiDataCallback.Ui
         this.desc = desc;
     }
 
-    public String getPictrue() {
-        return Pictrue;
+    public String getPicture() {
+        return picture;
     }
 
-    public void setPictrue(String pictrue) {
-        this.Pictrue = pictrue;
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 
     public int getNotifyLevel() {
@@ -108,39 +107,38 @@ public class Group extends BaseModel implements Serializable,DiUiDataCallback.Ui
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Group group = (Group) o;
 
-
-        return notifyLevel == group.notifyLevel &&
-                Objects.equals(id, group.id) &&
-                Objects.equals(name, group.name) &&
-                Objects.equals(desc, group.desc) &&
-                Objects.equals(Pictrue, group.Pictrue) &&
-                Objects.equals(joinAt, group.joinAt) &&
-                Objects.equals(modifyAt, group.modifyAt) &&
-                Objects.equals(owner, group.owner) &&
-                Objects.equals(holder, group.holder);
+        return notifyLevel == group.notifyLevel
+                && Objects.equals(id, group.id)
+                && Objects.equals(name, group.name)
+                && Objects.equals(desc, group.desc)
+                && Objects.equals(picture, group.picture)
+                && Objects.equals(joinAt, group.joinAt)
+                && Objects.equals(modifyAt, group.modifyAt)
+                && Objects.equals(owner, group.owner)
+                && Objects.equals(holder, group.holder);
     }
 
     @Override
     public int hashCode() {
-
         return id != null ? id.hashCode() : 0;
     }
 
     @Override
-    public boolean isSame(Group old) {
-        //进行对比判断时，判断是否为一个群的消息，判断Id即可
-        return Objects.equals(id,old.id);
+    public boolean isSame(Group oldT) {
+        // 进行对比判断时，判断是否为一个群的信息，判断id即可
+        return Objects.equals(id, oldT.id);
     }
 
     @Override
-    public boolean isUiContentSame(Group old) {
-        //如果界面显示信息有更改，只有可能是更改了
-        //群名称，描述，图片以及界面显示对应得到Holder
-        return Objects.equals(this.name,old.name)
-              && Objects.equals(this.desc,old.desc)
-              && Objects.equals(this.Pictrue,old.Pictrue)
-              && Objects.equals(this.holder,old.holder);
+    public boolean isUiContentSame(Group oldT) {
+        // 如果界面显示信息有更改，只有可能是更改了：
+        // 群名称，描述，图片，以及界面显示对应的Holder
+        return Objects.equals(this.name, oldT.name)
+                && Objects.equals(this.desc, oldT.desc)
+                && Objects.equals(this.picture, oldT.picture)
+                && Objects.equals(this.holder, oldT.holder);
     }
 }

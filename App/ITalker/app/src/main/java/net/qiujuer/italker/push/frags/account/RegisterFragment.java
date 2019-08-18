@@ -4,7 +4,6 @@ package net.qiujuer.italker.push.frags.account;
 import android.content.Context;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import net.qiujuer.genius.ui.widget.Loading;
 import net.qiujuer.italker.common.app.PresenterFragment;
@@ -71,11 +70,9 @@ public class RegisterFragment extends PresenterFragment<RegisterContract.Present
 
     @OnClick(R.id.txt_go_login)
     void onShowLoginClick() {
-        // 让AccountActivity进行界面切换，切换到登录界面
+        // 让AccountActivity进行界面切换
         mAccountTrigger.triggerView();
     }
-
-
 
 
     @Override
@@ -117,5 +114,4 @@ public class RegisterFragment extends PresenterFragment<RegisterContract.Present
         // 关闭当前界面
         getActivity().finish();
     }
-
 }

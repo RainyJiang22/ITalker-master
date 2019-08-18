@@ -1,21 +1,19 @@
 package net.qiujuer.italker.factory.presenter.contact;
 
-
 import net.qiujuer.genius.kit.handler.Run;
 import net.qiujuer.genius.kit.handler.runable.Action;
 import net.qiujuer.italker.factory.Factory;
 import net.qiujuer.italker.factory.data.helper.UserHelper;
 import net.qiujuer.italker.factory.model.db.User;
 import net.qiujuer.italker.factory.persistence.Account;
-import net.qiujuer.italker.factory.presenter.BaseContract;
 import net.qiujuer.italker.factory.presenter.BasePresenter;
 
 /**
- * @author Jacky
+ * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
 public class PersonalPresenter extends BasePresenter<PersonalContract.View>
-    implements PersonalContract.Presenter{
+        implements PersonalContract.Presenter {
 
     private User user;
 
@@ -28,7 +26,6 @@ public class PersonalPresenter extends BasePresenter<PersonalContract.View>
     public void start() {
         super.start();
 
-
         // 个人界面用户数据优先从网络拉取
         Factory.runOnAsync(new Runnable() {
             @Override
@@ -36,13 +33,14 @@ public class PersonalPresenter extends BasePresenter<PersonalContract.View>
                 PersonalContract.View view = getView();
                 if (view != null) {
                     String id = view.getUserId();
-                   User user =  UserHelper.searchFirstOfNet(id);
+                    User user = UserHelper.searchFirstOfNet(id);
                     onLoaded(view, user);
                 }
             }
         });
 
     }
+
 
     private void onLoaded(final PersonalContract.View view, final User user) {
         this.user = user;
@@ -63,8 +61,6 @@ public class PersonalPresenter extends BasePresenter<PersonalContract.View>
             }
         });
     }
-
-
 
     @Override
     public User getUserPersonal() {

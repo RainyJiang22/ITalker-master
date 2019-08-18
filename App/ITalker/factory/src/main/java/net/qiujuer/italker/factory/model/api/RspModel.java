@@ -3,7 +3,7 @@ package net.qiujuer.italker.factory.model.api;
 import java.util.Date;
 
 /**
- * @author jacky
+ * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
 @SuppressWarnings({"WeakerAccess", "unused"})

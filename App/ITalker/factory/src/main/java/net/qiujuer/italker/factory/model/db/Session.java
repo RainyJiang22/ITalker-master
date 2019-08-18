@@ -4,9 +4,6 @@ import com.raizlabs.android.dbflow.annotation.Column;
 import com.raizlabs.android.dbflow.annotation.ForeignKey;
 import com.raizlabs.android.dbflow.annotation.PrimaryKey;
 import com.raizlabs.android.dbflow.annotation.Table;
-import com.raizlabs.android.dbflow.structure.BaseModel;
-
-import net.qiujuer.italker.factory.utils.DiUiDataCallback;
 
 import java.util.Date;
 import java.util.Objects;
@@ -19,9 +16,9 @@ import java.util.Objects;
  * @version 1.0.0
  */
 @Table(database = AppDatabase.class)
-public class Session extends BaseModel implements DiUiDataCallback.UiDataDiffer<Session> {
+public class Session extends BaseDbModel<Session> {
     @PrimaryKey
-    private String id; //对应的是接受者的Id Id, 是Message中的接收者User的Id或者群的Id
+    private String id; // Id, 是Message中的接收者User的Id或者群的Id
     @Column
     private String picture; // 图片，接收者用户的头像，或者群的图片
     @Column
@@ -57,7 +54,7 @@ public class Session extends BaseModel implements DiUiDataCallback.UiDataDiffer<
         } else {
             receiverType = Message.RECEIVER_TYPE_GROUP;
             id = message.getGroup().getId();
-            picture = message.getGroup().getPictrue();
+            picture = message.getGroup().getPicture();
             title = message.getGroup().getName();
         }
         this.message = message;
@@ -186,7 +183,7 @@ public class Session extends BaseModel implements DiUiDataCallback.UiDataDiffer<
     }
 
     public void refreshToNow() {
-         //TODO 刷新会话对应的信息为当前Messgae的最新状态
+        // TODO 刷新会话对应的信息为当前Message的最新状态
     }
 
 

@@ -1,17 +1,19 @@
 package net.qiujuer.italker.factory.model.card;
 
+import com.google.gson.annotations.Expose;
 
 import net.qiujuer.italker.factory.model.db.Group;
 import net.qiujuer.italker.factory.model.db.User;
+
 import java.util.Date;
 
 /**
- * 群的信息卡片
- * @author jacky
+ * 群卡片信息
+ *
+ * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
 public class GroupCard {
-
     private String id;
     private String name;
     private String desc;
@@ -20,6 +22,7 @@ public class GroupCard {
     private int notifyLevel;
     private Date joinAt;
     private Date modifyAt;
+
 
     public String getId() {
         return id;
@@ -44,8 +47,6 @@ public class GroupCard {
     public void setDesc(String desc) {
         this.desc = desc;
     }
-
-
 
     public String getPicture() {
         return picture;
@@ -87,7 +88,6 @@ public class GroupCard {
         this.modifyAt = modifyAt;
     }
 
-
     /**
      * 把一个群的信息，build为一个群Model
      * 由于卡片中有创建者的Id，但是没有创建者这个人的Model；
@@ -101,13 +101,11 @@ public class GroupCard {
         group.setId(id);
         group.setName(name);
         group.setDesc(desc);
-        group.setPictrue(picture);
+        group.setPicture(picture);
         group.setNotifyLevel(notifyLevel);
         group.setJoinAt(joinAt);
         group.setModifyAt(modifyAt);
         group.setOwner(owner);
         return group;
-
     }
-
 }

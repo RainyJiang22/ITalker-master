@@ -108,14 +108,12 @@ public class LaunchActivity extends Activity {
     private void reallySkip() {
         // 权限检测，跳转
         if (PermissionsFragment.haveAll(this, getSupportFragmentManager())) {
-           //  检查跳转到主页还是登录
-            if (Account.isLogin()){
+            // 检查跳转到主页还是登录
+            if (Account.isLogin()) {
                 MainActivity.show(this);
-            }else{
+            } else {
                 AccountActivity.show(this);
             }
-//            //做测试用，直接跳转到主界面
-//            MainActivity.show(this);
             finish();
         }
     }
@@ -129,7 +127,7 @@ public class LaunchActivity extends Activity {
     private void startAnim(float endProgress, final Runnable endCallback) {
         // 获取一个最终的颜色
         int finalColor = Resource.Color.WHITE; // UiCompat.getColor(getResources(), R.color.white);
-        // 运算当前进度的颜色，时间差值器
+        // 运算当前进度的颜色
         ArgbEvaluator evaluator = new ArgbEvaluator();
         int endColor = (int) evaluator.evaluate(endProgress, mBgDrawable.getColor(), finalColor);
         // 构建一个属性动画
@@ -155,7 +153,7 @@ public class LaunchActivity extends Activity {
         }
 
         @Override
-        public Object get(LaunchActivity object){
+        public Object get(LaunchActivity object) {
             return object.mBgDrawable.getColor();
         }
     };

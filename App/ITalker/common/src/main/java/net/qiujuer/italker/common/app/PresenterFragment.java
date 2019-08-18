@@ -5,7 +5,7 @@ import android.content.Context;
 import net.qiujuer.italker.factory.presenter.BaseContract;
 
 /**
- * @author jacky
+ * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
 public abstract class PresenterFragment<Presenter extends BaseContract.Presenter> extends Fragment
@@ -23,28 +23,24 @@ public abstract class PresenterFragment<Presenter extends BaseContract.Presenter
 
     /**
      * 初始化Presenter
+     *
      * @return Presenter
      */
     protected abstract Presenter initPresenter();
 
     @Override
     public void showError(int str) {
-
-        //显示错误，优先使用占位布局
-        if (mPlaceHolderView != null){
+        // 显示错误, 优先使用占位布局
+        if (mPlaceHolderView != null) {
             mPlaceHolderView.triggerError(str);
-            return;
-        }
-        else {
-            // 显示错误
+        } else {
             Application.showToast(str);
         }
     }
 
     @Override
     public void showLoading() {
-        //显示Loading状态
-        if(mPlaceHolderView != null){
+        if (mPlaceHolderView != null) {
             mPlaceHolderView.triggerLoading();
         }
     }

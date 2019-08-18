@@ -11,36 +11,37 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import net.qiujuer.italker.common.app.Fragment;
-import net.qiujuer.italker.common.app.ToolBarActivity;
+import net.qiujuer.italker.common.app.ToolbarActivity;
 import net.qiujuer.italker.push.R;
 import net.qiujuer.italker.push.frags.search.SearchGroupFragment;
 import net.qiujuer.italker.push.frags.search.SearchUserFragment;
 
-public class SearchActivity extends ToolBarActivity {
-    public static final String EXTRE_TYPE = "EXTRE_TYPE";
-    public static final int TYPE_USER =1; //搜索人
-    public static final int TYPE_GROUP =2;//搜索群
+public class SearchActivity extends ToolbarActivity {
+    private static final String EXTRA_TYPE = "EXTRA_TYPE";
+    public static final int TYPE_USER = 1; // 搜索人
+    public static final int TYPE_GROUP = 2; // 搜索群
 
-    //具体需要显示的类型
+    // 具体需要显示的类型
     private int type;
-    private SearchFragment msearchFragment;
+    private SearchFragment mSearchFragment;
 
     /**
      * 显示搜索界面
+     *
      * @param context 上下文
-     * @param type  用户还是群
+     * @param type    显示的类型，用户还是群
      */
-    public static void show(Context context, int type){
-        Intent intent = new Intent(context,SearchActivity.class);
-        intent.putExtra(EXTRE_TYPE, type);
+    public static void show(Context context, int type) {
+        Intent intent = new Intent(context, SearchActivity.class);
+        intent.putExtra(EXTRA_TYPE, type);
         context.startActivity(intent);
     }
 
 
     @Override
     protected boolean initArgs(Bundle bundle) {
-        type = bundle.getInt(EXTRE_TYPE);
-        //是显示搜素人或者是搜索群的一种
+        type = bundle.getInt(EXTRA_TYPE);
+        // 是搜索人或者搜索群
         return type == TYPE_USER || type == TYPE_GROUP;
     }
 
@@ -49,57 +50,55 @@ public class SearchActivity extends ToolBarActivity {
         return R.layout.activity_search;
     }
 
-
     @Override
     protected void initWidget() {
         super.initWidget();
 
-     //显示对应的Fragment
+        // 显示对应的Fragment
         Fragment fragment;
-        if (type == TYPE_USER){
+        if (type == TYPE_USER) {
             SearchUserFragment searchUserFragment = new SearchUserFragment();
             fragment = searchUserFragment;
-            msearchFragment = searchUserFragment;
-        }else{
+            mSearchFragment = searchUserFragment;
+        } else {
             SearchGroupFragment searchGroupFragment = new SearchGroupFragment();
             fragment = searchGroupFragment;
-            msearchFragment = searchGroupFragment;
+            mSearchFragment = searchGroupFragment;
         }
 
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.lay_container,fragment)
+                .add(R.id.lay_container, fragment)
                 .commit();
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
-        //初始化菜单
+        // 初始化菜单
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.search, menu);
-       //找到搜索菜单
+
+        // 找到搜索菜单
         MenuItem searchItem = menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView) searchItem.getActionView();
-        if (searchView != null){
-            //拿到一个搜索管理器
+        if (searchView != null) {
+            // 拿到一个搜索管理器
             SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
             searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
 
-            //添加搜索按钮的监听
+            // 添加搜索监听
             searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-                //当点击提交搜索文本的时候
                 @Override
                 public boolean onQueryTextSubmit(String query) {
+                    // 当点击了提交按钮的时候
                     search(query);
-                    return false;
-
+                    return true;
                 }
 
-                //当搜索文本改变的时候
                 @Override
-                public boolean onQueryTextChange(String newText) {
-                    //当文字进行改变的时候，只为null的情况下进行搜索
-                    if (TextUtils.isEmpty(newText)){
+                public boolean onQueryTextChange(String s) {
+                    // 当文字改变的时候，咱们不会及时搜索，只在为null的情况下进行搜索
+                    if (TextUtils.isEmpty(s)) {
                         search("");
                         return true;
                     }
@@ -107,27 +106,27 @@ public class SearchActivity extends ToolBarActivity {
                 }
             });
 
+
         }
+
         return super.onCreateOptionsMenu(menu);
     }
 
     /**
      * 搜索的发起点
-     * @param query 搜索的文本
+     *
+     * @param query 搜索的文字
      */
     private void search(String query) {
-        if (msearchFragment == null)
+        if (mSearchFragment == null)
             return;
-
-        msearchFragment.search(query);
+        mSearchFragment.search(query);
     }
 
     /**
      * 搜索的Fragment必须继承的接口
      */
-    public interface SearchFragment{
+    public interface SearchFragment {
         void search(String content);
     }
-
-
 }

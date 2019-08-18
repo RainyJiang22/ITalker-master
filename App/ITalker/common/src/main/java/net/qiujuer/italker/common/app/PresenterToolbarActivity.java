@@ -3,11 +3,11 @@ package net.qiujuer.italker.common.app;
 import net.qiujuer.italker.factory.presenter.BaseContract;
 
 /**
- * @author jacky
+ * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
 public abstract class PresenterToolbarActivity<Presenter extends BaseContract.Presenter>
-        extends  ToolBarActivity implements BaseContract.View<Presenter> {
+        extends ToolbarActivity implements BaseContract.View<Presenter> {
     protected Presenter mPresenter;
 
     @Override
@@ -52,7 +52,7 @@ public abstract class PresenterToolbarActivity<Presenter extends BaseContract.Pr
 
     protected void hideLoading() {
         if (mPlaceHolderView != null) {
-            mPlaceHolderView.triggerOK();
+            mPlaceHolderView.triggerOk();
         }
     }
 

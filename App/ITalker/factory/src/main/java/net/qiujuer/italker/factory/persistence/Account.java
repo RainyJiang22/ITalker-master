@@ -3,7 +3,6 @@ package net.qiujuer.italker.factory.persistence;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.raizlabs.android.dbflow.sql.language.SQLite;
 
@@ -13,7 +12,7 @@ import net.qiujuer.italker.factory.model.db.User;
 import net.qiujuer.italker.factory.model.db.User_Table;
 
 /**
- * @author jacky
+ * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
 public class Account {
@@ -109,7 +108,7 @@ public class Account {
                     && !TextUtils.isEmpty(self.getPortrait())
                     && self.getSex() != 0;
         }
-        // 未登录返回信息不完全,直接返回false
+        // 未登录返回信息不完全
         return false;
     }
 
@@ -158,9 +157,10 @@ public class Account {
 
     /**
      * 返回用户Id
-     * @return  用户ID
+     *
+     * @return 用户Id
      */
-    public static String getUserId(){
+    public static String getUserId() {
         return getUser().getId();
     }
 

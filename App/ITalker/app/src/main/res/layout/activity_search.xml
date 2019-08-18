@@ -13,7 +13,6 @@
         android:background="@color/colorPrimary"
         android:paddingTop="@dimen/statusBarSize" />
 
-
     <FrameLayout
         android:id="@+id/lay_container"
         android:layout_width="match_parent"

@@ -1,21 +1,21 @@
 package net.qiujuer.italker.factory.model;
 
-
 /**
  * 基础用户接口
+ *
+ * @author qiujuer Email:qiujuer@live.cn
+ * @version 1.0.0
  */
 public interface Author {
-  String getId();
+    String getId();
 
-  void setId(String id);
+    void setId(String id);
 
-  String getName();
+    String getName();
 
-  void setName(String name);
+    void setName(String name);
 
-  String getPortrait();
+    String getPortrait();
 
-  void setPortrait(String portrait);
-
-
+    void setPortrait(String portrait);
 }

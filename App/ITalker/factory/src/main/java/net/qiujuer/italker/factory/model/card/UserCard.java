@@ -6,7 +6,8 @@ import net.qiujuer.italker.factory.model.db.User;
 import java.util.Date;
 
 /**
- * @author jacky
+ * 用户卡片，用于接收服务器返回
+ * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
 public class UserCard implements Author {
@@ -25,7 +26,6 @@ public class UserCard implements Author {
 
     // 我与当前User的关系状态，是否已经关注了这个人
     private boolean isFollow;
-
 
     // 用户信息最后的更新时间
     private Date modifyAt;

@@ -1,7 +1,7 @@
 package net.qiujuer.italker.factory.presenter;
 
 /**
- * @author jacky
+ * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
 public class BasePresenter<T extends BaseContract.View> implements BaseContract.Presenter {
@@ -30,7 +30,6 @@ public class BasePresenter<T extends BaseContract.View> implements BaseContract.
         return mView;
     }
 
-
     @Override
     public void start() {
         // 开始的时候进行Loading调用
@@ -39,9 +38,6 @@ public class BasePresenter<T extends BaseContract.View> implements BaseContract.
             view.showLoading();
         }
     }
-
-
-
 
     @SuppressWarnings("unchecked")
     @Override

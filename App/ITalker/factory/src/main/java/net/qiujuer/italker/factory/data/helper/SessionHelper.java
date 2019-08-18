@@ -4,14 +4,15 @@ import com.raizlabs.android.dbflow.sql.language.SQLite;
 
 import net.qiujuer.italker.factory.model.db.Session;
 import net.qiujuer.italker.factory.model.db.Session_Table;
-import net.qiujuer.italker.factory.model.db.User;
-import net.qiujuer.italker.factory.model.db.User_Table;
 
 /**
- * 会话的辅助工具类
+ * 会话辅助工具类
+ *
+ * @author qiujuer Email:qiujuer@live.cn
+ * @version 1.0.0
  */
 public class SessionHelper {
-    //从本地查询Session
+    // 从本地查询Session
     public static Session findFromLocal(String id) {
         return SQLite.select()
                 .from(Session.class)

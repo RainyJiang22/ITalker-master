@@ -6,11 +6,12 @@ import android.support.v7.widget.Toolbar;
 import net.qiujuer.italker.common.R;
 
 /**
- * @author jacky
+ * @author qiujuer Email:qiujuer@live.cn
+ * @version 1.0.0
  */
-public abstract class ToolBarActivity  extends Activity{
-
+public abstract class ToolbarActivity extends Activity {
     protected Toolbar mToolbar;
+
 
     @Override
     protected void initWidget() {
@@ -19,25 +20,25 @@ public abstract class ToolBarActivity  extends Activity{
     }
 
     /**
-     * 初始化Toolbar
-     * @param toolbar
+     * 初始化toolbar
+     *
+     * @param toolbar Toolbar
      */
-    public void initToolbar(Toolbar toolbar){
+    public void initToolbar(Toolbar toolbar) {
         mToolbar = toolbar;
-        if (toolbar != null){
+        if (toolbar != null) {
             setSupportActionBar(toolbar);
         }
 
-       initTitleNeedBack();
+        initTitleNeedBack();
     }
 
-    protected void initTitleNeedBack(){
-        //设置左上角为实际的返回效果
+    protected void initTitleNeedBack() {
+        // 设置左上角的返回按钮为实际的返回效果
         ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null){
+        if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeButtonEnabled(true);
         }
     }
-
 }

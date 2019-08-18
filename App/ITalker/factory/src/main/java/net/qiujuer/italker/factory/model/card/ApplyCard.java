@@ -1,13 +1,11 @@
 package net.qiujuer.italker.factory.model.card;
 
-
 import java.util.Date;
 
 /**
- * 申请Apply请求的Card,用于推送一个申请请求
+ * 申请请求的Card, 用于推送一个申请请求
  *
- * @author jacky
- * @version 1.0.0
+ * @author qiujuer Email:qiujuer.live.cn
  */
 public class ApplyCard {
     // 申请Id
@@ -24,7 +22,6 @@ public class ApplyCard {
     private String applicantId;
     // 创建时间
     private Date createAt;
-
 
     public String getId() {
         return id;

@@ -8,35 +8,30 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
-import net.qiujuer.italker.common.app.Fragment;
 import net.qiujuer.italker.common.app.PresenterFragment;
 import net.qiujuer.italker.common.widget.EmptyView;
 import net.qiujuer.italker.common.widget.PortraitView;
 import net.qiujuer.italker.common.widget.recycler.RecyclerAdapter;
-import net.qiujuer.italker.factory.model.card.UserCard;
 import net.qiujuer.italker.factory.model.db.User;
 import net.qiujuer.italker.factory.presenter.contact.ContactContract;
 import net.qiujuer.italker.factory.presenter.contact.ContactPresenter;
 import net.qiujuer.italker.push.R;
 import net.qiujuer.italker.push.activities.MessageActivity;
 import net.qiujuer.italker.push.activities.PersonalActivity;
-import net.qiujuer.italker.push.frags.search.SearchUserFragment;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 
 public class ContactFragment extends PresenterFragment<ContactContract.Presenter>
-     implements ContactContract.View{
-
+        implements ContactContract.View {
 
     @BindView(R.id.empty)
-    EmptyView emptyView;
+    EmptyView mEmptyView;
 
     @BindView(R.id.recycler)
-    RecyclerView recyclerView;
+    RecyclerView mRecycler;
 
-
-    //USER 可以直接从数据库中查询信息
+    // 适配器，User，可以直接从数据库查询数据
     private RecyclerAdapter<User> mAdapter;
 
     public ContactFragment() {
@@ -53,13 +48,12 @@ public class ContactFragment extends PresenterFragment<ContactContract.Presenter
     protected void initWidget(View root) {
         super.initWidget(root);
 
-        //初始化recycler
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(mAdapter = new RecyclerAdapter<User>(){
-
+        // 初始化Recycler
+        mRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
+        mRecycler.setAdapter(mAdapter = new RecyclerAdapter<User>() {
             @Override
             protected int getItemViewType(int position, User userCard) {
-                //返回cell的布局ID
+                // 返回cell的布局id
                 return R.layout.cell_contact_list;
             }
 
@@ -69,30 +63,31 @@ public class ContactFragment extends PresenterFragment<ContactContract.Presenter
             }
         });
 
+        // 点击事件监听
         mAdapter.setListener(new RecyclerAdapter.AdapterListenerImpl<User>() {
             @Override
             public void onItemClick(RecyclerAdapter.ViewHolder holder, User user) {
-             //跳转到聊天界面
-                MessageActivity.show(getContext(),user);
+                // 跳转到聊天界面
+                MessageActivity.show(getContext(), user);
             }
         });
 
-        //初始化占位布局
-        emptyView.bind(recyclerView);
-        setPlaceHolderView(emptyView);
-    }
+        // 初始化占位布局
+        mEmptyView.bind(mRecycler);
+        setPlaceHolderView(mEmptyView);
 
+    }
 
     @Override
     protected void onFirstInit() {
         super.onFirstInit();
-        //进行一次数据加载
+        // 进行一次数据加载
         mPresenter.start();
     }
 
     @Override
     protected ContactContract.Presenter initPresenter() {
-        //初始化Presenter
+        // 初始化Presenter
         return new ContactPresenter(this);
     }
 
@@ -103,14 +98,12 @@ public class ContactFragment extends PresenterFragment<ContactContract.Presenter
 
     @Override
     public void onAdapterDataChanged() {
-        //进行界面操作
-        mPlaceHolderView.triggerOkOrEmpty(mAdapter.getItemCount()>0);
+        // 进行界面操作
+        mPlaceHolderView.triggerOkOrEmpty(mAdapter.getItemCount() > 0);
     }
 
 
-    class ViewHolder extends RecyclerAdapter.ViewHolder<User>{
-
-
+    class ViewHolder extends RecyclerAdapter.ViewHolder<User> {
         @BindView(R.id.im_portrait)
         PortraitView mPortraitView;
 
@@ -127,7 +120,7 @@ public class ContactFragment extends PresenterFragment<ContactContract.Presenter
 
         @Override
         protected void onBind(User user) {
-            mPortraitView.setup(Glide.with(ContactFragment.this),user);
+            mPortraitView.setup(Glide.with(ContactFragment.this), user);
             mName.setText(user.getName());
             mDesc.setText(user.getDesc());
         }
@@ -138,5 +131,4 @@ public class ContactFragment extends PresenterFragment<ContactContract.Presenter
             PersonalActivity.show(getContext(), mData.getId());
         }
     }
-
 }

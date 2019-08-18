@@ -2,12 +2,6 @@ package net.qiujuer.italker.factory.data.helper;
 
 import android.text.TextUtils;
 
-import com.raizlabs.android.dbflow.annotation.Database;
-import com.raizlabs.android.dbflow.config.DatabaseDefinition;
-import com.raizlabs.android.dbflow.config.FlowManager;
-import com.raizlabs.android.dbflow.structure.database.DatabaseWrapper;
-import com.raizlabs.android.dbflow.structure.database.transaction.ITransaction;
-
 import net.qiujuer.italker.factory.Factory;
 import net.qiujuer.italker.factory.R;
 import net.qiujuer.italker.factory.data.DataSource;
@@ -15,7 +9,6 @@ import net.qiujuer.italker.factory.model.api.RspModel;
 import net.qiujuer.italker.factory.model.api.account.AccountRspModel;
 import net.qiujuer.italker.factory.model.api.account.LoginModel;
 import net.qiujuer.italker.factory.model.api.account.RegisterModel;
-import net.qiujuer.italker.factory.model.db.AppDatabase;
 import net.qiujuer.italker.factory.model.db.User;
 import net.qiujuer.italker.factory.net.Network;
 import net.qiujuer.italker.factory.net.RemoteService;
@@ -26,7 +19,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
- * @author jacky
+ * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
 public class AccountHelper {
@@ -38,40 +31,12 @@ public class AccountHelper {
      * @param callback 成功与失败的接口回送
      */
     public static void register(final RegisterModel model, final DataSource.Callback<User> callback) {
-
-        //调用Retrofit对我们的网络请求接口做代理
-        RemoteService service = Network.getRetrofit().create(RemoteService.class);
-        //得到一个Call
-        Call<RspModel<AccountRspModel>> call =  service.accountRegister(model);
-        //异步请求
+        // 调用Retrofit对我们的网络请求接口做代理
+        RemoteService service = Network.remote();
+        // 得到一个Call
+        Call<RspModel<AccountRspModel>> call = service.accountRegister(model);
+        // 异步的请求
         call.enqueue(new AccountRspCallback(callback));
-
-
-//        // 调用Retrofit对我们的网络请求接口做代理
-//        RemoteService service = Network.remote();
-//        // 得到一个Call
-//        Call<RspModel<AccountRspModel>> call = service.accountRegister(model);
-//        // 异步的请求
-//        call.enqueue(new AccountRspCallback(callback));
-//
-
-//        /**
-//         * 模拟网络请求
-//         */
-//        new Thread(){
-//            @Override
-//            public void run() {
-//                super.run();
-//
-//                try{
-//                    Thread.sleep(3000);
-//                }catch (InterruptedException e){
-//                    e.printStackTrace();
-//                }
-//
-//                callback.onDataNotAvailable(R.string.data_rsp_error_parameters);
-//            }
-//        }.start();
     }
 
     /**
@@ -129,25 +94,25 @@ public class AccountHelper {
                 AccountRspModel accountRspModel = rspModel.getResult();
                 // 获取我的信息
                 User user = accountRspModel.getUser();
-                DbHelper.save(User.class,user);
+                DbHelper.save(User.class, user);
 
-                // 第一种，直接保存
-                //user.save();
-                    /*
-                    // 第二种通过ModelAdapter
-                    FlowManager.getModelAdapter(User.class)
-                            .save(user);
+                // 第一种，之间保存
+                // user.save();
+                /*
+                // 第二种通过ModelAdapter
+                FlowManager.getModelAdapter(User.class)
+                        .save(user);
 
-                    // 第三种，事务中
-                    DatabaseDefinition definition = FlowManager.getDatabase(AppDatabase.class);
-                    definition.beginTransactionAsync(new ITransaction() {
-                        @Override
-                        public void execute(DatabaseWrapper databaseWrapper) {
-                            FlowManager.getModelAdapter(User.class)
-                                    .save(user);
-                        }
-                    }).build().execute();
-                    */
+                // 第三种，事务中
+                DatabaseDefinition definition = FlowManager.getDatabase(AppDatabase.class);
+                definition.beginTransactionAsync(new ITransaction() {
+                    @Override
+                    public void execute(DatabaseWrapper databaseWrapper) {
+                        FlowManager.getModelAdapter(User.class)
+                                .save(user);
+                    }
+                }).build().execute();
+                */
                 // 同步到XML持久化中
                 Account.login(accountRspModel);
 

@@ -1,15 +1,5 @@
 package net.qiujuer.italker.push.activities;
 
-
-import net.qiujuer.genius.res.Resource;
-import net.qiujuer.italker.common.app.PresenterToolbarActivity;
-import net.qiujuer.italker.common.app.ToolBarActivity;
-import net.qiujuer.italker.factory.model.db.User;
-import net.qiujuer.italker.factory.presenter.contact.PersonalContract;
-import net.qiujuer.italker.factory.presenter.contact.PersonalPresenter;
-import net.qiujuer.italker.push.R;
-
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -25,16 +15,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.raizlabs.android.dbflow.list.IFlowCursorIterator;
 
+import net.qiujuer.genius.res.Resource;
+import net.qiujuer.italker.common.app.PresenterToolbarActivity;
 import net.qiujuer.italker.common.widget.PortraitView;
+import net.qiujuer.italker.factory.model.db.User;
+import net.qiujuer.italker.factory.presenter.contact.PersonalContract;
+import net.qiujuer.italker.factory.presenter.contact.PersonalPresenter;
 import net.qiujuer.italker.push.R;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 
 public class PersonalActivity extends PresenterToolbarActivity<PersonalContract.Presenter>
-   implements PersonalContract.View{
+        implements PersonalContract.View {
     private static final String BOUND_KEY_ID = "BOUND_KEY_ID";
     private String userId;
 
@@ -53,7 +47,7 @@ public class PersonalActivity extends PresenterToolbarActivity<PersonalContract.
     @BindView(R.id.btn_say_hello)
     Button mSayHello;
 
-    //关注
+    // 关注
     private MenuItem mFollowItem;
     private boolean mIsFollowUser = false;
 
@@ -80,7 +74,6 @@ public class PersonalActivity extends PresenterToolbarActivity<PersonalContract.
         setTitle("");
     }
 
-
     @Override
     protected void initData() {
         super.initData();
@@ -95,6 +88,25 @@ public class PersonalActivity extends PresenterToolbarActivity<PersonalContract.
         changeFollowItemStatus();
         return true;
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_follow) {
+            // TODO 进行关注操作
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @OnClick(R.id.btn_say_hello)
+    void onSayHelloClick() {
+        // 发起聊天的点击
+        User user = mPresenter.getUserPersonal();
+        if (user == null)
+            return;
+        MessageActivity.show(this, user);
+    }
+
 
     /**
      * 更改关注菜单状态
@@ -113,56 +125,35 @@ public class PersonalActivity extends PresenterToolbarActivity<PersonalContract.
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.action_follow) {
-            // 进行关注操作
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
+    public String getUserId() {
+        return userId;
     }
 
-    @OnClick(R.id.btn_say_hello)
-    void onSayHelloClick() {
-        // 发起聊天的点击
-        User user = mPresenter.getUserPersonal();
+    @Override
+    public void onLoadDone(User user) {
         if (user == null)
             return;
-        MessageActivity.show(this,user);
+        mPortrait.setup(Glide.with(this), user);
+        mName.setText(user.getName());
+        mDesc.setText(user.getDesc());
+        mFollows.setText(String.format(getString(R.string.label_follows), user.getFollows()));
+        mFollowing.setText(String.format(getString(R.string.label_following), user.getFollowing()));
+        hideLoading();
+    }
+
+    @Override
+    public void allowSayHello(boolean isAllow) {
+        mSayHello.setVisibility(isAllow ? View.VISIBLE : View.GONE);
+    }
+
+    @Override
+    public void setFollowStatus(boolean isFollow) {
+        mIsFollowUser = isFollow;
+        changeFollowItemStatus();
     }
 
     @Override
     protected PersonalContract.Presenter initPresenter() {
         return new PersonalPresenter(this);
     }
-
-    @Override
-    public String getUserId() {
-        return userId;
-    }
-
-    @SuppressLint("StringFormatMatches")
-    @Override
-    public void onLoadDone(User user) {
-        if (user == null)
-            return;
-        mPortrait.setup(Glide.with(this),user);
-        mName.setText(user.getName());
-        mDesc.setText(user.getDesc());
-        mFollows.setText(String.format(getString(R.string.label_follows), user.getFollows()));
-        mFollowing.setText(String.format(getString(R.string.label_following),user.getFollowing()));
-        hideLoading();
-    }
-
-    @Override
-    public void allowSayHello(boolean isAllow) {
-         mSayHello.setVisibility(isAllow? View.VISIBLE : View.GONE);
-    }
-
-    @Override
-    public void setFollowStatus(boolean isFollow) {
-         mIsFollowUser = isFollow;
-         changeFollowItemStatus();
-    }
-
-
 }

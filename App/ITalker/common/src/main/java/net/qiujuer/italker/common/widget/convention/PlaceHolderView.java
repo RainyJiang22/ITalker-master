@@ -2,11 +2,16 @@ package net.qiujuer.italker.common.widget.convention;
 
 import android.support.annotation.StringRes;
 
+/**
+ * 基础的占位布局接口定义
+ *
+ * @author qiujuer Email:qiujuer@live.cn
+ * @version 1.0.0
+ */
 public interface PlaceHolderView {
 
-
     /**
-     * 没有数据，
+     * 没有数据
      * 显示空布局，隐藏当前数据布局
      */
     void triggerEmpty();
@@ -17,28 +22,23 @@ public interface PlaceHolderView {
      */
     void triggerNetError();
 
-
     /**
      * 加载错误，并显示错误信息
      *
-     * @param strRes
+     * @param strRes 错误信息
      */
-
     void triggerError(@StringRes int strRes);
-
 
     /**
      * 显示正在加载的状态
      */
     void triggerLoading();
 
-
     /**
-     * 数据加载成功
-     *
+     * 数据加载成功，
      * 调用该方法时应该隐藏当前占位布局
      */
-    void triggerOK();
+    void triggerOk();
 
     /**
      * 该方法如果传入的isOk为True则为成功状态，
@@ -47,5 +47,4 @@ public interface PlaceHolderView {
      * @param isOk 是否加载成功数据
      */
     void triggerOkOrEmpty(boolean isOk);
-
 }

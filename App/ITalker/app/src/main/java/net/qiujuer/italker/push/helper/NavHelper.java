@@ -11,7 +11,7 @@ import android.util.SparseArray;
  * 解决对Fragment的调度与重用问题，
  * 达到最优的Fragment切换
  *
- * @author jacky
+ * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
 public class NavHelper<T> {

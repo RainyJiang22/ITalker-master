@@ -72,12 +72,12 @@
             android:name=".activities.MessageActivity"
             android:label="@string/title_activity_message"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.TransStatusBar"/>
+            android:theme="@style/AppTheme.TransStatusBar" />
         <activity
             android:name=".activities.PersonalActivity"
             android:label="@string/title_activity_personal"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.TransStatusBar"/>
+            android:theme="@style/AppTheme.TransStatusBar" />
     </application>
 
 </manifest>

@@ -98,13 +98,9 @@ public class LoginFragment extends PresenterFragment<LoginContract.Presenter>
         mSubmit.setEnabled(false);
     }
 
-
-    //登录成功
     @Override
     public void loginSuccess() {
         MainActivity.show(getContext());
         getActivity().finish();
     }
-
-
 }

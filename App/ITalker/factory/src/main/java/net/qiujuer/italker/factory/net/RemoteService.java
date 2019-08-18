@@ -19,7 +19,7 @@ import retrofit2.http.Path;
 /**
  * 网络请求的所有的接口
  *
- * @author jacky
+ * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
 public interface RemoteService {
@@ -55,22 +55,18 @@ public interface RemoteService {
     @PUT("user")
     Call<RspModel<UserCard>> userUpdate(@Body UserUpdateModel model);
 
-    //用户搜索的接口
+    // 用户搜索的接口
     @GET("user/search/{name}")
     Call<RspModel<List<UserCard>>> userSearch(@Path("name") String name);
 
-
-    //用户关注的接口
+    // 用户关注接口
     @PUT("user/follow/{userId}")
     Call<RspModel<UserCard>> userFollow(@Path("userId") String userId);
 
-
-    //获取联系人列表
+    // 获取联系人列表
     @GET("user/contact")
     Call<RspModel<List<UserCard>>> userContacts();
 
-    //获取一个人信息界面
     @GET("user/{userId}")
     Call<RspModel<UserCard>> userFind(@Path("userId") String userId);
-
 }

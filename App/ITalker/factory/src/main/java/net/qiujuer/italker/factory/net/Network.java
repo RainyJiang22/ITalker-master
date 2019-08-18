@@ -18,7 +18,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * 网络请求的封装
  *
- * @author jacky
+ * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
 public class Network {
@@ -32,7 +32,7 @@ public class Network {
     private Network() {
     }
 
-    // 构建一个Retrofit,进行网络请求
+    // 构建一个Retrofit
     public static Retrofit getRetrofit() {
         if (instance.retrofit != null)
             return instance.retrofit;

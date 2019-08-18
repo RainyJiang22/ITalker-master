@@ -4,10 +4,8 @@ import com.raizlabs.android.dbflow.annotation.Column;
 import com.raizlabs.android.dbflow.annotation.ForeignKey;
 import com.raizlabs.android.dbflow.annotation.PrimaryKey;
 import com.raizlabs.android.dbflow.annotation.Table;
-import com.raizlabs.android.dbflow.structure.BaseModel;
 
 import net.qiujuer.italker.factory.persistence.Account;
-import net.qiujuer.italker.factory.utils.DiUiDataCallback;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -17,11 +15,11 @@ import java.util.Objects;
 /**
  * 本地的消息表
  *
- * @author jacky
+ * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
 @Table(database = AppDatabase.class)
-public class Message extends BaseModel implements DiUiDataCallback.UiDataDiffer<Message>, Serializable {
+public class Message extends BaseDbModel<Message> implements Serializable {
     // 接收者类型
     public static final int RECEIVER_TYPE_NONE = 1;
     public static final int RECEIVER_TYPE_GROUP = 2;
@@ -140,11 +138,9 @@ public class Message extends BaseModel implements DiUiDataCallback.UiDataDiffer<
      * @return 和我聊天的人
      */
     User getOther() {
-        //如果我是发送者，那么和我聊天就是接收者
         if (Account.getUserId().equals(sender.getId())) {
             return receiver;
         } else {
-            //反之，如果我不是发送者，那么和我聊天的就是发送者
             return sender;
         }
     }
