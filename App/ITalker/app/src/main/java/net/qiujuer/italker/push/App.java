@@ -6,7 +6,7 @@ import net.qiujuer.italker.common.app.Application;
 import net.qiujuer.italker.factory.Factory;
 
 /**
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  */
 public class App extends Application {

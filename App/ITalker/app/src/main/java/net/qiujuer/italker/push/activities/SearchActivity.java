@@ -11,12 +11,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import net.qiujuer.italker.common.app.Fragment;
-import net.qiujuer.italker.common.app.ToolbarActivity;
+import net.qiujuer.italker.common.app.ToolBarActivity;
 import net.qiujuer.italker.push.R;
 import net.qiujuer.italker.push.frags.search.SearchGroupFragment;
 import net.qiujuer.italker.push.frags.search.SearchUserFragment;
 
-public class SearchActivity extends ToolbarActivity {
+public class SearchActivity extends ToolBarActivity {
     private static final String EXTRA_TYPE = "EXTRA_TYPE";
     public static final int TYPE_USER = 1; // 搜索人
     public static final int TYPE_GROUP = 2; // 搜索群
