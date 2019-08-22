@@ -10,7 +10,7 @@ import net.qiujuer.italker.factory.presenter.BasePresenter;
 /**
  * 关注的逻辑实现
  *
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  */
 public class FollowPresenter extends BasePresenter<FollowContract.View>

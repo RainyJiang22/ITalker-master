@@ -9,7 +9,7 @@ import net.qiujuer.italker.factory.persistence.Account;
 import net.qiujuer.italker.factory.presenter.BasePresenter;
 
 /**
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  */
 public class PersonalPresenter extends BasePresenter<PersonalContract.View>

@@ -15,7 +15,7 @@ import net.qiujuer.italker.factory.presenter.BasePresenter;
 /**
  * 登录的逻辑实现
  *
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  */
 public class LoginPresenter extends BasePresenter<LoginContract.View>

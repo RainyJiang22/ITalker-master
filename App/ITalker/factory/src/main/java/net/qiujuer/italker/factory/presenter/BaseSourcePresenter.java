@@ -11,6 +11,7 @@ import java.util.List;
  * @author jacky
  * @version 1.0.0
  */
+
 public abstract class BaseSourcePresenter<Data, ViewModel,
         Source extends DbDataSource<Data>,
         View extends BaseContract.RecyclerView>
