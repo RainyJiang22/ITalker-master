@@ -3,6 +3,7 @@
 
 ### 目录
 * [app结构图](#app结构图)
+* [数据库ER图](#数据库E-R图)
 * [框架与技术](#框架与技术)
 * [服务端实现](#服务端实现)
 * [客户端实现](#客户端实现)
@@ -23,6 +24,13 @@
 ![](https://github.com/jackytallow/ITalker-master/blob/master/%E9%A1%B9%E7%9B%AE%E8%B5%84%E6%96%99/%E7%BB%93%E6%9E%84%E5%9B%BE/%E7%9B%B8%E5%85%B3%E6%8A%80%E6%9C%AF.png)
 
 
+### 数据库E-R图
+
+- 数据结构E-R图
+ ![](https://github.com/jackytallow/ITalker-master/blob/master/Resource/%E6%95%B0%E6%8D%AE%E5%BA%93/EER%E7%89%A9%E7%90%86%E6%A8%A1%E5%9E%8B.png)
+
+
+ 
 ### 框架与技术
 
 主要使用了以下框架及第三方服务：
