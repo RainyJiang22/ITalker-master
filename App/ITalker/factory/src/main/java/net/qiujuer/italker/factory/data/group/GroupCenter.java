@@ -6,7 +6,7 @@ import net.qiujuer.italker.factory.model.card.GroupMemberCard;
 /**
  * 群中心的接口定义
  *
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  */
 public interface GroupCenter {

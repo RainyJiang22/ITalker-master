@@ -8,7 +8,7 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 /**
- * Created by qiujuer
+ * Created by jacky
  * on 2017/2/17.
  */
 public class Hib {
