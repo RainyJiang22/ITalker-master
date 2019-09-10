@@ -5,7 +5,7 @@ import android.support.annotation.StringRes;
 /**
  * 数据源接口定义
  *
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  */
 public interface DataSource {
@@ -27,7 +27,6 @@ public interface DataSource {
     interface SucceedCallback<T> {
         // 数据加载成功, 网络请求成功
         void onDataLoaded(T t);
-
     }
 
     /**
@@ -38,10 +37,10 @@ public interface DataSource {
         void onDataNotAvailable(@StringRes int strRes);
     }
 
-
     /**
      * 销毁操作
      */
     void dispose();
+
 
 }

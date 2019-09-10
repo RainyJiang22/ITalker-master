@@ -15,4 +15,7 @@ public interface DbDataSource<Data> extends DataSource {
      * @param callback 传递一个callback回调，一般回调到Presenter
      */
     void load(SucceedCallback<List<Data>> callback);
+
+
+
 }

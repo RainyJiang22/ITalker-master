@@ -3,7 +3,7 @@ package net.qiujuer.italker.factory.model;
 /**
  * 基础用户接口
  *
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  */
 public interface Author {

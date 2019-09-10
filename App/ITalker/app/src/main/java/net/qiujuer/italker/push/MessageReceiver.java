@@ -77,4 +77,6 @@ public class MessageReceiver extends BroadcastReceiver {
         // 交给Factory处理
         Factory.dispatchPush(message);
     }
+
+
 }

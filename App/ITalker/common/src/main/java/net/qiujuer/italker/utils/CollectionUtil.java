@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  *          <p>
  * 集合工具类
@@ -87,5 +87,5 @@ public class CollectionUtil {
         ArrayList<T> list = new ArrayList<>();
         Collections.addAll(list, items);
         return list;
-    }
+}
 }
