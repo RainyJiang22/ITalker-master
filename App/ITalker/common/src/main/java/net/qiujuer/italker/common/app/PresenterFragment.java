@@ -5,7 +5,9 @@ import android.content.Context;
 import net.qiujuer.italker.factory.presenter.BaseContract;
 
 /**
- * @author qiujuer Email:qiujuer@live.cn
+ * 使用MVP模式，Presenter层Fragment定义
+ * 继承我们自定义的Fragment，编写额外方法
+ * @author jacky
  * @version 1.0.0
  */
 public abstract class PresenterFragment<Presenter extends BaseContract.Presenter> extends Fragment

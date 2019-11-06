@@ -5,7 +5,7 @@ import net.qiujuer.italker.factory.model.db.Group;
 /**
  * 对群的一个简单的辅助工具类
  *
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  */
 public class GroupHelper {

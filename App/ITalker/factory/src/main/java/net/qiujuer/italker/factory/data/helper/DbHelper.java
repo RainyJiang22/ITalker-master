@@ -26,7 +26,7 @@ import java.util.Set;
  * 数据库的辅助工具类
  * 辅助完成：增删改
  *
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  */
 public class DbHelper {

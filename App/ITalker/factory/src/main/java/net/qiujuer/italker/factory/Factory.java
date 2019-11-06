@@ -32,7 +32,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 /**
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  */
 public class Factory {
@@ -114,7 +114,7 @@ public class Factory {
         if (model == null)
             return;
 
-        // 进行Code区分
+        // 进行Code区分，并且进行toast弹窗，不同情况
         switch (model.getCode()) {
             case RspModel.SUCCEED:
                 return;

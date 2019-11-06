@@ -15,7 +15,7 @@ import net.qiujuer.italker.factory.net.UploadHelper;
 import net.qiujuer.italker.factory.presenter.BasePresenter;
 
 /**
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  */
 public class UpdateInfoPresenter extends BasePresenter<UpdateInfoContract.View>

@@ -14,7 +14,8 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 /**
- * @author qiujuer
+ * 自定义Fragment
+ * @author jacky
  */
 
 public abstract class Fragment extends android.support.v4.app.Fragment {

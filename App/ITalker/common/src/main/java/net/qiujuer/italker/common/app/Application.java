@@ -10,7 +10,8 @@ import net.qiujuer.genius.kit.handler.runable.Action;
 import java.io.File;
 
 /**
- * @author qiujuer Email:qiujuer@live.cn
+ * 启动
+ * @author jacky
  * @version 1.0.0
  */
 public class Application extends android.app.Application {

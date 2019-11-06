@@ -3,7 +3,7 @@ package net.qiujuer.italker.factory.model.api.user;
 /**
  * 用户更新信息所使用的Model
  *
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  */
 public class UserUpdateModel {

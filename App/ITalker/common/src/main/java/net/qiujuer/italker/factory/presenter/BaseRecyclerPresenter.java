@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * 对RecyclerView进行的一个简单的Presenter封装
  *
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  */
 public class BaseRecyclerPresenter<ViewMode, View extends BaseContract.RecyclerView>

@@ -12,8 +12,9 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * 头像控件
+ * 自定义圆形头像控件
  *
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  */
 public class PortraitView extends CircleImageView {

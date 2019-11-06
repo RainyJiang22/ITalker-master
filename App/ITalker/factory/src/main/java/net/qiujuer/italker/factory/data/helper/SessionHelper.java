@@ -8,7 +8,7 @@ import net.qiujuer.italker.factory.model.db.Session_Table;
 /**
  * 会话辅助工具类
  *
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  */
 public class SessionHelper {

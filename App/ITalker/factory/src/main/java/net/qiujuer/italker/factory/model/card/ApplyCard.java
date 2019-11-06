@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * 申请请求的Card, 用于推送一个申请请求
  *
- * @author qiujuer Email:qiujuer.live.cn
+ * @author jacky
  */
 public class ApplyCard {
     // 申请Id

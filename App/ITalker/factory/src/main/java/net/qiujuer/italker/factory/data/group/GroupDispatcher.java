@@ -16,7 +16,7 @@ import java.util.concurrent.Executors;
 
 /**
  * 群／群成员卡片中心的实现类
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  */
 public class GroupDispatcher implements GroupCenter {

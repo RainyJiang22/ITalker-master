@@ -8,11 +8,11 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  *
  * 对文件或者字符串进行Hash算法，返回MD5值
- *
+ *  下面是github地址，可查看源码
  * GitHub:https://github.com/qiujuer/Genius-Android/blob/steady/steady/library/src/main/java/net/qiujuer/genius/util/HashUtils.java
  */
 public class HashUtil {

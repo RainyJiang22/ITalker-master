@@ -18,7 +18,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * 网络请求的封装
  *
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  */
 public class Network {

@@ -5,7 +5,7 @@ import net.qiujuer.italker.factory.model.card.UserCard;
 /**
  * 用户中心的基本定义
  *
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  */
 public interface UserCenter {

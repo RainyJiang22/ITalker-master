@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * 联系人仓库
  *
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  */
 public class ContactRepository extends BaseDbRepository<User> implements ContactDataSource {

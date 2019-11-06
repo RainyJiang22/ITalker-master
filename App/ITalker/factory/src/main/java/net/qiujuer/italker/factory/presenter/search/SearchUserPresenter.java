@@ -14,7 +14,7 @@ import retrofit2.Call;
 /**
  * 搜索人的实现
  *
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  */
 public class SearchUserPresenter extends BasePresenter<SearchContract.UserView>

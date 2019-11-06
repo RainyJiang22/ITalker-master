@@ -10,7 +10,7 @@ import java.util.Date;
 /**
  * 群卡片信息
  *
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  */
 public class GroupCard {

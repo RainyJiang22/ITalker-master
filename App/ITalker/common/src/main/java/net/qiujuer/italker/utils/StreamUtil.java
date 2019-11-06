@@ -12,7 +12,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 /**
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  *          <p>
  *          对文件流的操作工具类

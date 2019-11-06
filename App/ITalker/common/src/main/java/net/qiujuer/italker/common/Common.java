@@ -14,7 +14,7 @@ public class Common {
         String REGEX_MOBILE = "[1][3,4,5,7,8][0-9]{9}$";
 
         //基础的网络请求地址
-        String API_URL = "http://10.3.199.211:9090/api/";
+        String API_URL = "http://10.4.116.172:9090/api/";
 
     }
 }

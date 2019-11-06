@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.security.Principal;
 
 /**
- * 用于所有的请求的接口的过滤和拦截ø
+ * 用于所有的请求的接口的过滤和拦截
  *
  * @author jacky
  * @version 1.0.0

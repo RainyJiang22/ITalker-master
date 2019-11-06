@@ -51,7 +51,7 @@ public class PersonalPresenter extends BasePresenter<PersonalContract.View>
         // 已经关注同时不是自己才能聊天
         final boolean allowSayHello = isFollow && !isSelf;
 
-        // 切换到Ui线程
+        // 切换到Ui线程（主线程）
         Run.onUiAsync(new Action() {
             @Override
             public void call() {
