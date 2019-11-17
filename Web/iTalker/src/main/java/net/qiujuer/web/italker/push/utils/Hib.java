@@ -9,7 +9,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 /**
  * Created by jacky
- * on 2017/2/17.
+ * on 2019/2/17.
  */
 public class Hib {
     // 全局SessionFactory
