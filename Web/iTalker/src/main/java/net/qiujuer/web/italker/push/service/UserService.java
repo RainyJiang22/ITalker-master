@@ -53,12 +53,12 @@ public class UserService extends BaseService {
     public ResponseModel<List<UserCard>> contact() {
         User self = getSelf();
 
-        PushModel model = new PushModel();
-        model.add(new PushModel.Entity(0,"Hello!"));
-
-        PushDispatcher dispatcher = new PushDispatcher();
-        dispatcher.add(self,model);
-        dispatcher.submit();
+//        PushModel model = new PushModel();
+//        model.add(new PushModel.Entity(0,"Hello!"));
+//
+//        PushDispatcher dispatcher = new PushDispatcher();
+//        dispatcher.add(self,model);
+//        dispatcher.submit();
 
         // 拿到我的联系人
         List<User> users = UserFactory.contacts(self);
