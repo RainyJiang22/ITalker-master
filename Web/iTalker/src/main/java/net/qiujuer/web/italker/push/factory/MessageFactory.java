@@ -21,7 +21,7 @@ public class MessageFactory {
     }
 
 
-    //添加一条普通消息
+    //添加一条普通消息.
     public static Message add(User sender, User receiver, MessageCreateModel model){
         Message message = new Message(sender,receiver,model);
 
