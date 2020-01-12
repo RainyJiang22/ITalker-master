@@ -10,11 +10,11 @@
         <init-param>
             <param-name>jersey.config.server.provider.packages</param-name>
             <!--映射的包名，用于搜索处理类-->
-            <param-value>net.qiujuer.web.italker.push.service</param-value>
+            <param-value>net.jackytallow.web.italker.push.service</param-value>
         </init-param>
         <init-param>
             <param-name>javax.ws.rs.Application</param-name>
-            <param-value>net.qiujuer.web.italker.push.Application</param-value>
+            <param-value>net.jackytallow.web.italker.push.Application</param-value>
         </init-param>
 
         <load-on-startup>1</load-on-startup>
