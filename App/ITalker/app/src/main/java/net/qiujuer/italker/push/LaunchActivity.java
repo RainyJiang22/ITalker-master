@@ -98,6 +98,7 @@ public class LaunchActivity extends Activity {
             @Override
             public void run() {
                 reallySkip();
+                reallySkip();//真实跳转的
             }
         });
     }

@@ -13,8 +13,9 @@ public class Common {
         //手机号的正则，11为手机号
         String REGEX_MOBILE = "[1][3,4,5,7,8][0-9]{9}$";
 
+
         //基础的网络请求地址
-        String API_URL = "http://192.168.3.2:9090/api/";
+        String API_URL = "http://192.168.1.103:9090/api/";
 
     }
 }
