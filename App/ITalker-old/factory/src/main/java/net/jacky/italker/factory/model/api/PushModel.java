@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * 推送消息的基础Model
  *
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  */
 @SuppressWarnings("WeakerAccess")
@@ -80,12 +80,18 @@ public class PushModel {
         public String content;
         // 消息生成时间
         public Date createAt;
+
+
+        @Override
+        public String toString() {
+            return "Entity{" +
+                    "type=" + type +
+                    ", content='" + content + '\'' +
+                    ", createAt=" + createAt +
+                    '}';
+        }
     }
 
-    @Override
-    public String toString() {
-        return "PushModel{" +
-                "entities=" + entities +
-                '}';
-    }
+
+
 }
