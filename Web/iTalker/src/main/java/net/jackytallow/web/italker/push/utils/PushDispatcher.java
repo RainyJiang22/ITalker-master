@@ -24,27 +24,30 @@ import java.util.logging.Logger;
  * @version 1.0.0
  */
 public class PushDispatcher {
-    private static final String appId = "laljVfWVzP9QQxrDkF9iy2";
-    private static final String appKey = "x7cyBtuhHQ9JZ6Ki8SlKT";
-    private static final String masterSecret = "ad9TE7GdwiAyEzs8BZ4EO6";
-    private static String host = "http://sdk.open.api.igexin.com/apiex.htm";
+    private static final String appId = "Rr51sROK4B8FXbq0TUjAF5";
+    private static final String appKey = "eurxTdqHECAKgc7s4xtUe9";
+    private static final String masterSecret = "2zqRh5hMIY93LBqVlBtsi";
+    private static final String host = "http://sdk.open.api.igexin.com/apiex.htm";
 
     private final IGtPush pusher;
+    // 要收到消息的人和内容的列表
+    private final List<BatchBean> beans = new ArrayList<>();
 
-    //要收到消息的人和内容的列表
-    private List<BatchBean> beans = new ArrayList<>();
-
-
-    public PushDispatcher(){
-      //最根本的发送者
+    public PushDispatcher() {
+        // 最根本的发送者
         pusher = new IGtPush(host, appKey, masterSecret);
-
     }
 
-    public boolean add(User receiver, PushModel model){
-        //基础检查，必须要有接收者的设备ID号
-        //消息发送失败
-        if(receiver == null || model == null||
+    /**
+     * 添加一条消息
+     *
+     * @param receiver 接收者
+     * @param model    接收的推送Model
+     * @return 是否添加成功
+     */
+    public boolean add(User receiver, PushModel model) {
+        // 基础检查，必须有接收者的设备的Id
+        if (receiver == null || model == null ||
                 Strings.isNullOrEmpty(receiver.getPushId()))
             return false;
 
@@ -53,64 +56,63 @@ public class PushDispatcher {
             return false;
 
 
-        //构建一个目标+内容
-        BatchBean bean = buildMessage(receiver.getPushId(),pushString);
+        // 构建一个目标+内容
+        BatchBean bean = buildMessage(receiver.getPushId(), pushString);
         beans.add(bean);
         return true;
     }
 
-
     /**
      * 对要发送的数据进行格式化封装
-     * @param clientId 发送接收者设备的ID号
-     * @param text 发送的信息
-     * @return
+     *
+     * @param clientId 接收者的设备Id
+     * @param text     要接收的数据
+     * @return BatchBean
      */
-    private BatchBean buildMessage(String clientId, String text){
-        //透传消息，不是通知栏显示，而是MessageReceiver进行显示
+    private BatchBean buildMessage(String clientId, String text) {
+        // 透传消息，不是通知栏显示，而是在MessageReceiver收到
         TransmissionTemplate template = new TransmissionTemplate();
         template.setAppId(appId);
         template.setAppkey(appKey);
         template.setTransmissionContent(text);
-        template.setTransmissionType(0); // 这个Type为int型，填写1则自动启动app
-
+        template.setTransmissionType(0); //这个Type为int型，填写1则自动启动app
 
         SingleMessage message = new SingleMessage();
-        message.setData(template); //把透传信息设置进去
-        message.setOffline(true);//是否允许离线消息
-        message.setOfflineExpireTime(24 * 3600 * 1000); //离线接收时长
+        message.setData(template); // 把透传消息设置到单消息模版中
+        message.setOffline(true); // 是否运行离线发送
+        message.setOfflineExpireTime(24 * 3600 * 1000); // 离线消息时常
 
         // 设置推送目标，填入appid和clientId
         Target target = new Target();
         target.setAppId(appId);
         target.setClientId(clientId);
 
-        //返回一个封装
-        return new BatchBean(message,target);
+        // 返回一个封装
+        return new BatchBean(message, target);
     }
 
-    //进行消息最终发送
-    public boolean submit(){
-        //构建打包的工具类
+
+    // 进行消息最终发送
+    public boolean submit() {
+        // 构建打包的工具类
         IBatch batch = pusher.getBatch();
 
-        //是否有数据
+        // 是否有数据需要发送
         boolean haveData = false;
 
         for (BatchBean bean : beans) {
             try {
-                batch.add(bean.message,bean.target);
+                batch.add(bean.message, bean.target);
                 haveData = true;
             } catch (Exception e) {
                 e.printStackTrace();
+
             }
         }
 
-
-        //没有数据就返回
+        // 没有数据就直接返回
         if (!haveData)
             return false;
-
 
         IPushResult result = null;
         try {
@@ -118,36 +120,36 @@ public class PushDispatcher {
         } catch (IOException e) {
             e.printStackTrace();
 
-            //失败情况下，尝试重复发送
+            // 失败情况下尝试重复发送一次
             try {
                 batch.retry();
             } catch (IOException e1) {
                 e1.printStackTrace();
             }
+
         }
 
-        if (result!= null){
+        if (result != null) {
             try {
                 Logger.getLogger("PushDispatcher")
                         .log(Level.INFO, (String) result.getResponse().get("result"));
                 return true;
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
 
         Logger.getLogger("PushDispatcher")
-                .log(Level.WARNING, "推送服务器异常");
+                .log(Level.WARNING, "推送服务器响应异常！！！");
         return false;
+
     }
 
 
-
-    //给每个人发消息的Bean封装
-    private static class BatchBean{
+    // 给每个人发送消息的一个Bean封装
+    private static class BatchBean {
         SingleMessage message;
         Target target;
-
 
         BatchBean(SingleMessage message, Target target) {
             this.message = message;

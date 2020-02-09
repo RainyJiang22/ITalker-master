@@ -1,11 +1,13 @@
 package net.jackytallow.web.italker.push.service;
 
 import com.google.common.base.Strings;
+import net.jackytallow.web.italker.push.bean.api.base.PushModel;
 import net.jackytallow.web.italker.push.bean.api.base.ResponseModel;
 import net.jackytallow.web.italker.push.bean.api.user.UpdateInfoModel;
 import net.jackytallow.web.italker.push.bean.card.UserCard;
 import net.jackytallow.web.italker.push.bean.db.User;
 import net.jackytallow.web.italker.push.factory.UserFactory;
+import net.jackytallow.web.italker.push.utils.PushDispatcher;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -51,12 +53,13 @@ public class UserService extends BaseService {
     public ResponseModel<List<UserCard>> contact() {
         User self = getSelf();
 
-//        PushModel model = new PushModel();
-//        model.add(new PushModel.Entity(0,"Hello!"));
-//
-//        PushDispatcher dispatcher = new PushDispatcher();
-//        dispatcher.add(self,model);
-//        dispatcher.submit();
+        PushModel model = new PushModel();
+        model.add(new PushModel.Entity(0,"Hello，You are welcome!"));
+
+        PushDispatcher dispatcher = new PushDispatcher();
+        dispatcher.add(self,model);
+        //提交
+        dispatcher.submit();
 
         // 拿到我的联系人
         List<User> users = UserFactory.contacts(self);
