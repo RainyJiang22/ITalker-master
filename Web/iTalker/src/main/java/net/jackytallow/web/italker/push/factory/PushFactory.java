@@ -97,7 +97,8 @@ public class PushFactory {
            //保存到数据库的操作
            Hib.queryOnly(session -> {
                for (PushHistory history : histories) {
-                   session.save(histories);
+                  // session.save(histories);
+                   session.saveOrUpdate(history);
                }
            });
        }

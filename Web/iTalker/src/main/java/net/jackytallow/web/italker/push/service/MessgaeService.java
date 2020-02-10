@@ -39,13 +39,15 @@ public class MessgaeService extends BaseService {
             return ResponseModel.buildOk(new MessageCard(message));
         }
 
+        //接收者类型如果等于发送给群的消息类型
         if (model.getReceiverType() == Message.RECEVIER_TYPE_GROUP){
-           return pushToGroup(self,model);
+           //发送给群
+            return pushToGroup(self,model);
         }else{
+            //发送给人
            return pushToUser(self,model);
         }
     }
-
     //发送到人
     private ResponseModel<MessageCard> pushToUser(User sender, MessageCreateModel model) {
        User receiver = UserFactory.findById(model.getReceiverId());
