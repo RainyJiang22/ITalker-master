@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<net.jacky.italker.common.widget.MessageLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:fitsSystemWindows="true"
     tools:context="net.jacky.italker.push.frags.message.ChatUserFragment">
 
 
@@ -78,9 +79,64 @@
     </android.support.design.widget.CoordinatorLayout>
 
 
+<!--底部-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/grey_500"></LinearLayout>
+        android:background="@color/white_alpha_224"
+        android:elevation="2dp"
+        android:outlineProvider="bounds"
+        tools:targetApi="lollipop">
 
-</LinearLayout>
+        <ImageView
+            android:id="@+id/btn_face"
+            android:layout_width="@dimen/len_44"
+            android:layout_height="@dimen/len_44"
+            android:padding="@dimen/len_8"
+            android:src="@drawable/ic_emoji"
+            android:tint="@color/textPrimary"
+            android:foreground="@drawable/ic_touch_fg"
+            android:contentDescription="@string/app_name"
+            android:enabled="true" />
+
+        <ImageView
+            android:id="@+id/btn_record"
+            android:layout_width="@dimen/len_44"
+            android:layout_height="@dimen/len_44"
+            android:padding="@dimen/len_8"
+            android:src="@drawable/ic_record"
+            android:tint="@color/textPrimary"
+            android:foreground="@drawable/ic_touch_fg"
+            android:contentDescription="@string/app_name"
+            android:enabled="true" />
+
+        <EditText
+            android:id="@+id/edit_content"
+            android:background="@null"
+            android:padding="@dimen/len_4"
+            android:maxHeight="@dimen/len_68"
+            android:minHeight="@dimen/len_44"
+            android:hint="@string/label_chat_edit_hint"
+            android:lineSpacingExtra="0dp"
+            android:lineSpacingMultiplier="1"
+            android:textColorHint="@color/textSecond"
+            android:textColor="@color/textSecond"
+            android:textCursorDrawable="@drawable/ic_cursor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/btn_submit"
+            android:layout_width="@dimen/len_44"
+            android:layout_height="@dimen/len_44"
+            android:padding="@dimen/len_8"
+            android:src="@drawable/ic_submit"
+            android:tint="@color/textPrimary"
+            android:foreground="@drawable/ic_touch_fg"
+            android:contentDescription="@string/app_name"
+            android:enabled="true" />
+
+    </LinearLayout>
+
+</net.jacky.italker.common.widget.MessageLayout>
