@@ -12,6 +12,7 @@ import net.jacky.italker.push.activities.MessageActivity;
 import net.qiujuer.italker.push.R;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * @author jacky
@@ -21,7 +22,7 @@ import butterknife.BindView;
 public abstract class ChatFragment extends Fragment
         implements AppBarLayout.OnOffsetChangedListener {
 
-    private String mReciverId;
+    protected String mReciverId;
 
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
@@ -31,6 +32,7 @@ public abstract class ChatFragment extends Fragment
 
     @BindView(R.id.appbar)
     AppBarLayout mAppBarLayout;
+
 
 
     @Override
@@ -50,7 +52,8 @@ public abstract class ChatFragment extends Fragment
     }
 
 
-    private void initToolbar() {
+    //初始化Toolbar
+    protected void initToolbar() {
         Toolbar toolbar = mToolbar;
         toolbar.setNavigationIcon(R.drawable.ic_back);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -73,6 +76,18 @@ public abstract class ChatFragment extends Fragment
 
         }
     }
+
+    @OnClick(R.id.btn_face)
+    void onFaceClick(){
+        //TODO
+    }
+
+    @OnClick(R.id.btn_record)
+    void onRecordClick(){
+        //TODO
+    }
+
+
 
 
 }
