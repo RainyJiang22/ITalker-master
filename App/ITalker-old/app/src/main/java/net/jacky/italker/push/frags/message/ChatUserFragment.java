@@ -101,6 +101,7 @@ public class ChatUserFragment extends ChatFragment {
                 view.setScaleY(progress);
                 view.setAlpha(progress);
 
+                //和头像恰好相反
                 menuItem.setVisible(true);
                 menuItem.getIcon().setAlpha(255- (int)(255*progress));
             }
