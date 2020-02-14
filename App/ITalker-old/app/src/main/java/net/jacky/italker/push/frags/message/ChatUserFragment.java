@@ -1,15 +1,10 @@
 package net.jacky.italker.push.frags.message;
 
 
-import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-
 import net.jacky.italker.common.widget.PortraitView;
 import net.jacky.italker.push.activities.PersonalActivity;
 import net.qiujuer.italker.push.R;
