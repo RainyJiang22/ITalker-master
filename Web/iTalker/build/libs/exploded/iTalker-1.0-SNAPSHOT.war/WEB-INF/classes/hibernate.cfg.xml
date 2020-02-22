@@ -58,6 +58,8 @@
 
         <mapping package="net.jackytallow.web.italker.push.bean.db"
                  class="net.jackytallow.web.italker.push.bean.db.User"/>
+
+
         <mapping package="net.jackytallow.web.italker.push.bean.db"
                  class="net.jackytallow.web.italker.push.bean.db.UserFollow"/>
 
@@ -66,11 +68,14 @@
         <mapping package="net.jackytallow.web.italker.push.bean.db"
                  class="net.jackytallow.web.italker.push.bean.db.GroupMember"/>
 
+
         <mapping package="net.jackytallow.web.italker.push.bean.db"
                  class="net.jackytallow.web.italker.push.bean.db.Message"/>
 
+
         <mapping package="net.jackytallow.web.italker.push.bean.db"
                  class="net.jackytallow.web.italker.push.bean.db.PushHistory"/>
+
         <mapping package="net.jackytallow.web.italker.push.bean.db"
                  class="net.jackytallow.web.italker.push.bean.db.Apply"/>
 
