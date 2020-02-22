@@ -15,12 +15,14 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
 import net.jacky.italker.common.app.Fragment;
+import net.jacky.italker.common.app.PresenterFragment;
 import net.jacky.italker.common.widget.PortraitView;
 import net.jacky.italker.common.widget.adapter.TextWatcherAdapter;
 import net.jacky.italker.common.widget.recycler.RecyclerAdapter;
 import net.jacky.italker.factory.model.db.Message;
 import net.jacky.italker.factory.model.db.User;
 import net.jacky.italker.factory.persistence.Account;
+import net.jacky.italker.factory.presenter.message.ChatContract;
 import net.jacky.italker.push.activities.MessageActivity;
 import net.qiujuer.genius.ui.compat.UiCompat;
 import net.qiujuer.genius.ui.widget.Loading;
@@ -36,8 +38,10 @@ import butterknife.OnClick;
  * @version 1.0.0
  * @date 2020/2/9
  */
-public abstract class ChatFragment extends Fragment
-        implements AppBarLayout.OnOffsetChangedListener {
+public abstract class ChatFragment<InitModel>
+        extends PresenterFragment<ChatContract.Presenter>
+        implements AppBarLayout.OnOffsetChangedListener,
+        ChatContract.View<InitModel> {
 
     protected String mReciverId;
     protected Adapter mAdapter;
@@ -78,6 +82,12 @@ public abstract class ChatFragment extends Fragment
         mRecyclerView.setAdapter(mAdapter);
     }
 
+    @Override
+    protected void initData() {
+        super.initData();
+        //开始进行初始化操作
+        mPresenter.start();
+    }
 
     //初始化Toolbar
     protected void initToolbar() {
@@ -130,6 +140,9 @@ public abstract class ChatFragment extends Fragment
     void onSubmitClick() {
         if (mSubmit.isActivated()) {
             //发送
+            String content = mContent.getText().toString();
+            mContent.setText("");
+            mPresenter.pushText(content);
         } else {
             onMoreClick();
         }
@@ -139,6 +152,15 @@ public abstract class ChatFragment extends Fragment
         //TODO
     }
 
+    @Override
+    public RecyclerAdapter<Message> getRecyclerAdapter() {
+        return mAdapter;
+    }
+
+    @Override
+    public void onAdapterDataChanged() {
+        //界面没有占位布局,Recycler是长显示的，不需要动任何
+    }
 
     //内容的适配器
     private class Adapter extends RecyclerAdapter<Message> {

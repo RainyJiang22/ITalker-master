@@ -6,6 +6,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import net.jacky.italker.common.widget.PortraitView;
+import net.jacky.italker.factory.model.db.User;
+import net.jacky.italker.factory.presenter.message.ChatContract;
 import net.jacky.italker.push.activities.PersonalActivity;
 import net.qiujuer.italker.push.R;
 
@@ -15,7 +17,8 @@ import butterknife.OnClick;
 /**
  * 用户聊天界面
  */
-public class ChatUserFragment extends ChatFragment {
+public class ChatUserFragment extends ChatFragment<User>
+        implements ChatContract.UserView {
 
     @BindView(R.id.im_portrait)
     PortraitView mPortrait;
@@ -109,4 +112,13 @@ public class ChatUserFragment extends ChatFragment {
         PersonalActivity.show(getContext(), mReciverId);
     }
 
+    @Override
+    protected ChatContract.Presenter initPresenter() {
+        return null;
+    }
+
+    @Override
+    public void onInit(User user) {
+        // 对和你聊天的朋友进行初始化操作
+    }
 }

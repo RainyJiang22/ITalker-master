@@ -6,12 +6,16 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import net.jacky.italker.factory.model.db.Group;
+import net.jacky.italker.factory.presenter.message.ChatContract;
 import net.qiujuer.italker.push.R;
 
 /**
- * A simple {@link Fragment} subclass.
+ * 群聊天界面
  */
-public class ChatGroupFragment extends ChatFragment {
+public class ChatGroupFragment extends ChatFragment<Group>
+   implements ChatContract.GroupView {
 
 
     public ChatGroupFragment() {
@@ -24,4 +28,14 @@ public class ChatGroupFragment extends ChatFragment {
         return R.layout.fragment_chat_group;
     }
 
+
+    @Override
+    protected ChatContract.Presenter initPresenter() {
+        return null;
+    }
+
+    @Override
+    public void onInit(Group group) {
+
+    }
 }
