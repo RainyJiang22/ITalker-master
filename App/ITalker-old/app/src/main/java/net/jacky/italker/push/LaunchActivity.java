@@ -111,12 +111,21 @@ public class LaunchActivity extends Activity {
         if (PermissionsFragment.haveAll(this, getSupportFragmentManager())) {
             // 检查跳转到主页还是登录
             if (Account.isLogin()) {
+                //已经登陆了，直接跳转到主界面
                 MainActivity.show(this);
             } else {
+                //没有登陆，跳转到登陆界面
                 AccountActivity.show(this);
             }
             finish();
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //回到欢迎界面的时候，再重新检测一次
+        reallySkip();
     }
 
     /**
