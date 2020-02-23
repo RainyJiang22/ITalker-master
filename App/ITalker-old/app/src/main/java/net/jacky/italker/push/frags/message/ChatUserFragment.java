@@ -2,11 +2,15 @@ package net.jacky.italker.push.frags.message;
 
 
 import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.ViewTarget;
 
 import net.jacky.italker.common.widget.PortraitView;
 import net.jacky.italker.factory.model.db.User;
@@ -40,6 +44,21 @@ public class ChatUserFragment extends ChatFragment<User>
     }
 
     @Override
+    protected void initWidget(View root) {
+        super.initWidget(root);
+
+        Glide.with(this)
+                .load(R.drawable.default_banner_chat)
+                .centerCrop()
+                .into(new ViewTarget<CollapsingToolbarLayout, GlideDrawable>(mCollapsingLayout) {
+                    @Override
+                    public void onResourceReady(GlideDrawable resource, GlideAnimation<? super GlideDrawable> glideAnimation) {
+                       this.view.setContentScrim(resource.getCurrent());
+                    }
+                });
+    }
+
+    @Override
     protected void initToolbar() {
         super.initToolbar();
 
@@ -68,7 +87,6 @@ public class ChatUserFragment extends ChatFragment<User>
 
         if (view == null || menuItem == null)
             return;
-
 
 
         if (verticalOffset == 0) {
@@ -105,7 +123,7 @@ public class ChatUserFragment extends ChatFragment<User>
 
                 //和头像恰好相反
                 menuItem.setVisible(true);
-                menuItem.getIcon().setAlpha(255- (int)(255*progress));
+                menuItem.getIcon().setAlpha(255 - (int) (255 * progress));
             }
         }
     }
@@ -119,14 +137,14 @@ public class ChatUserFragment extends ChatFragment<User>
     @Override
     protected ChatContract.Presenter initPresenter() {
         //初始化Presenter
-        return new ChatUserPresenter(this,mReciverId);
+        return new ChatUserPresenter(this, mReciverId);
     }
 
     @Override
     public void onInit(User user) {
         // 对和你聊天的朋友进行初始化操作
         //头像加载
-        mPortrait.setup(Glide.with(this),user.getPortrait());
+        mPortrait.setup(Glide.with(this), user.getPortrait());
         //名字加载
         mCollapsingLayout.setTitle(user.getName());
     }
