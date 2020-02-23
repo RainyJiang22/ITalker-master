@@ -17,6 +17,7 @@ import net.jacky.italker.common.widget.recycler.RecyclerAdapter;
 import net.jacky.italker.factory.model.db.Session;
 import net.jacky.italker.factory.model.db.User;
 import net.jacky.italker.factory.presenter.message.SessionContract;
+import net.jacky.italker.factory.presenter.message.SessionPresenter;
 import net.jacky.italker.push.activities.MessageActivity;
 import net.jacky.italker.push.activities.PersonalActivity;
 import net.jacky.italker.utils.DateTimeUtil;
@@ -91,7 +92,8 @@ public class ActiveFragment extends PresenterFragment<SessionContract.Presenter>
 
     @Override
     protected SessionContract.Presenter initPresenter() {
-        return null;
+       //初始化Presenter
+        return new SessionPresenter(this);
     }
 
     @Override
