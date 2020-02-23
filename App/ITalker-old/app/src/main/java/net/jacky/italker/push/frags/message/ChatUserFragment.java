@@ -5,9 +5,13 @@ import android.support.design.widget.AppBarLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+
+import com.bumptech.glide.Glide;
+
 import net.jacky.italker.common.widget.PortraitView;
 import net.jacky.italker.factory.model.db.User;
 import net.jacky.italker.factory.presenter.message.ChatContract;
+import net.jacky.italker.factory.presenter.message.ChatUserPresenter;
 import net.jacky.italker.push.activities.PersonalActivity;
 import net.qiujuer.italker.push.R;
 
@@ -114,11 +118,16 @@ public class ChatUserFragment extends ChatFragment<User>
 
     @Override
     protected ChatContract.Presenter initPresenter() {
-        return null;
+        //初始化Presenter
+        return new ChatUserPresenter(this,mReciverId);
     }
 
     @Override
     public void onInit(User user) {
         // 对和你聊天的朋友进行初始化操作
+        //头像加载
+        mPortrait.setup(Glide.with(this),user.getPortrait());
+        //名字加载
+        mCollapsingLayout.setTitle(user.getName());
     }
 }

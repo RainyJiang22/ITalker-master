@@ -17,7 +17,7 @@ import java.util.List;
  * 基础的数据库仓库
  * 实现对数据库的基本的监听操作
  *
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  */
 public abstract class BaseDbRepository<Data extends BaseDbModel<Data>> implements DbDataSource<Data>,

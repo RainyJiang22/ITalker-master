@@ -4,7 +4,9 @@ import net.jacky.italker.factory.model.api.RspModel;
 import net.jacky.italker.factory.model.api.account.AccountRspModel;
 import net.jacky.italker.factory.model.api.account.LoginModel;
 import net.jacky.italker.factory.model.api.account.RegisterModel;
+import net.jacky.italker.factory.model.api.message.MsgCreateModel;
 import net.jacky.italker.factory.model.api.user.UserUpdateModel;
+import net.jacky.italker.factory.model.card.MessageCard;
 import net.jacky.italker.factory.model.card.UserCard;
 
 import java.util.List;
@@ -19,7 +21,7 @@ import retrofit2.http.Path;
 /**
  * 网络请求的所有的接口
  *
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  */
 public interface RemoteService {
@@ -67,6 +69,11 @@ public interface RemoteService {
     @GET("user/contact")
     Call<RspModel<List<UserCard>>> userContacts();
 
+    //查询某人的信息
     @GET("user/{userId}")
     Call<RspModel<UserCard>> userFind(@Path("userId") String userId);
+
+    //发送消息的接口
+    @POST("message")
+    Call<RspModel<MessageCard>> msgPush(@Body MsgCreateModel model);
 }

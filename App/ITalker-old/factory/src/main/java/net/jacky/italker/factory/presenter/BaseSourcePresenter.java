@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * 基础的仓库源的Presenter定义
  *
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  */
 public abstract class BaseSourcePresenter<Data, ViewModel,
