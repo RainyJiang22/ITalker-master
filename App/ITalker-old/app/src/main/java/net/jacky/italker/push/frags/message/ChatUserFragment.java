@@ -12,6 +12,7 @@ import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.ViewTarget;
 
+import net.jacky.italker.common.widget.ImHeaderView;
 import net.jacky.italker.common.widget.PortraitView;
 import net.jacky.italker.factory.model.db.User;
 import net.jacky.italker.factory.presenter.message.ChatContract;
@@ -46,7 +47,7 @@ public class ChatUserFragment extends ChatFragment<User>
     @Override
     protected void initWidget(View root) {
         super.initWidget(root);
-
+        //加载渐变动画
         Glide.with(this)
                 .load(R.drawable.default_banner_chat)
                 .centerCrop()
@@ -68,6 +69,7 @@ public class ChatUserFragment extends ChatFragment<User>
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 if (item.getItemId() == R.id.action_person) {
+                    //头像点击
                     onPortraitClick();
                 }
                 return false;
