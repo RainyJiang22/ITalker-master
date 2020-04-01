@@ -1,5 +1,6 @@
 package net.jackytallow.web.italker.push.service;
 
+import com.google.common.base.Strings;
 import net.jackytallow.web.italker.push.bean.api.base.ResponseModel;
 import net.jackytallow.web.italker.push.bean.api.group.GroupCreateModel;
 import net.jackytallow.web.italker.push.bean.api.group.GroupMemberAddModel;
@@ -13,9 +14,11 @@ import net.jackytallow.web.italker.push.bean.db.User;
 import net.jackytallow.web.italker.push.factory.GroupFactory;
 import net.jackytallow.web.italker.push.factory.PushFactory;
 import net.jackytallow.web.italker.push.factory.UserFactory;
+import net.jackytallow.web.italker.push.provider.LocalDateTimeConverter;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -108,26 +111,70 @@ public class GroupService extends BaseService {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public ResponseModel<List<GroupCard>> search(@PathParam("name") @DefaultValue("") String name) {
-        return null;
+        User self = getSelf();
+        List<Group> groups = GroupFactory.search(name);
+        if (groups != null && groups.size() > 0) {
+            List<GroupCard> groupCards = groups.stream()
+                    .map(group -> {
+                        GroupMember member = GroupFactory.getMember(self.getId(), group.getId());
+                        return new GroupCard(group, member);
+                    }).collect(Collectors.toList());
+
+            return ResponseModel.buildOk(groupCards);
+        }
+        return ResponseModel.buildOk();
     }
 
     //查看群的列表
     @GET
-    @Path("/search/{date:(.*)?}")
+    @Path("/list/{date:(.*)?}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public ResponseModel<List<GroupCard>> list(@DefaultValue("") @PathParam("date") String dateStr) {
-        return null;
+        User self = getSelf();
+
+        //拿取时间
+        LocalDateTime dateTime = null;
+        if (!Strings.isNullOrEmpty(dateStr)) {
+            try {
+                dateTime = LocalDateTime.parse(dateStr, LocalDateTimeConverter.FORMATTER);
+            } catch (Exception e) {
+                dateTime = null;
+            }
+        }
+
+        Set<GroupMember> members = GroupFactory.getMembers(self);
+        if (members == null || members.size() == 0)
+            return ResponseModel.buildOk();
+        //进行时间过滤
+        LocalDateTime finalDateTime = dateTime;
+        List<GroupCard> groupCards = members.stream()
+                .filter(groupMember -> finalDateTime == null //时间如果为null不做限制
+                        || groupMember.getUpdateAt().isAfter(finalDateTime)) //时间不为空，需要在这个时间之后
+                .map(GroupCard::new) //转换操作
+                .collect(Collectors.toList());
+
+        return ResponseModel.buildOk(groupCards);
     }
 
-    //获取一个群的消息
+    //获取一个群的消息,必须是群成员
     @GET
     @Path("{groupId}")
     // 指定请求与返回的相应体为JSON
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public ResponseModel<GroupCard> getGroup(@PathParam("groupId") String id) {
-        return null;
+       if (Strings.isNullOrEmpty(id))
+           return ResponseModel.buildParameterError();
+
+       User self = getSelf();
+       GroupMember member = GroupFactory.getMember(self.getId(),id);
+       //必须要是群里的成员
+        if (member == null) {
+            return ResponseModel.buildNotFoundGroupError(null);
+        }
+
+        return ResponseModel.buildOk(new GroupCard(member));
     }
 
 

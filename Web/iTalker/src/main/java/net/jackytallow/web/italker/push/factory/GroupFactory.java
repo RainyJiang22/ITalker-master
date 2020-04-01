@@ -1,5 +1,6 @@
 package net.jackytallow.web.italker.push.factory;
 
+import com.google.common.base.Strings;
 import net.jackytallow.web.italker.push.bean.api.group.GroupCreateModel;
 import net.jackytallow.web.italker.push.bean.db.Group;
 import net.jackytallow.web.italker.push.bean.db.GroupMember;
@@ -41,6 +42,18 @@ public class GroupFactory {
             @SuppressWarnings("unchecked")
             List<GroupMember> members = session.createQuery("from GroupMember where group=:group")
                     .setParameter("group", group)
+                    .list();
+            return new HashSet<>(members);
+        });
+    }
+
+
+    //获取一个人加入的所有群
+    public static Set<GroupMember> getMembers(User user) {
+        return Hib.query(session -> {
+            @SuppressWarnings("unchecked")
+            List<GroupMember> members = session.createQuery("from GroupMember where userId=:userId")
+                    .setParameter("userId", user)
                     .list();
             return new HashSet<>(members);
         });
@@ -99,4 +112,20 @@ public class GroupFactory {
     }
 
 
+    // 查询
+    @SuppressWarnings("unchecked")
+    public static List<Group> search(String name) {
+        if (Strings.isNullOrEmpty(name))
+            name = ""; // 保证不能为null的情况，减少后面的一下判断和额外的错误
+        final String searchName = "%" + name + "%"; // 模糊匹配
+
+        return Hib.query(session -> {
+            // 查询的条件：name忽略大小写，并且使用like（模糊）查询；
+            return (List<Group>) session.createQuery("from Group where lower(name) like :name")
+                    .setParameter("name", searchName)
+                    .setMaxResults(20) // 至多20条
+                    .list();
+
+        });
+    }
 }
