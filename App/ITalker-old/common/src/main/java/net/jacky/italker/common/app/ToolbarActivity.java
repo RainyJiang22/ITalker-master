@@ -6,7 +6,7 @@ import android.support.v7.widget.Toolbar;
 import net.qiujuer.italker.common.R;
 
 /**
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  */
 public abstract class ToolbarActivity extends Activity {

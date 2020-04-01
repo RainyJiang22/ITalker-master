@@ -1,8 +1,8 @@
 package net.jacky.italker.factory.presenter;
 
-import android.support.annotation.StringRes;
+        import android.support.annotation.StringRes;
 
-import net.jacky.italker.common.widget.recycler.RecyclerAdapter;
+        import net.jacky.italker.common.widget.recycler.RecyclerAdapter;
 
 /**
  * MVP模式中公共的基本契约

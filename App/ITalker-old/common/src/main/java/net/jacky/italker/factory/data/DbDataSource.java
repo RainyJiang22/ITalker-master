@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * 基础的数据库数据源接口定义
  *
- * @author qiujuer Email:qiujuer@live.cn
+ * @author  jacky
  * @version 1.0.0
  */
 public interface DbDataSource<Data> extends DataSource {

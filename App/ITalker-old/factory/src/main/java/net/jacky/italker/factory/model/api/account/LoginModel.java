@@ -1,7 +1,7 @@
 package net.jacky.italker.factory.model.api.account;
 
 /**
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  */
 public class LoginModel {

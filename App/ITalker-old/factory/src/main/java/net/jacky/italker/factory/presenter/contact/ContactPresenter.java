@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * 联系人的Presenter实现
  *
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  */
 public class ContactPresenter extends BaseSourcePresenter<User, User, ContactDataSource, ContactContract.View>

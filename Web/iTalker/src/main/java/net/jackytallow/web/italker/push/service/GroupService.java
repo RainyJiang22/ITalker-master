@@ -7,10 +7,19 @@ import net.jackytallow.web.italker.push.bean.api.group.GroupMemberUpdateModel;
 import net.jackytallow.web.italker.push.bean.card.ApplyCard;
 import net.jackytallow.web.italker.push.bean.card.GroupCard;
 import net.jackytallow.web.italker.push.bean.card.GroupMemberCard;
+import net.jackytallow.web.italker.push.bean.db.Group;
+import net.jackytallow.web.italker.push.bean.db.GroupMember;
+import net.jackytallow.web.italker.push.bean.db.User;
+import net.jackytallow.web.italker.push.factory.GroupFactory;
+import net.jackytallow.web.italker.push.factory.PushFactory;
+import net.jackytallow.web.italker.push.factory.UserFactory;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * @author Jacky
@@ -28,7 +37,62 @@ public class GroupService extends BaseService {
     @Produces(MediaType.APPLICATION_JSON)
     //创建一个群
     public ResponseModel<GroupCard> create(GroupCreateModel model) {
-        return null;
+        if (!GroupCreateModel.check(model)) {
+            return ResponseModel.buildParameterError();
+        }
+
+        //创建者
+        User creator = getSelf();
+        //创建者并不在列表中
+        model.getUsers().remove(creator.getId());
+        if (model.getUsers().size() == 0)
+            return ResponseModel.buildParameterError();
+
+        //检查是否已有
+        if (GroupFactory.findByName(model.getName()) != null) {
+            return ResponseModel.buildParameterError();
+        }
+
+        List<User> users = new ArrayList<>();
+        for (String s : model.getUsers()) {
+            User user = UserFactory.findById(s);
+            if (user == null)
+                continue;
+            users.add(user);
+        }
+        //没有一个成员
+        if (users.size() == 0) {
+            return ResponseModel.buildParameterError();
+        }
+
+        Group group = GroupFactory.create(creator, model, users);
+        if (group == null) {
+            //服务器异常
+            return ResponseModel.buildServiceError();
+        }
+
+
+        //拿管理员的信息，自己的信息
+        GroupMember creatorMember = GroupFactory.getMember(creator.getId(), group.getId());
+        if (creatorMember == null) {
+            //服务器异常
+            return ResponseModel.buildParameterError();
+        }
+
+        //拿到群的成员，给所有的群成员发送信息，已经被添加到群的信息
+        Set<GroupMember> members = GroupFactory.getMembers(group);
+        if (members == null) {
+            //服务器异常
+            return ResponseModel.buildParameterError();
+        }
+        members = members.stream()
+                .filter(groupMember -> groupMember.getId().equalsIgnoreCase(creatorMember.getId()))
+                .collect(Collectors.toSet());
+
+        //开始发起推送
+        PushFactory.pushGroupAdd(members);
+
+        return ResponseModel.buildOk(new GroupCard(creatorMember));
     }
 
     //搜索一个群
@@ -69,6 +133,7 @@ public class GroupService extends BaseService {
 
     /**
      * 拉取一个群的所有成员，你必须是成员之一
+     *
      * @param groupId 群Id
      * @return 成员列表
      */
@@ -78,13 +143,14 @@ public class GroupService extends BaseService {
     @Produces(MediaType.APPLICATION_JSON)
     //获取群组成员的信息
     public ResponseModel<List<GroupMemberCard>> members(@PathParam("groupId") String groupId) {
-         return null;
+        return null;
     }
 
     /**
      * 给群添加成员的接口，请求的人要么是管理员，要么是群成员本人
+     *
      * @param groupId 群Id，你必须是群的管理者
-     * @param model 添加成员的Model
+     * @param model   添加成员的Model
      * @return 添加的成员列表
      */
     @GET
@@ -100,8 +166,9 @@ public class GroupService extends BaseService {
 
     /**
      * 更改成员的信息接口
+     *
      * @param memberId 群成员Id
-     * @param model 更改成员的Model
+     * @param model    更改成员的Model
      * @return 群成员的信息
      */
     @PUT

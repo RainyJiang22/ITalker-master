@@ -82,7 +82,6 @@ public class MessgaeService extends BaseService {
     }
 
     //推送并构建一个返回消息
-    //TODO 先不进行推送
     private ResponseModel<MessageCard> buildAndPushResponse(User sender, Message message) {
         if (message == null){
             //存储数据库失败

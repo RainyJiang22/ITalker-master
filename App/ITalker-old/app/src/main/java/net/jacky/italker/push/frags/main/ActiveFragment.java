@@ -41,6 +41,7 @@ public class ActiveFragment extends PresenterFragment<SessionContract.Presenter>
 
     public ActiveFragment() {
         // Required empty public constructor
+        //no thing to do
     }
 
 

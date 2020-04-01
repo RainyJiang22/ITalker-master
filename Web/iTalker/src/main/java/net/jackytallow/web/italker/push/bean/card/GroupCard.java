@@ -30,14 +30,11 @@ public class GroupCard {
 
 
     public GroupCard(GroupMember groupMember) {
-        this.id = id;
-        this.name = name;
-        this.desc = desc;
-        this.picture = picture;
-        this.ownerId = ownerId;
-        this.notifyLevel = notifyLevel;
-        this.joinAt = joinAt;
-        this.modifyAt = modifyAt;
+        this(groupMember.getGroup(),groupMember);
+    }
+
+    public GroupCard(Group group) {
+        this(group,null);
     }
 
     public GroupCard(Group group, GroupMember member) {

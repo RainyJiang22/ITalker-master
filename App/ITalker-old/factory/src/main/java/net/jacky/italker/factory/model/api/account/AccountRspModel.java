@@ -3,7 +3,7 @@ package net.jacky.italker.factory.model.api.account;
 import net.jacky.italker.factory.model.db.User;
 
 /**
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  */
 public class AccountRspModel {

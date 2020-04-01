@@ -1,7 +1,7 @@
 package net.jacky.italker.push.frags.account;
 
 /**
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  */
 public interface AccountTrigger {

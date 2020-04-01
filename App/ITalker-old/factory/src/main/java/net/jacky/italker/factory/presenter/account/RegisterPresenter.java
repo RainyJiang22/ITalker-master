@@ -16,7 +16,8 @@ import net.jacky.italker.factory.presenter.BasePresenter;
 import java.util.regex.Pattern;
 
 /**
- * @author qiujuer Email:qiujuer@live.cn
+ * 注册的逻辑实现
+ * @author jacky
  * @version 1.0.0
  */
 public class RegisterPresenter extends BasePresenter<RegisterContract.View>

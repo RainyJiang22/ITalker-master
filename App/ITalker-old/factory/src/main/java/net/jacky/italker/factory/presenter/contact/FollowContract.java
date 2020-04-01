@@ -6,7 +6,7 @@ import net.jacky.italker.factory.presenter.BaseContract;
 /**
  * 关注的接口定义
  *
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  */
 public interface FollowContract {

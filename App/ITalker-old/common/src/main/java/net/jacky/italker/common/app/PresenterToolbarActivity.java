@@ -3,7 +3,7 @@ package net.jacky.italker.common.app;
 import net.jacky.italker.factory.presenter.BaseContract;
 
 /**
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  */
 public abstract class PresenterToolbarActivity<Presenter extends BaseContract.Presenter>

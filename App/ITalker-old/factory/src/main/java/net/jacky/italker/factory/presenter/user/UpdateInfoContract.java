@@ -5,7 +5,7 @@ import net.jacky.italker.factory.presenter.BaseContract;
 /**
  * 更新用户信息的基本的契约
  *
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  */
 public interface UpdateInfoContract {
