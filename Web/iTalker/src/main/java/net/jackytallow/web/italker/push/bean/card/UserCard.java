@@ -3,6 +3,7 @@ package net.jackytallow.web.italker.push.bean.card;
 import com.google.gson.annotations.Expose;
 import net.jackytallow.web.italker.push.bean.db.User;
 import net.jackytallow.web.italker.push.utils.Hib;
+import org.hibernate.Hibernate;
 
 import java.time.LocalDateTime;
 
@@ -57,15 +58,16 @@ public class UserCard {
 
         //得到关注人和粉丝的数量
         // user.getFollowers().size()
-        // 懒加载会报错，因为没有Session
+        // 懒加载会报错，因为没有Session，重新加载一次就可以
 
         //需要重新加载用户数据
         Hib.queryOnly(session -> {
-           session.load(user,user.getId());
-
-           following = user.getFollowing().size();
-           follows = user.getFollowers().size();
-
+            session.load(user, user.getId());
+            //这个时候仅仅只是进行了数量查询，并没有查询这个集合
+            //要查询集合，必须在session存在的情况下进行遍历
+            //或者使用Hibernate.initialize(user.getFollowers());
+            following = user.getFollowing().size();
+            follows = user.getFollowers().size();
         });
 
 

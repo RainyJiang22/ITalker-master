@@ -280,7 +280,7 @@ public class GroupService extends BaseService {
         }
 
         //进行添加
-        Set<GroupMember> insertMembers = GroupFactory.addMembers(group,insertUsers);
+        Set<GroupMember> insertMembers = GroupFactory.addMembers(group, insertUsers);
         if (insertMembers == null)
             return ResponseModel.buildServiceError();
 
@@ -293,9 +293,9 @@ public class GroupService extends BaseService {
 
         //1.通知新增的成员，你被加入了XX群
         PushFactory.pushJoinGroup(insertMembers);
-        
+
         //2.通知群的成员，有XXX加入了群
-        PushFactory.pushGroupMemberAdd(oldMembers,insertCards);
+        PushFactory.pushGroupMemberAdd(oldMembers, insertCards);
 
 
         return ResponseModel.buildOk(insertCards);
