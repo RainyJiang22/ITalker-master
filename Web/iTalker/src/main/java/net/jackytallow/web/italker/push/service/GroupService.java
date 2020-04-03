@@ -187,7 +187,7 @@ public class GroupService extends BaseService {
      * @return 成员列表
      */
     @GET
-    @Path("{groupId}/members")
+    @Path("{groupId}/member")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     //获取群组成员的信息
@@ -218,90 +218,83 @@ public class GroupService extends BaseService {
     }
 
     /**
-     * 给群添加成员的接口，请求的人要么是管理员，要么是群成员本人
+     * 给群添加成员的接口
      *
-     * @param groupId 群Id，你必须是群的管理者
+     * @param groupId 群Id，你必须是这个群的管理者之一
      * @param model   添加成员的Model
-     * @return 添加的成员列表
+     * @return 添加成员列表
      */
-    @GET
-    @Path("{groupId}/member")
-    // 指定请求与返回的相应体为JSON
+    @POST
+    @Path("/{groupId}/member")
+    //http:.../api/group/0000-0000-0000-0000/member
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    //添加一个群成员
     public ResponseModel<List<GroupMemberCard>> memberAdd(@PathParam("groupId") String groupId, GroupMemberAddModel model) {
-
-        if (Strings.isNullOrEmpty(groupId) || !GroupMemberAddModel.check(model)) {
+        if (Strings.isNullOrEmpty(groupId) || !GroupMemberAddModel.check(model))
             return ResponseModel.buildParameterError();
-        }
 
-        //拿到我的信息
+        // 拿到我的信息
         User self = getSelf();
 
-        //移除我之后再进行判断数量
+        // 移除我之后再进行判断数量
         model.getUsers().remove(self.getId());
         if (model.getUsers().size() == 0)
             return ResponseModel.buildParameterError();
 
-        //没有这个群
+        // 没有这个群
         Group group = GroupFactory.findById(groupId);
         if (group == null)
             return ResponseModel.buildNotFoundGroupError(null);
 
-        //我必须是成员,同时是管理员及其以上级别
+        // 我必须是成员, 同时是管理员及其以上级别
         GroupMember selfMember = GroupFactory.getMember(self.getId(), groupId);
-        if (selfMember == null || selfMember.getPermissionType() == GroupMember.PERMISSION_TYPE_NONE) {
-            //没有权限
+        if (selfMember == null || selfMember.getPermissionType() == GroupMember.PERMISSION_TYPE_NONE)
             return ResponseModel.buildNoPermissionError();
-        }
 
 
-        //已有的成员
+        // 已有的成员
         Set<GroupMember> oldMembers = GroupFactory.getMembers(group);
         Set<String> oldMemberUserIds = oldMembers.stream()
                 .map(GroupMember::getUserId)
                 .collect(Collectors.toSet());
 
+
         List<User> insertUsers = new ArrayList<>();
         for (String s : model.getUsers()) {
-            //找人
+            // 找人
             User user = UserFactory.findById(s);
             if (user == null)
                 continue;
-            //已经在群里了
-            if (oldMemberUserIds.contains(user.getId()))
+            // 已经在群里了
+            if(oldMemberUserIds.contains(user.getId()))
                 continue;
 
             insertUsers.add(user);
         }
-
-        //没有一个新增的成员
+        // 没有一个新增的成员
         if (insertUsers.size() == 0) {
             return ResponseModel.buildParameterError();
         }
 
-        //进行添加
-        Set<GroupMember> insertMembers = GroupFactory.addMembers(group, insertUsers);
-        if (insertMembers == null)
+        // 进行添加操作
+        Set<GroupMember> insertMembers =  GroupFactory.addMembers(group, insertUsers);
+        if(insertMembers==null)
             return ResponseModel.buildServiceError();
 
-        //转换
+
+        // 转换
         List<GroupMemberCard> insertCards = insertMembers.stream()
                 .map(GroupMemberCard::new)
                 .collect(Collectors.toList());
 
-        //通知，两部分
-
-        //1.通知新增的成员，你被加入了XX群
+        // 通知，两部曲
+        // 1.通知新增的成员，你被加入了XXX群
         PushFactory.pushJoinGroup(insertMembers);
 
-        //2.通知群的成员，有XXX加入了群
+        // 2.通知群中老的成员，有XXX，XXX加入群
         PushFactory.pushGroupMemberAdd(oldMembers, insertCards);
 
-
         return ResponseModel.buildOk(insertCards);
-
     }
 
     /**

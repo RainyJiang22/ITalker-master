@@ -111,14 +111,8 @@ public class PushFactory {
     }
 
     /**
-     * 给群成员构建一个消息
+     * 给群成员构建一个消息，
      * 把消息存储到数据库的历史记录中，每个人，每条消息都是一个记录
-     *
-     * @param dispatcher
-     * @param histories
-     * @param members
-     * @param entity
-     * @param entityTypeMessage
      */
     private static void addGroupMembersPushModel(PushDispatcher dispatcher,
                                                  List<PushHistory> histories,
@@ -126,29 +120,27 @@ public class PushFactory {
                                                  String entity,
                                                  int entityTypeMessage) {
         for (GroupMember member : members) {
-            // 无须通过Id通过再找用户
+            // 无须通过Id再去找用户
             User receiver = member.getUser();
             if (receiver == null)
                 return;
 
-            //历史记录表字段建立
+            // 历史记录表字段建立
             PushHistory history = new PushHistory();
-            history.setEntityType(PushModel.ENTITY_TYPE_MESSAGE);
+            history.setEntityType(entityTypeMessage);
             history.setEntity(entity);
             history.setReceiver(receiver);
             history.setReceiverPushId(receiver.getPushId());
+            histories.add(history);
 
-            //构建一个消息Model
+            // 构建一个消息Model
             PushModel pushModel = new PushModel();
             pushModel.add(history.getEntityType(), history.getEntity());
 
-            //添加到发送者的数据集中
+            // 添加到发送者的数据集中
             dispatcher.add(receiver, pushModel);
-
         }
-
     }
-
     /**
      * 通知一些成员，被加入了XXX群
      *
@@ -200,40 +192,37 @@ public class PushFactory {
         dispatcher.submit();
     }
 
-
     /**
-     * 通知老成员，有一系列新的成员加入某个群
+     * 通知老成员，有一系列新的成员加入到某个群
      *
-     * @param oldMembers  oldMembers 老的成员
-     * @param insertCards insertCards 新的成员的集合
+     * @param oldMembers  老的成员
+     * @param insertCards 新的成员的信息集合
      */
     public static void pushGroupMemberAdd(Set<GroupMember> oldMembers, List<GroupMemberCard> insertCards) {
-
-        //发送者
+        // 发送者
         PushDispatcher dispatcher = new PushDispatcher();
 
-        //一个历史记录列表
+        // 一个历史记录列表
         List<PushHistory> histories = new ArrayList<>();
 
-        //当前新增的用户的集合的Json字符串
+        // 当前新增的用户的集合的Json字符串
         String entity = TextUtil.toJson(insertCards);
 
-        //进行循环添加,给oldMembers每一个老的用户进行构建，消息的内容为新增的用户的集合
-        //通知的类型是：群成员添加了的类型
+        // 进行循环添加，给oldMembers每一个老的用户构建一个消息，消息的内容为新增的用户的集合
+        // 通知的类型是：群成员添加了的类型
         addGroupMembersPushModel(dispatcher, histories, oldMembers,
-                entity, PushModel.ENTITY_TYPE_EXIT_GROUP_MEMBERS);
+                entity, PushModel.ENTITY_TYPE_ADD_GROUP_MEMBERS);
 
-        //保存大奥数据库的操作
+        // 保存到数据库的操作
         Hib.queryOnly(session -> {
             for (PushHistory history : histories) {
                 session.saveOrUpdate(history);
             }
         });
 
-        //提交发送
+        // 提交发送
         dispatcher.submit();
     }
-
 
     /**
      * 推送账户退出消息
