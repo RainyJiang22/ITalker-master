@@ -72,32 +72,29 @@ public class GroupFactory {
 
 
 
-    //创建群
+    // 创建群
     public static Group create(User creator, GroupCreateModel model, List<User> users) {
-        Hib.query(session -> {
-            Group group = new Group(creator,model);
+        return Hib.query(session -> {
+            Group group = new Group(creator, model);
             session.save(group);
 
-            GroupMember ownerMember = new GroupMember(creator,group);
-            //设置超级权限，创建者
+            GroupMember ownerMember = new GroupMember(creator, group);
+            // 设置超级权限，创建者
             ownerMember.setPermissionType(GroupMember.PERMISSION_TYPE_ADMIN_SU);
-            //保存，并没有提交到数据库
+            // 保存，并没有提交到数据库
+            session.save(ownerMember);
 
-            for(User user : users){
-                GroupMember member = new GroupMember(user,group);
-                //保存，并没有提交到数据库
+            for (User user : users) {
+                GroupMember member = new GroupMember(user, group);
+                // 保存，并没有提交到数据库
                 session.save(member);
             }
 
-//            session.flush();
-//            session.load(group,group.getId());
+            //session.flush();
+            //session.load(group, group.getId());
 
             return group;
         });
-
-
-
-        return null;
     }
 
     //获取一个群的成员

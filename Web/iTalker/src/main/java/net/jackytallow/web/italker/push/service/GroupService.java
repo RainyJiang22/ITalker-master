@@ -34,26 +34,31 @@ import java.util.stream.Collectors;
 public class GroupService extends BaseService {
 
 
+    /**
+     * 创建群
+     *
+     * @param model 基本参数
+     * @return 群信息
+     */
     @POST
-    // 指定请求与返回的相应体为JSON
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    //创建一个群
     public ResponseModel<GroupCard> create(GroupCreateModel model) {
         if (!GroupCreateModel.check(model)) {
             return ResponseModel.buildParameterError();
         }
 
-        //创建者
+        // 创建者
         User creator = getSelf();
-        //创建者并不在列表中
+        // 创建者并不在列表中
         model.getUsers().remove(creator.getId());
-        if (model.getUsers().size() == 0)
+        if (model.getUsers().size() == 0) {
             return ResponseModel.buildParameterError();
+        }
 
-        //检查是否已有
+        // 检查是否已有
         if (GroupFactory.findByName(model.getName()) != null) {
-            return ResponseModel.buildParameterError();
+            return ResponseModel.buildHaveNameError();
         }
 
         List<User> users = new ArrayList<>();
@@ -63,43 +68,40 @@ public class GroupService extends BaseService {
                 continue;
             users.add(user);
         }
-        //没有一个成员
+        // 没有一个成员
         if (users.size() == 0) {
             return ResponseModel.buildParameterError();
         }
 
         Group group = GroupFactory.create(creator, model, users);
         if (group == null) {
-            //服务器异常
+            // 服务器异常
             return ResponseModel.buildServiceError();
         }
 
-
-        //拿管理员的信息，自己的信息
+        // 拿管理员的信息（自己的信息）
         GroupMember creatorMember = GroupFactory.getMember(creator.getId(), group.getId());
         if (creatorMember == null) {
-            //服务器异常
-            return ResponseModel.buildParameterError();
+            // 服务器异常
+            return ResponseModel.buildServiceError();
         }
 
-        //拿到群的成员，给所有的群成员发送信息，已经被添加到群的信息
+        // 拿到群的成员，给所有的群成员发送信息，已经被添加到群的信息
         Set<GroupMember> members = GroupFactory.getMembers(group);
         if (members == null) {
-            //服务器异常
-            return ResponseModel.buildParameterError();
+            // 服务器异常
+            return ResponseModel.buildServiceError();
         }
+
         members = members.stream()
-                .filter(groupMember -> groupMember.getId().equalsIgnoreCase(creatorMember.getId()))
+                .filter(groupMember -> !groupMember.getId().equalsIgnoreCase(creatorMember.getId()))
                 .collect(Collectors.toSet());
 
-        //开始发起推送
+        // 开始发起推送
         PushFactory.pushJoinGroup(members);
 
         return ResponseModel.buildOk(new GroupCard(creatorMember));
     }
-
-    //搜索一个群
-
     /**
      * 搜索当前群的一个列表
      *
