@@ -3,8 +3,10 @@ package net.jacky.italker.factory.data.helper;
 import com.raizlabs.android.dbflow.sql.language.SQLite;
 
 import net.jacky.italker.factory.Factory;
+import net.jacky.italker.factory.model.db.view.UserSampleModel;
 import net.jacky.italker.factory.net.Network;
 import net.jacky.italker.factory.net.RemoteService;
+import net.jacky.italker.factory.persistence.Account;
 import net.qiujuer.italker.factory.R;
 import net.jacky.italker.factory.data.DataSource;
 import net.jacky.italker.factory.model.api.RspModel;
@@ -195,4 +197,32 @@ public class UserHelper {
         return user;
     }
 
+    /**
+     * 获取联系人
+     */
+    public static List<User> getContact() {
+        return SQLite.select()
+                .from(User.class)
+                .where(User_Table.isFollow.eq(true))
+                .and(User_Table.id.notEq(Account.getUserId()))
+                .orderBy(User_Table.name, true)
+                .limit(100)
+                .queryList();
+    }
+
+
+    /**
+     * 获取联系人,但是是一个简单数据的
+     */
+    public static List<UserSampleModel> getSampleContact() {
+        return SQLite.select(User_Table.id.withTable().as("id"),
+                User_Table.name.withTable().as("name"),
+                User_Table.portrait.withTable().as("portrait"))
+                .from(User.class)
+                .where(User_Table.isFollow.eq(true))
+                .and(User_Table.id.notEq(Account.getUserId()))
+                .orderBy(User_Table.name, true)
+                //自定义列表返回
+                .queryCustomList(UserSampleModel.class);
+    }
 }

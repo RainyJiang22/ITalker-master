@@ -12,7 +12,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.yalantis.ucrop.UCrop;
@@ -30,6 +32,7 @@ import net.qiujuer.italker.push.R;
 import java.io.File;
 
 import butterknife.BindView;
+import butterknife.OnCheckedChanged;
 import butterknife.OnClick;
 
 /**
@@ -75,7 +78,13 @@ public class GroupCreateActivity extends PresenterToolbarActivity<GroupCreateCon
         setTitle("");
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setAdapter(mAdapter = new Adapter());
+    }
+
+    @Override
+    protected void initData() {
+        super.initData();
+        mPresenter.start();
     }
 
     @OnClick(R.id.im_portrait)
@@ -211,13 +220,31 @@ public class GroupCreateActivity extends PresenterToolbarActivity<GroupCreateCon
 
     class ViewHolder extends RecyclerAdapter.ViewHolder<GroupCreateContract.ViewModel> {
 
+        @BindView(R.id.im_portrait)
+        PortraitView mPortrait;
+        @BindView(R.id.txt_name)
+        TextView mName;
+        @BindView(R.id.cb_select)
+        CheckBox mSelect;
+
+
+
+
         public ViewHolder(View itemView) {
             super(itemView);
         }
 
+        @OnCheckedChanged(R.id.cb_select)
+        void onCheckedChanged(boolean checked){
+            //进行状态更改
+            mPresenter.changeSelect(mData,checked);
+        }
+
         @Override
         protected void onBind(GroupCreateContract.ViewModel viewModel) {
-
+            mPortrait.setup(Glide.with(GroupCreateActivity.this),viewModel.author);
+            mName.setText(viewModel.author.getName());
+            mSelect.setChecked(viewModel.isSelected);
         }
     }
 }
