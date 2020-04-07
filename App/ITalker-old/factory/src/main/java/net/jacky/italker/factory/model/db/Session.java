@@ -18,7 +18,7 @@ import java.util.Objects;
 /**
  * 本地的会话表
  *
- * @author qiujuer Email:qiujuer@live.cn
+ * @author jacky
  * @version 1.0.0
  */
 @Table(database = AppDatabase.class)
