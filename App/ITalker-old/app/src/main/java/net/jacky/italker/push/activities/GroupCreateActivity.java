@@ -158,8 +158,7 @@ public class GroupCreateActivity extends PresenterToolbarActivity<GroupCreateCon
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.action_create) {
             //进行创建
-
-
+            onCreateClick();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -202,7 +201,7 @@ public class GroupCreateActivity extends PresenterToolbarActivity<GroupCreateCon
     //界面有更改的情况下
     @Override
     public void onAdapterDataChanged() {
-
+          hideLoading();
     }
 
     private class Adapter extends RecyclerAdapter<GroupCreateContract.ViewModel> {
@@ -226,8 +225,6 @@ public class GroupCreateActivity extends PresenterToolbarActivity<GroupCreateCon
         TextView mName;
         @BindView(R.id.cb_select)
         CheckBox mSelect;
-
-
 
 
         public ViewHolder(View itemView) {

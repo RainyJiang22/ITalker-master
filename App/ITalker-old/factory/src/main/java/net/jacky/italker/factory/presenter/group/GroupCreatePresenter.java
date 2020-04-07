@@ -39,7 +39,8 @@ public class GroupCreatePresenter extends BaseRecyclerPresenter<GroupCreateContr
 
     @Override
     public void create(String name, String desc, String picture) {
-
+        GroupCreateContract.View view = getView();
+        view.showLoading();
     }
 
     @Override
