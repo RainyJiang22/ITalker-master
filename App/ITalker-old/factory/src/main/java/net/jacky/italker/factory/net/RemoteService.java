@@ -100,12 +100,12 @@ public interface RemoteService {
 
 
     //群的成员列表
-    @GET("group/{groupId}/{member}")
+    @GET("group/{groupId}/member")
     Call<RspModel<List<GroupMemberCard>>> groupMembers(@Path("groupId") String groupId);
 
 
     //给群添加成员
-    @POST("group/{groupId}/{member}")
+    @POST("group/{groupId}/member")
     Call<RspModel<List<GroupMemberCard>>> groupMemberAdd(@Path("groupId") String groupId,
                                                          @Body GroupMemberAddModel model);
 
