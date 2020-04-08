@@ -4,8 +4,10 @@ import net.jacky.italker.factory.model.api.RspModel;
 import net.jacky.italker.factory.model.api.account.AccountRspModel;
 import net.jacky.italker.factory.model.api.account.LoginModel;
 import net.jacky.italker.factory.model.api.account.RegisterModel;
+import net.jacky.italker.factory.model.api.group.GroupCreateModel;
 import net.jacky.italker.factory.model.api.message.MsgCreateModel;
 import net.jacky.italker.factory.model.api.user.UserUpdateModel;
+import net.jacky.italker.factory.model.card.GroupCard;
 import net.jacky.italker.factory.model.card.MessageCard;
 import net.jacky.italker.factory.model.card.UserCard;
 
@@ -76,4 +78,12 @@ public interface RemoteService {
     //发送消息的接口
     @POST("message")
     Call<RspModel<MessageCard>> msgPush(@Body MsgCreateModel model);
+
+    //创建群
+    @POST("group")
+    Call<RspModel<GroupCard>> groupCreate(@Body GroupCreateModel model);
+
+    @GET("group/{groupId}")
+    Call<RspModel<GroupCard>> groupFind(@Path("groupId") String groupId);
+
 }

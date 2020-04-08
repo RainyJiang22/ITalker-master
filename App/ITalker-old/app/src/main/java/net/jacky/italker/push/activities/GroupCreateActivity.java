@@ -26,6 +26,7 @@ import net.jacky.italker.common.widget.PortraitView;
 import net.jacky.italker.common.widget.recycler.RecyclerAdapter;
 import net.jacky.italker.factory.presenter.group.GroupCreateContract;
 import net.jacky.italker.factory.presenter.group.GroupCreatePresenter;
+import net.jacky.italker.push.App;
 import net.jacky.italker.push.frags.media.GalleryFragment;
 import net.qiujuer.italker.push.R;
 
@@ -175,12 +176,12 @@ public class GroupCreateActivity extends PresenterToolbarActivity<GroupCreateCon
     //隐藏软键盘
     private void hideSoftKeyboard() {
         //当前焦点
-        View view  = getCurrentFocus();
+        View view = getCurrentFocus();
         if (view == null)
             return;
 
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(view.getWindowToken(),0);
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
     @Override
@@ -190,7 +191,10 @@ public class GroupCreateActivity extends PresenterToolbarActivity<GroupCreateCon
 
     @Override
     public void onCreateSucceed() {
-
+        //群创建成功
+        hideLoading();
+        Application.showToast(R.string.label_group_create_succeed);
+        finish();
     }
 
     @Override
@@ -201,7 +205,7 @@ public class GroupCreateActivity extends PresenterToolbarActivity<GroupCreateCon
     //界面有更改的情况下
     @Override
     public void onAdapterDataChanged() {
-          hideLoading();
+        hideLoading();
     }
 
     private class Adapter extends RecyclerAdapter<GroupCreateContract.ViewModel> {
@@ -232,14 +236,14 @@ public class GroupCreateActivity extends PresenterToolbarActivity<GroupCreateCon
         }
 
         @OnCheckedChanged(R.id.cb_select)
-        void onCheckedChanged(boolean checked){
+        void onCheckedChanged(boolean checked) {
             //进行状态更改
-            mPresenter.changeSelect(mData,checked);
+            mPresenter.changeSelect(mData, checked);
         }
 
         @Override
         protected void onBind(GroupCreateContract.ViewModel viewModel) {
-            mPortrait.setup(Glide.with(GroupCreateActivity.this),viewModel.author);
+            mPortrait.setup(Glide.with(GroupCreateActivity.this), viewModel.author);
             mName.setText(viewModel.author.getName());
             mSelect.setChecked(viewModel.isSelected);
         }

@@ -1,11 +1,20 @@
 package net.jacky.italker.factory.presenter.group;
 
+import android.text.TextUtils;
+
 import net.jacky.italker.factory.Factory;
+import net.jacky.italker.factory.data.DataSource;
+import net.jacky.italker.factory.data.helper.GroupHelper;
 import net.jacky.italker.factory.data.helper.UserHelper;
+import net.jacky.italker.factory.model.api.group.GroupCreateModel;
+import net.jacky.italker.factory.model.card.GroupCard;
 import net.jacky.italker.factory.model.db.User;
 import net.jacky.italker.factory.model.db.view.UserSampleModel;
+import net.jacky.italker.factory.net.UploadHelper;
 import net.jacky.italker.factory.presenter.BaseRecyclerPresenter;
 import net.qiujuer.genius.kit.handler.Run;
+import net.qiujuer.genius.kit.handler.runable.Action;
+import net.qiujuer.italker.factory.R;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -21,7 +30,7 @@ import java.util.concurrent.RunnableFuture;
  * @date 2020/4/7
  */
 public class GroupCreatePresenter extends BaseRecyclerPresenter<GroupCreateContract.ViewModel, GroupCreateContract.View>
-        implements GroupCreateContract.Presenter {
+        implements GroupCreateContract.Presenter, DataSource.Callback<GroupCard> {
 
     private Set<String> users = new HashSet<>();
 
@@ -38,9 +47,32 @@ public class GroupCreatePresenter extends BaseRecyclerPresenter<GroupCreateContr
     }
 
     @Override
-    public void create(String name, String desc, String picture) {
+    public void create(final String name, final String desc, final String picture) {
         GroupCreateContract.View view = getView();
         view.showLoading();
+
+        //判断参数
+        if (TextUtils.isEmpty(name) || TextUtils.isEmpty(desc)
+                || TextUtils.isEmpty(picture) || users.size() == 0) {
+            view.showError(R.string.label_group_create_invalid);
+        }
+
+        //上传图片
+        Factory.runOnAsync(new Runnable() {
+            @Override
+            public void run() {
+                String url = uploadPicture(picture);
+                if (TextUtils.isEmpty(url))
+                    return;
+                 //进行网络请求
+                GroupCreateModel model = new GroupCreateModel(name, desc, url, users);
+                GroupHelper.create(model, GroupCreatePresenter.this);
+            }
+        });
+
+        //请求接口
+
+        //处理回调
     }
 
     @Override
@@ -50,6 +82,24 @@ public class GroupCreatePresenter extends BaseRecyclerPresenter<GroupCreateContr
         else
             users.remove(model.author.getId());
 
+    }
+
+    //同步上传操作
+    private String uploadPicture(String path) {
+        String url = UploadHelper.uploadPortrait(path);
+        if (TextUtils.isEmpty(url)) {
+            //切换到UI线程，提示信息
+            Run.onUiAsync(new Action() {
+                @Override
+                public void call() {
+                    GroupCreateContract.View view = getView();
+                    if (view != null) {
+                        view.showError(R.string.data_upload_error);
+                    }
+                }
+            });
+        }
+        return url;
     }
 
     private Runnable loader = new Runnable() {
@@ -67,4 +117,32 @@ public class GroupCreatePresenter extends BaseRecyclerPresenter<GroupCreateContr
             refreshData(models);
         }
     };
+
+    @Override
+    public void onDataLoaded(GroupCard groupCard) {
+        //成功情况
+        Run.onUiAsync(new Action() {
+            @Override
+            public void call() {
+                GroupCreateContract.View view = getView();
+                if (view != null) {
+                    view.onCreateSucceed();
+                }
+            }
+        });
+    }
+
+    @Override
+    public void onDataNotAvailable(final int strRes) {
+        //失败情况
+        Run.onUiAsync(new Action() {
+            @Override
+            public void call() {
+                GroupCreateContract.View view = getView();
+                if (view != null) {
+                    view.showError(strRes);
+                }
+            }
+        });
+    }
 }
