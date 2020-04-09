@@ -53,7 +53,7 @@ public class GroupFactory {
         return Hib.query(session -> {
             @SuppressWarnings("unchecked")
             List<GroupMember> members = session.createQuery("from GroupMember where userId=:userId")
-                    .setParameter("userId", user)
+                    .setParameter("userId", user.getId())
                     .list();
             return new HashSet<>(members);
         });

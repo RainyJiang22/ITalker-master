@@ -43,7 +43,7 @@ public interface ChatContract {
         void showAdminOption(boolean isAdmin);
 
         //初始化成员
-        void onInitGroupMembers(List<MemberUserModel> members,int moreCount);
+        void onInitGroupMembers(List<MemberUserModel> members,long moreCount);
     }
 
 
