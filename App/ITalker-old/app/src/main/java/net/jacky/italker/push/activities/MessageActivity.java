@@ -16,26 +16,26 @@ import net.jacky.italker.push.frags.message.ChatUserFragment;
 import net.qiujuer.italker.push.R;
 
 public class MessageActivity extends Activity {
-    //接收者ID，可以是群，也可以是人的id
-     public static final String KEY_RECEIVER_ID = "KEY_RECEIVER_ID";
-     //标识是否是群
-     public static final String KEY_RECEIVER_IS_GROUP = "KEY_RECEIVER_IS_GROUP";
+    // 接收者Id，可以是群，也可以是人的Id
+    public static final String KEY_RECEIVER_ID = "KEY_RECEIVER_ID";
+    // 是否是群
+    private static final String KEY_RECEIVER_IS_GROUP = "KEY_RECEIVER_IS_GROUP";
 
-     private String mReceiverId;
-     private boolean mIsGroup;
-
+    private String mReceiverId;
+    private boolean mIsGroup;
 
     /**
      * 通过Session发起聊天
+     *
      * @param context 上下文
-     * @param session session
+     * @param session Session
      */
     public static void show(Context context, Session session) {
-        if (session == null || context ==null || TextUtils.isEmpty(session.getId()))
+        if (session == null || context == null || TextUtils.isEmpty(session.getId()))
             return;
-        Intent intent = new Intent(context,MessageActivity.class);
-        intent.putExtra(KEY_RECEIVER_ID,session.getId());
-        intent.putExtra(KEY_RECEIVER_IS_GROUP,session.getReceiverType() == Message.RECEIVER_TYPE_GROUP);
+        Intent intent = new Intent(context, MessageActivity.class);
+        intent.putExtra(KEY_RECEIVER_ID, session.getId());
+        intent.putExtra(KEY_RECEIVER_IS_GROUP, session.getReceiverType() == Message.RECEIVER_TYPE_GROUP);
         context.startActivity(intent);
     }
 
@@ -46,26 +46,26 @@ public class MessageActivity extends Activity {
      * @param author  人的信息
      */
     public static void show(Context context, Author author) {
-        if (author == null || context ==null || TextUtils.isEmpty(author.getId()))
+        if (author == null || context == null || TextUtils.isEmpty(author.getId()))
             return;
-        Intent intent = new Intent(context,MessageActivity.class);
-        intent.putExtra(KEY_RECEIVER_ID,author.getId());
-        intent.putExtra(KEY_RECEIVER_IS_GROUP,false);
+        Intent intent = new Intent(context, MessageActivity.class);
+        intent.putExtra(KEY_RECEIVER_ID, author.getId());
+        intent.putExtra(KEY_RECEIVER_IS_GROUP, false);
         context.startActivity(intent);
     }
 
     /**
-     * 发起一个群的聊天界面
+     * 发起群聊天
+     *
      * @param context 上下文
-     * @param group 群的Model
+     * @param group   群的Model
      */
     public static void show(Context context, Group group) {
-
-        if (group == null || context ==null || TextUtils.isEmpty(group.getId()))
+        if (group == null || context == null || TextUtils.isEmpty(group.getId()))
             return;
-        Intent intent = new Intent(context,MessageActivity.class);
-        intent.putExtra(KEY_RECEIVER_ID,group.getId());
-        intent.putExtra(KEY_RECEIVER_IS_GROUP,true);
+        Intent intent = new Intent(context, MessageActivity.class);
+        intent.putExtra(KEY_RECEIVER_ID, group.getId());
+        intent.putExtra(KEY_RECEIVER_IS_GROUP, true);
         context.startActivity(intent);
     }
 
@@ -92,13 +92,13 @@ public class MessageActivity extends Activity {
         else
             fragment = new ChatUserFragment();
 
-        //从Activity传递参数到Fragment中去
+        // 从Activity传递参数到Fragment中去
         Bundle bundle = new Bundle();
-        bundle.putString(KEY_RECEIVER_ID,mReceiverId);
+        bundle.putString(KEY_RECEIVER_ID, mReceiverId);
         fragment.setArguments(bundle);
 
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.lay_container,fragment)
+                .add(R.id.lay_container, fragment)
                 .commit();
     }
 }

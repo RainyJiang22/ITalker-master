@@ -35,7 +35,7 @@ public class GroupFragment extends PresenterFragment<GroupsContract.Presenter>
     @BindView(R.id.recycler)
     RecyclerView mRecycler;
 
-    // 适配器，Group，可以直接从数据库查询数据
+    // 适配器，User，可以直接从数据库查询数据
     private RecyclerAdapter<Group> mAdapter;
 
     public GroupFragment() {
@@ -46,6 +46,7 @@ public class GroupFragment extends PresenterFragment<GroupsContract.Presenter>
     protected int getContentLayoutId() {
         return R.layout.fragment_group;
     }
+
 
     @Override
     protected void initWidget(View root) {
@@ -104,6 +105,7 @@ public class GroupFragment extends PresenterFragment<GroupsContract.Presenter>
         mPlaceHolderView.triggerOkOrEmpty(mAdapter.getItemCount() > 0);
     }
 
+
     class ViewHolder extends RecyclerAdapter.ViewHolder<Group> {
         @BindView(R.id.im_portrait)
         PortraitView mPortraitView;
@@ -113,7 +115,6 @@ public class GroupFragment extends PresenterFragment<GroupsContract.Presenter>
 
         @BindView(R.id.txt_desc)
         TextView mDesc;
-
 
         @BindView(R.id.txt_member)
         TextView mMember;
@@ -135,6 +136,6 @@ public class GroupFragment extends PresenterFragment<GroupsContract.Presenter>
                 mMember.setText("");
             }
         }
-    }
 
+    }
 }

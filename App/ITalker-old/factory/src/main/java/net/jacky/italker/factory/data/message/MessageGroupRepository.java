@@ -36,27 +36,27 @@ public class MessageGroupRepository extends BaseDbRepository<Message>
     public void load(SucceedCallback<List<Message>> callback) {
         super.load(callback);
 
-        //TODO
-       // sender_id == receiverId and group_id == null
-         //or (reciver_id == receiverId)
-        //我发送给你的消息
-      /*  SQLite.select()
+        // 无论是直接发还是别人发，只要是发到这个群的，
+        // 那个这个group_id就是receiverId
+        SQLite.select()
                 .from(Message.class)
-                .where(OperatorGroup.clause()
-                        .and(Message_Table.sender_id.eq(receiverId))
-                        .and(Message_Table.group_id.isNull()))
-                .or(Message_Table.receiver_id.eq(receiverId))
-                .orderBy(Message_Table.createAt,false)
+                .where(Message_Table.group_id.eq(receiverId))
+                .orderBy(Message_Table.createAt, false)
                 .limit(30)
                 .async()
                 .queryListResultCallback(this)
-                .execute(); */
+                .execute();
     }
 
     //过滤操作
     @Override
     protected boolean isRequired(Message message) {
-       return false;
+
+        //如果消息的Group不为空，则一定是发送到一个群
+        //如果群ID等于我们需要的就通过
+      return  message.getGroup()!= null
+              && receiverId.equalsIgnoreCase(message.getGroup().getId());
+
     }
 
     @Override

@@ -17,61 +17,61 @@ import java.util.List;
  *
  * @author jacky
  * @version 1.0.0
- * @date 2020/2/16
  */
 @SuppressWarnings("WeakerAccess")
 public class ChatPresenter<View extends ChatContract.View>
         extends BaseSourcePresenter<Message, Message, MessageDataSource, View>
         implements ChatContract.Presenter {
 
-    // 接收者ID 可能是群，也可能是人ID
-    protected String mReciverId;
-    //区分是人还是群
-    protected int mReciverType;
+    // 接收者Id，可能是群，或者人的ID
+    protected String mReceiverId;
+    // 区分是人还是群Id
+    protected int mReceiverType;
+
 
     public ChatPresenter(MessageDataSource source, View view,
-                         String reciverId, int reciverType) {
+                         String receiverId, int receiverType) {
         super(source, view);
-        this.mReciverId = reciverId;
-        this.mReciverType = reciverType;
+        this.mReceiverId = receiverId;
+        this.mReceiverType = receiverType;
     }
-
 
     @Override
     public void pushText(String content) {
-        //构建一个新的消息
+        // 构建一个新的消息
         MsgCreateModel model = new MsgCreateModel.Builder()
-                .receiver(mReciverId, mReciverType)
+                .receiver(mReceiverId, mReceiverType)
                 .content(content, Message.TYPE_STR)
                 .build();
-        //进行网络发送
+
+        // 进行网络发送
         MessageHelper.push(model);
     }
 
     @Override
     public void pushAudio(String path) {
-        //TODO 发送语音
+        // TODO 发送语音
     }
 
     @Override
     public void pushImages(String[] paths) {
-        //TODO 发送图片
+        // TODO 发送图片
     }
 
-    //重新刷新
     @Override
     public boolean rePush(Message message) {
-        //确定消息是可以重新发送
-        //隐藏判断：Account.isLogin()
+        // 确定消息是可重复发送的
         if (Account.getUserId().equalsIgnoreCase(message.getSender().getId())
                 && message.getStatus() == Message.STATUS_FAILED) {
-            //变为发送状态
+
+            // 更改状态
             message.setStatus(Message.STATUS_CREATED);
-            // 构建发送model
+            // 构建发送Model
             MsgCreateModel model = MsgCreateModel.buildWithMessage(message);
             MessageHelper.push(model);
             return true;
         }
+
         return false;
     }
 
@@ -81,14 +81,15 @@ public class ChatPresenter<View extends ChatContract.View>
         if (view == null)
             return;
 
-        //拿到老的数据
+        // 拿到老数据
         @SuppressWarnings("unchecked")
         List<Message> old = view.getRecyclerAdapter().getItems();
+
+        // 差异计算
         DiffUiDataCallback<Message> callback = new DiffUiDataCallback<>(old, messages);
-        //计算差异
         final DiffUtil.DiffResult result = DiffUtil.calculateDiff(callback);
 
-        //进行界面刷新
+        // 进行界面刷新
         refreshData(result, messages);
     }
 }

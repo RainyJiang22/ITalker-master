@@ -16,6 +16,7 @@ public class DBFlowExclusionStrategy implements ExclusionStrategy {
         // 被跳过的字段
         // 只要是属于DBFlow数据的
         return f.getDeclaredClass().equals(ModelAdapter.class);
+
     }
 
     @Override

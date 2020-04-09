@@ -1,15 +1,12 @@
 package net.jacky.italker.push.frags.message;
 
 
-import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -25,17 +22,14 @@ import net.jacky.italker.factory.presenter.message.ChatContract;
 import net.jacky.italker.factory.presenter.message.ChatGroupPresenter;
 import net.jacky.italker.push.activities.PersonalActivity;
 import net.qiujuer.italker.push.R;
-
 import java.util.List;
-
 import butterknife.BindView;
 
 /**
- * 群聊天界面
+ * 群聊天界面实现
  */
 public class ChatGroupFragment extends ChatFragment<Group>
         implements ChatContract.GroupView {
-
 
     @BindView(R.id.im_header)
     ImageView mHeader;
@@ -55,16 +49,15 @@ public class ChatGroupFragment extends ChatFragment<Group>
         return R.layout.lay_chat_header_group;
     }
 
-
     @Override
     protected ChatContract.Presenter initPresenter() {
-        return new ChatGroupPresenter(this, mReciverId);
+        return new ChatGroupPresenter(this, mReceiverId);
     }
 
     @Override
     protected void initWidget(View root) {
         super.initWidget(root);
-        //加载渐变动画
+
         Glide.with(this)
                 .load(R.drawable.default_banner_group)
                 .centerCrop()
@@ -74,9 +67,10 @@ public class ChatGroupFragment extends ChatFragment<Group>
                         this.view.setContentScrim(resource.getCurrent());
                     }
                 });
+
     }
 
-    //进行高度的综合运算，透明我们的头像和Icon
+    // 进行高度的综合运算，透明我们的头像和Icon
     @Override
     public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
         super.onOffsetChanged(appBarLayout, verticalOffset);
@@ -85,43 +79,36 @@ public class ChatGroupFragment extends ChatFragment<Group>
         if (view == null)
             return;
 
-
         if (verticalOffset == 0) {
-            //完全展开
+            // 完全展开
             view.setVisibility(View.VISIBLE);
             view.setScaleX(1);
             view.setScaleY(1);
             view.setAlpha(1);
-
         } else {
-            //abs运算
+            // abs 运算
             verticalOffset = Math.abs(verticalOffset);
             final int totalScrollRange = appBarLayout.getTotalScrollRange();
             if (verticalOffset >= totalScrollRange) {
-                //关闭状态
+                // 关闭状态
                 view.setVisibility(View.INVISIBLE);
                 view.setScaleX(0);
                 view.setScaleY(0);
                 view.setAlpha(0);
-
             } else {
-                //中间状态
+                // 中间状态
                 float progress = 1 - verticalOffset / (float) totalScrollRange;
                 view.setVisibility(View.VISIBLE);
                 view.setScaleX(progress);
                 view.setScaleY(progress);
                 view.setAlpha(progress);
-
             }
         }
     }
 
     @Override
     public void onInit(Group group) {
-        //标题
         mCollapsingLayout.setTitle(group.getName());
-
-        //背景图片
         Glide.with(this)
                 .load(group.getPicture())
                 .centerCrop()
@@ -129,17 +116,14 @@ public class ChatGroupFragment extends ChatFragment<Group>
                 .into(mHeader);
     }
 
-
     @Override
     public void onInitGroupMembers(List<MemberUserModel> members, long moreCount) {
-
-        if (members == null || members.size() == 0) {
+        if (members == null || members.size() == 0)
             return;
-        }
 
         LayoutInflater inflater = LayoutInflater.from(getContext());
         for (final MemberUserModel member : members) {
-            //添加成员头像
+            // 添加成员头像
             ImageView p = (ImageView) inflater.inflate(R.layout.lay_chat_group_portrait, mLayMembers, false);
             mLayMembers.addView(p, 0);
 
@@ -149,7 +133,7 @@ public class ChatGroupFragment extends ChatFragment<Group>
                     .centerCrop()
                     .dontAnimate()
                     .into(p);
-            //个人信息界面查看
+            // 个人界面信息查看
             p.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -158,19 +142,19 @@ public class ChatGroupFragment extends ChatFragment<Group>
             });
         }
 
-        //更多的按钮
+        // 更多的按钮
         if (moreCount > 0) {
-            mMemberMore.setText(String.format("+%s",moreCount));
+            mMemberMore.setText(String.format("+%s", moreCount));
             mMemberMore.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //TODO 显示成员列表
+                    //TODO mReceiverId 就是群的Id
                 }
             });
-        }else{
-            //隐藏
+        } else {
             mMemberMore.setVisibility(View.GONE);
         }
+
     }
 
     @Override
@@ -181,7 +165,7 @@ public class ChatGroupFragment extends ChatFragment<Group>
                 @Override
                 public boolean onMenuItemClick(MenuItem item) {
                     if (item.getItemId() == R.id.action_add) {
-                        //TODO 进行群成员添加操作
+                        //TODO mReceiverId 就是群的Id
                         return true;
                     }
                     return false;

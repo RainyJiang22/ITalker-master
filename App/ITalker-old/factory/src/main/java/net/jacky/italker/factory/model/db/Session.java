@@ -195,7 +195,7 @@ public class Session extends BaseDbModel<Session> {
         Message message;
         if (receiverType == Message.RECEIVER_TYPE_GROUP) {
             //刷新当前对应群的相关信息
-            message = MessageHelper.fromLastWithGroup(id);
+            message = MessageHelper.findLastWithGroup(id);
             if (message == null) {
                 //如果没有基本信息
                 if (TextUtils.isEmpty(picture) || TextUtils.isEmpty(this.title)) {
@@ -224,7 +224,7 @@ public class Session extends BaseDbModel<Session> {
             }
         } else {
             //和人聊天的
-            message = MessageHelper.fromLastWithUser(id);
+            message = MessageHelper.findLastWithUser(id);
             if (message == null) {
                 //我和他的消息已经删除完成
 

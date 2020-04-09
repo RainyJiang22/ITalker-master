@@ -12,14 +12,12 @@ import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.ViewTarget;
 
-import net.jacky.italker.common.widget.ImHeaderView;
 import net.jacky.italker.common.widget.PortraitView;
 import net.jacky.italker.factory.model.db.User;
 import net.jacky.italker.factory.presenter.message.ChatContract;
 import net.jacky.italker.factory.presenter.message.ChatUserPresenter;
 import net.jacky.italker.push.activities.PersonalActivity;
 import net.qiujuer.italker.push.R;
-
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -28,7 +26,6 @@ import butterknife.OnClick;
  */
 public class ChatUserFragment extends ChatFragment<User>
         implements ChatContract.UserView {
-
     @BindView(R.id.im_portrait)
     PortraitView mPortrait;
 
@@ -38,8 +35,6 @@ public class ChatUserFragment extends ChatFragment<User>
         // Required empty public constructor
     }
 
-
-
     @Override
     protected int getHeaderLayoutId() {
         return R.layout.lay_chat_header_user;
@@ -48,16 +43,17 @@ public class ChatUserFragment extends ChatFragment<User>
     @Override
     protected void initWidget(View root) {
         super.initWidget(root);
-        //加载渐变动画
+
         Glide.with(this)
                 .load(R.drawable.default_banner_chat)
                 .centerCrop()
                 .into(new ViewTarget<CollapsingToolbarLayout, GlideDrawable>(mCollapsingLayout) {
                     @Override
                     public void onResourceReady(GlideDrawable resource, GlideAnimation<? super GlideDrawable> glideAnimation) {
-                       this.view.setContentScrim(resource.getCurrent());
+                        this.view.setContentScrim(resource.getCurrent());
                     }
                 });
+
     }
 
     @Override
@@ -70,18 +66,17 @@ public class ChatUserFragment extends ChatFragment<User>
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 if (item.getItemId() == R.id.action_person) {
-                    //头像点击
                     onPortraitClick();
                 }
                 return false;
             }
         });
 
-        //拿到菜单Icon
+        // 拿到菜单Icon
         mUserInfoMenuItem = toolbar.getMenu().findItem(R.id.action_person);
     }
 
-    //进行高度的综合运算，透明我们的头像和Icon
+    // 进行高度的综合运算，透明我们的头像和Icon
     @Override
     public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
         super.onOffsetChanged(appBarLayout, verticalOffset);
@@ -93,62 +88,59 @@ public class ChatUserFragment extends ChatFragment<User>
 
 
         if (verticalOffset == 0) {
-            //完全展开
-            mPortrait.setVisibility(View.VISIBLE);
+            // 完全展开
+            view.setVisibility(View.VISIBLE);
             view.setScaleX(1);
             view.setScaleY(1);
             view.setAlpha(1);
 
-            //隐藏菜单
+            // 隐藏菜单
             menuItem.setVisible(false);
             menuItem.getIcon().setAlpha(0);
         } else {
-            //abs运算
+            // abs 运算
             verticalOffset = Math.abs(verticalOffset);
             final int totalScrollRange = appBarLayout.getTotalScrollRange();
             if (verticalOffset >= totalScrollRange) {
-                //关闭状态
-                mPortrait.setVisibility(View.INVISIBLE);
+                // 关闭状态
+                view.setVisibility(View.INVISIBLE);
                 view.setScaleX(0);
                 view.setScaleY(0);
                 view.setAlpha(0);
 
-                //显示菜单
+                // 显示菜单
                 menuItem.setVisible(true);
                 menuItem.getIcon().setAlpha(255);
+
             } else {
-                //中间状态
+                // 中间状态
                 float progress = 1 - verticalOffset / (float) totalScrollRange;
-                mPortrait.setVisibility(View.VISIBLE);
+                view.setVisibility(View.VISIBLE);
                 view.setScaleX(progress);
                 view.setScaleY(progress);
                 view.setAlpha(progress);
-
-                //和头像恰好相反
+                // 和头像恰好相反
                 menuItem.setVisible(true);
                 menuItem.getIcon().setAlpha(255 - (int) (255 * progress));
             }
         }
     }
 
-
     @OnClick(R.id.im_portrait)
     void onPortraitClick() {
-        PersonalActivity.show(getContext(), mReciverId);
+        PersonalActivity.show(getContext(), mReceiverId);
     }
 
     @Override
     protected ChatContract.Presenter initPresenter() {
-        //初始化Presenter
-        return new ChatUserPresenter(this, mReciverId);
+        // 初始化Presenter
+        return new ChatUserPresenter(this, mReceiverId);
     }
 
     @Override
     public void onInit(User user) {
-        // 对和你聊天的朋友进行初始化操作
-        //头像加载
+        // 对和你聊天的朋友的信息进行初始化操作
         mPortrait.setup(Glide.with(this), user.getPortrait());
-        //名字加载
         mCollapsingLayout.setTitle(user.getName());
     }
 }
