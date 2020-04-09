@@ -7,17 +7,16 @@ import net.jackytallow.web.italker.push.bean.db.Apply;
 import java.time.LocalDateTime;
 
 /**
- *申请请求的Card，用于推送一个申请请求
+ * 申请请求的Card，用于推送一个申请请求
  */
 public class ApplyCard {
-
-    //申请Id
+    // 申请Id
     @Expose
     private String id;
-    //附件
+    // 附件
     @Expose
     private String attach;
-     //描述
+    // 描述
     @Expose
     private String desc;
     // 目标的类型
@@ -33,17 +32,15 @@ public class ApplyCard {
     @Expose
     private LocalDateTime createAt;
 
-
     public ApplyCard(Apply apply) {
-        this.id = id;
-        this.attach = attach;
-        this.desc = desc;
-        this.type = type;
-        this.targetId = targetId;
-        this.applicantId = applicantId;
-        this.createAt = createAt;
+        this.id = apply.getId();
+        this.attach = apply.getAttach();
+        this.desc = apply.getDescription();
+        this.type = apply.getType();
+        this.targetId = apply.getTargetId();
+        this.applicantId = apply.getApplicantId();
+        this.createAt = apply.getCreateAt();
     }
-
 
     public String getId() {
         return id;
@@ -101,4 +98,5 @@ public class ApplyCard {
         this.createAt = createAt;
     }
 }
+
 

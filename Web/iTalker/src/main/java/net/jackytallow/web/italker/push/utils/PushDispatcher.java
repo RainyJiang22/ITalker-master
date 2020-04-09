@@ -10,7 +10,6 @@ import com.gexin.rp.sdk.template.TransmissionTemplate;
 import com.google.common.base.Strings;
 import net.jackytallow.web.italker.push.bean.api.base.PushModel;
 import net.jackytallow.web.italker.push.bean.db.User;
-import org.hibernate.engine.jdbc.batch.spi.Batch;
 
 import java.io.IOException;
 import java.util.ArrayList;

@@ -28,13 +28,12 @@ public class GroupCard {
     @Expose
     private LocalDateTime modifyAt;// 最后修改时间
 
-
-    public GroupCard(GroupMember groupMember) {
-        this(groupMember.getGroup(),groupMember);
+    public GroupCard(GroupMember member) {
+        this(member.getGroup(), member);
     }
 
     public GroupCard(Group group) {
-        this(group,null);
+        this(group, null);
     }
 
     public GroupCard(Group group, GroupMember member) {
@@ -47,7 +46,6 @@ public class GroupCard {
         this.joinAt = member != null ? member.getCreateAt() : null;
         this.modifyAt = group.getUpdateAt();
     }
-
 
     public String getId() {
         return id;

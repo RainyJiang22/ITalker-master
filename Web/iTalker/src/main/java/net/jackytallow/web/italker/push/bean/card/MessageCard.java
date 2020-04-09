@@ -10,7 +10,6 @@ import java.time.LocalDateTime;
  * 消息卡的Model
  */
 public class MessageCard {
-
     @Expose
     private String id; // Id
     @Expose

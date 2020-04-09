@@ -28,10 +28,9 @@ public class PushModel {
     public static final int ENTITY_TYPE_MODIFY_GROUP_MEMBERS = 2001;
     public static final int ENTITY_TYPE_EXIT_GROUP_MEMBERS = 3001;
 
-
     private List<Entity> entities = new ArrayList<>();
 
-    public PushModel add(Entity entity){
+    public PushModel add(Entity entity) {
         entities.add(entity);
         return this;
     }
@@ -40,8 +39,7 @@ public class PushModel {
         return add(new Entity(type, content));
     }
 
-
-    //拿到一个推送的字符串
+    // 拿到一个推送的字符串
     public String getPushString() {
         if (entities.size() == 0)
             return null;
@@ -71,5 +69,3 @@ public class PushModel {
         public LocalDateTime createAt = LocalDateTime.now();
     }
 }
-
-

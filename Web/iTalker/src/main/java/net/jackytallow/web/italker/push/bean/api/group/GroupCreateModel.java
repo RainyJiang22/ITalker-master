@@ -14,7 +14,6 @@ import java.util.Set;
  * @Date: 2020/3/1 15:36
  */
 public class GroupCreateModel {
-
     @Expose
     private String name;
     @Expose
@@ -23,7 +22,6 @@ public class GroupCreateModel {
     private String picture;
     @Expose
     private Set<String> users = new HashSet<>();
-
 
     public String getName() {
         return name;

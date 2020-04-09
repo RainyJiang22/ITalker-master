@@ -22,92 +22,92 @@ import java.util.stream.Collectors;
  * @version 1.0.0
  */
 public class PushFactory {
-
-    //发送一条消息，并在当前的发送历史记录中存储记录
+    // 发送一条消息，并在当前的发送历史记录中存储记录
     public static void pushNewMessage(User sender, Message message) {
         if (sender == null || message == null)
             return;
 
-        //消息卡片用于发送
+        // 消息卡片用于发送
         MessageCard card = new MessageCard(message);
-        //要推送的字符串
+        // 要推送的字符串
         String entity = TextUtil.toJson(card);
-        //发送者
-        PushDispatcher dispatcher = new PushDispatcher();
 
+        // 发送者
+        PushDispatcher dispatcher = new PushDispatcher();
 
         if (message.getGroup() == null
                 && Strings.isNullOrEmpty(message.getGroupId())) {
-            //给朋友发送消息
+            // 给朋友发送消息
 
             User receiver = UserFactory.findById(message.getReceiverId());
             if (receiver == null)
                 return;
 
-            //历史记录表字段建立
+            // 历史记录表字段建立
             PushHistory history = new PushHistory();
-            //普通消息类型
+            // 普通消息类型
             history.setEntityType(PushModel.ENTITY_TYPE_MESSAGE);
             history.setEntity(entity);
             history.setReceiver(receiver);
-            //接收者当前的设备推送Id
+            // 接收者当前的设备推送Id
             history.setReceiverPushId(receiver.getPushId());
 
 
-            //推送的真实model
+            // 推送的真实Model
             PushModel pushModel = new PushModel();
-            //每一条历史记录都是独立的，可以单独的发送
+            // 每一条历史记录都是独立的，可以单独的发送
             pushModel.add(history.getEntityType(), history.getEntity());
 
-            //把需要发送的，丢给发送者进行发送
+            // 把需要发送的数据，丢给发送者进行发送
             dispatcher.add(receiver, pushModel);
-            //保存到数据库
-            Hib.queryOnly(session -> session.save(history));
 
+            // 保存到数据库
+            Hib.queryOnly(session -> session.save(history));
         } else {
 
             Group group = message.getGroup();
-            //因为延迟加载情况可能为null，需要通过Id查询
+            // 因为延迟加载情况可能为null，需要通过Id查询
             if (group == null)
                 group = GroupFactory.findById(message.getGroupId());
 
-            //如果群真的没有，则返回
+            // 如果群真的没有，则返回
             if (group == null)
                 return;
 
-
-            //给群成员发送消息
+            // 给群成员发送消息
             Set<GroupMember> members = GroupFactory.getMembers(group);
             if (members == null || members.size() == 0)
                 return;
 
-            //过滤我自己
-            members.stream()
+            // 过滤我自己
+            members = members.stream()
                     .filter(groupMember -> !groupMember.getUserId()
                             .equalsIgnoreCase(sender.getId()))
                     .collect(Collectors.toSet());
+            if (members.size() == 0)
+                return;
 
-            //一个历史记录
+            // 一个历史记录列表
             List<PushHistory> histories = new ArrayList<>();
 
-
-            addGroupMembersPushModel(dispatcher, //推送的发送者
+            addGroupMembersPushModel(dispatcher, // 推送的发送者
                     histories, // 数据库要存储的列表
-                    members, //所有的成员
-                    entity, //要发送的数据
-                    PushModel.ENTITY_TYPE_MESSAGE); //发送的类型
+                    members,    // 所有的成员
+                    entity, // 要发送的数据
+                    PushModel.ENTITY_TYPE_MESSAGE); // 发送的类型
 
-            //保存到数据库的操作
+            // 保存到数据库的操作
             Hib.queryOnly(session -> {
                 for (PushHistory history : histories) {
-                    // session.save(histories);
                     session.saveOrUpdate(history);
                 }
             });
         }
 
-        //发送者进行真实的提交
+
+        // 发送者进行真实的提交
         dispatcher.submit();
+
     }
 
     /**
@@ -141,6 +141,8 @@ public class PushFactory {
             dispatcher.add(receiver, pushModel);
         }
     }
+
+
     /**
      * 通知一些成员，被加入了XXX群
      *
@@ -226,61 +228,59 @@ public class PushFactory {
 
     /**
      * 推送账户退出消息
+     *
      * @param receiver 接收者
-     * @param pushId 这个时候的接收者的设备Id
+     * @param pushId   这个时刻的接收者的设备Id
      */
     public static void pushLogout(User receiver, String pushId) {
-
-        //历史记录表字段建立
+        // 历史记录表字段建立
         PushHistory history = new PushHistory();
-        //你被添加到群的类型
+        // 你被添加到群的类型
         history.setEntityType(PushModel.ENTITY_TYPE_LOGOUT);
-        //账户被退出
         history.setEntity("Account logout!!!");
         history.setReceiver(receiver);
         history.setReceiverPushId(pushId);
-        //保存到历史记录表
+        // 保存到历史记录表
         Hib.queryOnly(session -> session.save(history));
 
-        //发送者
+        // 发送者
         PushDispatcher dispatcher = new PushDispatcher();
+        // 具体推送的内容
         PushModel pushModel = new PushModel()
-                .add(history.getEntityType(),history.getEntity());
+                .add(history.getEntityType(), history.getEntity());
 
-        //添加并提交到第三方推送
-        dispatcher.add(receiver,pushModel);
+        // 添加并提交到第三方推送
+        dispatcher.add(receiver, pushModel);
         dispatcher.submit();
-
     }
 
     /**
      * 给一个朋友推送我的信息过去
      * 类型是：我关注了他
+     *
      * @param receiver 接收者
      * @param userCard 我的卡片信息
      */
     public static void pushFollow(User receiver, UserCard userCard) {
-       //一定是相互关注了
+        // 一定是相互关注了
         userCard.setFollow(true);
         String entity = TextUtil.toJson(userCard);
 
         // 历史记录表字段建立
         PushHistory history = new PushHistory();
         // 你被添加到群的类型
-        history.setEntityType(PushModel.ENTITY_TYPE_ADD_GROUP);
+        history.setEntityType(PushModel.ENTITY_TYPE_ADD_FRIEND);
         history.setEntity(entity);
         history.setReceiver(receiver);
         history.setReceiverPushId(receiver.getPushId());
-        //保存到历史记录表
+        // 保存到历史记录表
         Hib.queryOnly(session -> session.save(history));
 
-        //推送
+        // 推送
         PushDispatcher dispatcher = new PushDispatcher();
         PushModel pushModel = new PushModel()
-                .add(history.getEntityType(),history.getEntity());
-        dispatcher.add(receiver,pushModel);
+                .add(history.getEntityType(), history.getEntity());
+        dispatcher.add(receiver, pushModel);
         dispatcher.submit();
-
-
     }
 }

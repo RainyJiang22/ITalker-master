@@ -15,11 +15,10 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "TB_MESSAGE")
 public class Message {
-    //发送给人的
-    public static final int RECEVIER_TYPE_NONE = 1;
-    //发送给群的
-    public static final int RECEVIER_TYPE_GROUP = 0;
-
+    // 发送给人的
+    public static final int RECEIVER_TYPE_NONE = 1;
+    // 发送给群的
+    public static final int RECEIVER_TYPE_GROUP = 2;
 
     public static final int TYPE_STR = 1; // 字符串类型
     public static final int TYPE_PIC = 2; // 图片类型
@@ -91,13 +90,12 @@ public class Message {
     private String groupId;
 
 
-    //无参的构造函数
-    public Message(){
+    public Message() {
 
     }
 
-    //普通朋友发送的构造函数
-    public Message(User sender, User receiver, MessageCreateModel model){
+    // 普通朋友的发送的构造函数
+    public Message(User sender, User receiver, MessageCreateModel model) {
         this.id = model.getId();
         this.content = model.getContent();
         this.attach = model.getAttach();
@@ -107,9 +105,8 @@ public class Message {
         this.receiver = receiver;
     }
 
-    //发送给群的构造函数
-    public Message(User sender, Group group, MessageCreateModel model){
-
+    // 发送给群的构造函数
+    public Message(User sender, Group group, MessageCreateModel model) {
         this.id = model.getId();
         this.content = model.getContent();
         this.attach = model.getAttach();
@@ -118,6 +115,7 @@ public class Message {
         this.sender = sender;
         this.group = group;
     }
+
 
     public String getId() {
         return id;

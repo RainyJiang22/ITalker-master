@@ -60,7 +60,6 @@ public class Group {
     @Column(nullable = false, updatable = false, insertable = false)
     private String ownerId;
 
-
     public Group() {
 
     }
@@ -71,6 +70,7 @@ public class Group {
         this.description = model.getDesc();
         this.picture = model.getPicture();
     }
+
 
     public String getId() {
         return id;
@@ -136,3 +136,4 @@ public class Group {
         this.ownerId = ownerId;
     }
 }
+

@@ -35,7 +35,6 @@ public class GroupMemberCard {
         this.modifyAt = member.getUpdateAt();
     }
 
-
     public String getId() {
         return id;
     }

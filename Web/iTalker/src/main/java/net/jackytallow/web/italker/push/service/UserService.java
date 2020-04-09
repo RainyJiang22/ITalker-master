@@ -54,14 +54,6 @@ public class UserService extends BaseService {
     public ResponseModel<List<UserCard>> contact() {
         User self = getSelf();
 
-        PushModel model = new PushModel();
-        model.add(new PushModel.Entity(0,"Hello，You are welcome!"));
-
-        PushDispatcher dispatcher = new PushDispatcher();
-        dispatcher.add(self,model);
-        //提交
-        dispatcher.submit();
-
         // 拿到我的联系人
         List<User> users = UserFactory.contacts(self);
         // 转换为UserCard
@@ -104,9 +96,9 @@ public class UserService extends BaseService {
             return ResponseModel.buildServiceError();
         }
 
-        //通知我关注的人我关注他
-        //给他发送一个我的信息过去
-        PushFactory.pushFollow(followUser,new UserCard(self));
+        // 通知我关注的人我关注他
+        // 给他发送一个我的信息过去
+        PushFactory.pushFollow(followUser, new UserCard(self));
 
         // 返回关注的人的信息
         return ResponseModel.buildOk(new UserCard(followUser, true));
@@ -182,3 +174,4 @@ public class UserService extends BaseService {
     }
 
 }
+

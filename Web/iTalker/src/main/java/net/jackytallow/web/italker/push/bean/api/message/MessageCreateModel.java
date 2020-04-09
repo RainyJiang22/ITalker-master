@@ -10,33 +10,25 @@ import net.jackytallow.web.italker.push.bean.db.Message;
  * @version 1.0.0
  */
 public class MessageCreateModel {
-
-
-    //消息id
-    //ID从客户端生产出来，一个UUID
+    // ID从客户端生产，一个UUID
     @Expose
     private String id;
-
     @Expose
-    //内容
     private String content;
-
-    // 附件
     @Expose
     private String attach;
 
     // 消息类型
     @Expose
-    private int type;
+    private int type = Message.TYPE_STR;
 
     // 接收者 可为空
-    // 多个消息对应一个接收者
     @Expose
     private String receiverId;
 
-    //接收者类型 群,人
+    // 接收者类型，群，人
     @Expose
-    private int receiverType = Message.RECEVIER_TYPE_NONE;
+    private int receiverType = Message.RECEIVER_TYPE_NONE;
 
     public String getId() {
         return id;
@@ -70,8 +62,6 @@ public class MessageCreateModel {
         this.type = type;
     }
 
-
-
     public String getReceiverId() {
         return receiverId;
     }
@@ -89,24 +79,17 @@ public class MessageCreateModel {
     }
 
     public static boolean check(MessageCreateModel model) {
-        // Model 不允许为null，
-        // 并且只需要具有一个及其以上的参数即可
         return model != null
-                &&
-                !(Strings.isNullOrEmpty(model.id)
-              || Strings.isNullOrEmpty(model.content)
-              || Strings.isNullOrEmpty(model.receiverId))
+                && !(Strings.isNullOrEmpty(model.id)
+                || Strings.isNullOrEmpty(model.content)
+                || Strings.isNullOrEmpty(model.receiverId))
 
-                &&( model.receiverType == Message.RECEVIER_TYPE_NONE
-        ||model.receiverType == Message.RECEVIER_TYPE_GROUP)
+                && (model.receiverType == Message.RECEIVER_TYPE_NONE
+                || model.receiverType == Message.RECEIVER_TYPE_GROUP)
 
-                &&(model.type == Message.TYPE_STR
-             ||model.type == Message.TYPE_FILE
-             ||model.type == Message.TYPE_AUDIO
-             ||model.type == Message.TYPE_PIC);
-
-
-
-
+                && (model.type == Message.TYPE_STR
+                || model.type == Message.TYPE_AUDIO
+                || model.type == Message.TYPE_FILE
+                || model.type == Message.TYPE_PIC);
     }
 }

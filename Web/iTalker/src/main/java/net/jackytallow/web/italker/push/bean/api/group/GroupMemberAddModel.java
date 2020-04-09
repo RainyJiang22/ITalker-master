@@ -14,7 +14,6 @@ import java.util.Set;
  */
 public class GroupMemberAddModel {
 
-
     @Expose
     private Set<String> users = new HashSet<>();
 
@@ -25,7 +24,6 @@ public class GroupMemberAddModel {
     public void setUsers(Set<String> users) {
         this.users = users;
     }
-
 
     public static boolean check(GroupMemberAddModel model) {
         return !(model.users == null
