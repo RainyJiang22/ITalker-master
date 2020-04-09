@@ -1,6 +1,7 @@
 package net.jacky.italker.push.frags.message;
 
 import android.os.Bundle;
+import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -10,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.ViewStub;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -73,7 +75,24 @@ public abstract class ChatFragment<InitModel>
     }
 
     @Override
+    protected final int getContentLayoutId() {
+        return R.layout.fragment_chat_common;
+    }
+
+    //得到顶部布局资源id
+    @LayoutRes
+    protected abstract int getHeaderLayoutId();
+
+    @Override
     protected void initWidget(View root) {
+        //拿到占位布局
+        //替换顶部布局，一定需要发送在super之前
+        //防止控件绑定异常
+        ViewStub stub = (ViewStub) root.findViewById(R.id.view_stub_header);
+        stub.setLayoutResource(getHeaderLayoutId());
+        stub.inflate();
+
+        //在这里进行了控件绑定
         super.initWidget(root);
 
         initToolbar();

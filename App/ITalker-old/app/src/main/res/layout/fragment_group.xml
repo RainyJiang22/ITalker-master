@@ -12,8 +12,8 @@
         android:clipToPadding="false"
         android:elevation="1dp"
         android:outlineProvider="bounds"
-        android:paddingBottom="@dimen/len_12"
-        android:paddingTop="@dimen/len_12"
+        android:paddingBottom="@dimen/len_4"
+        android:padding="@dimen/len_4"
         android:visibility="gone"
         tools:targetApi="lollipop" />
 

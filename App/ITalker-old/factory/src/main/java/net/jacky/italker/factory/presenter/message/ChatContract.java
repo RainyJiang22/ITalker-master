@@ -3,7 +3,10 @@ package net.jacky.italker.factory.presenter.message;
 import net.jacky.italker.factory.model.db.Group;
 import net.jacky.italker.factory.model.db.Message;
 import net.jacky.italker.factory.model.db.User;
+import net.jacky.italker.factory.model.db.view.MemberUserModel;
 import net.jacky.italker.factory.presenter.BaseContract;
+
+import java.util.List;
 
 /**
  * 聊天契约
@@ -36,7 +39,11 @@ public interface ChatContract {
 
     //群聊天的界面
     interface GroupView extends View<Group>{
+        //是否是管理员
+        void showAdminOption(boolean isAdmin);
 
+        //初始化成员
+        void onInitGroupMembers(List<MemberUserModel> members,int moreCount);
     }
 
 

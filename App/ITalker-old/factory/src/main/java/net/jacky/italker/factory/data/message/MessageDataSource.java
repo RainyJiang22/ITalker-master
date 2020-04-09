@@ -4,7 +4,7 @@ import net.jacky.italker.factory.data.DbDataSource;
 import net.jacky.italker.factory.model.db.Message;
 
 /**
- * 消息数据源,它的实现是；MessageRepository
+ * 消息数据源,它的实现是；MessageRepository,MessageGroupRepository
  * 关注的是Message表
  * @author jacky
  * @version 1.0.0

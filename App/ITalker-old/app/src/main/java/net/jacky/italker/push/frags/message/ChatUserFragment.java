@@ -39,9 +39,10 @@ public class ChatUserFragment extends ChatFragment<User>
     }
 
 
+
     @Override
-    protected int getContentLayoutId() {
-        return R.layout.fragment_chat_user;
+    protected int getHeaderLayoutId() {
+        return R.layout.lay_chat_header_user;
     }
 
     @Override
