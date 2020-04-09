@@ -84,6 +84,7 @@
             android:textColorHint="@color/textSecond"
             android:textColor="@color/textSecond"
             android:textCursorDrawable="@drawable/ic_cursor"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"/>
