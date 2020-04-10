@@ -15,7 +15,7 @@ import java.util.List;
  * 这样做的目的是：减少多次推送，如果有多个消息需要推送可以合并进行
  * 由于多次推送会出现一种情况是存在相关冗余
  *
- * @author jacky02
+ * @author jacky
  */
 
 @SuppressWarnings("WeakerAccess")
