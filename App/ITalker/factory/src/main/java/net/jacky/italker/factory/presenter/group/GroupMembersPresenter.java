@@ -8,6 +8,7 @@ import net.jacky.italker.factory.presenter.BaseRecyclerPresenter;
 import java.util.List;
 
 /**
+ * 群成员的Presenter
  * @author jacky
  * @version 1.0.0
  */
