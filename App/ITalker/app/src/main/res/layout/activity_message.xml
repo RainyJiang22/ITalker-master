@@ -4,7 +4,7 @@
     android:id="@id/lay_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="net.qiujuer.italker.push.net.jacky.italker.push.activities.MessageActivity">
+    tools:context="net.jacky.italker.push.activities.MessageActivity">
 
     <ImageView
         android:layout_width="match_parent"

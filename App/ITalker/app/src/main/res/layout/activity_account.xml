@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="net.qiujuer.italker.push.net.jacky.italker.push.activities.AccountActivity">
+    tools:context="net.jacky.italker.push.activities.AccountActivity">
 
     <ImageView
         android:id="@+id/im_bg"

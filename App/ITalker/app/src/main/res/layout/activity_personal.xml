@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context="net.qiujuer.italker.push.net.jacky.italker.push.activities.PersonalActivity">
+    tools:context="net.jacky.italker.push.activities.PersonalActivity">
 
     <ImageView
         android:id="@+id/im_header"

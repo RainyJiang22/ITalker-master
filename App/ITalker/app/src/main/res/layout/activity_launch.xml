@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     android:orientation="vertical"
-    tools:context="net.qiujuer.italker.push.net.jacky.italker.push.LaunchActivity">
+    tools:context="net.jacky.italker.push.LaunchActivity">
 
     <FrameLayout
         android:layout_width="wrap_content"

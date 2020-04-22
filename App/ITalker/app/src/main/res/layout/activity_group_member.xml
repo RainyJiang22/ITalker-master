@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="net.qiujuer.italker.push.net.jacky.italker.push.activities.GroupMemberActivity">
+    tools:context="net.jacky.italker.push.activities.GroupMemberActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@id/toolbar"
