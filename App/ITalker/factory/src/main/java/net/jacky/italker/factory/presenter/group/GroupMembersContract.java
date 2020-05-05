@@ -17,6 +17,9 @@ public interface GroupMembersContract {
 
     // 界面
     interface View extends BaseContract.RecyclerView<Presenter, MemberUserModel> {
+        //显示添加菜单，只有管理员显示
+      //  void showAdminOptions(boolean isAdmin);
+
         // 获取群的ID
         String getGroupId();
     }

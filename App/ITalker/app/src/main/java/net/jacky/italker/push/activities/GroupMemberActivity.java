@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -22,6 +24,7 @@ import net.jacky.italker.push.frags.group.GroupMemberAddFragment;
 
 
 import butterknife.BindView;
+import butterknife.BindViews;
 import butterknife.OnClick;
 
 /**
@@ -36,6 +39,9 @@ public class GroupMemberActivity extends PresenterToolbarActivity<GroupMembersCo
 
     @BindView(R.id.recycler)
     RecyclerView mRecycler;
+
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
 
     private String mGroupId;
     private boolean mIsAdmin;
@@ -101,10 +107,11 @@ public class GroupMemberActivity extends PresenterToolbarActivity<GroupMembersCo
         // 开始数据刷新
         mPresenter.refresh();
 
-        // 显示管理员界面，添加成员
+        // 显示成员界面，添加成员
         if (mIsAdmin) {
             new GroupMemberAddFragment()
                     .show(getSupportFragmentManager(), GroupMemberAddFragment.class.getName());
+          mToolbar.inflateMenu(R.menu.chat_group);
         }
     }
 
@@ -123,6 +130,24 @@ public class GroupMemberActivity extends PresenterToolbarActivity<GroupMembersCo
     protected GroupMembersContract.Presenter initPresenter() {
         return new GroupMembersPresenter(this);
     }
+
+//    @Override
+//    public void showAdminOptions(boolean isAdmin) {
+//        if (isAdmin) {
+//            mToolbar.inflateMenu(R.menu.chat_group);
+//            mToolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+//                @Override
+//                public boolean onMenuItemClick(MenuItem item) {
+//                    if (item.getItemId() == R.id.action_add) {
+//                        new GroupMemberAddFragment()
+//                                .show(getSupportFragmentManager(), GroupMemberAddFragment.class.getName());
+//                        return true;
+//                    }
+//                    return false;
+//                }
+//            });
+//        }
+//    }
 
     @Override
     public String getGroupId() {

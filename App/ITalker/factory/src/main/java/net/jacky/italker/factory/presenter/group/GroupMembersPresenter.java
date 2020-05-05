@@ -2,7 +2,9 @@ package net.jacky.italker.factory.presenter.group;
 
 import net.jacky.italker.factory.Factory;
 import net.jacky.italker.factory.data.helper.GroupHelper;
+import net.jacky.italker.factory.model.db.Group;
 import net.jacky.italker.factory.model.db.view.MemberUserModel;
+import net.jacky.italker.factory.persistence.Account;
 import net.jacky.italker.factory.presenter.BaseRecyclerPresenter;
 
 import java.util.List;
@@ -36,6 +38,11 @@ public class GroupMembersPresenter extends BaseRecyclerPresenter<MemberUserModel
                 return;
 
             String groupId = view.getGroupId();
+
+            //拿群的信息
+            Group group = GroupHelper.findFromLocal(groupId);
+            boolean isAdmin = Account.getUserId().equalsIgnoreCase(group.getOwner().getId());
+          // view.showAdminOptions(isAdmin);
 
             // 传递数量为-1 代表查询所有
             List<MemberUserModel> models = GroupHelper.getMemberUsers(groupId, -1);
