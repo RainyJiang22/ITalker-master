@@ -1,5 +1,6 @@
 package net.jacky.italker.factory.presenter.contact;
 
+import net.jacky.italker.factory.model.card.UserCard;
 import net.jacky.italker.factory.model.db.User;
 import net.jacky.italker.factory.presenter.BaseContract;
 
@@ -11,6 +12,9 @@ public interface PersonalContract {
     interface Presenter extends BaseContract.Presenter {
         // 获取用户信息
         User getUserPersonal();
+
+        //进行关注一个人
+        void follow(String id);
     }
 
     interface View extends BaseContract.View<Presenter> {
@@ -24,5 +28,8 @@ public interface PersonalContract {
 
         // 设置关注状态
         void setFollowStatus(boolean isFollow);
+
+        // 成功的情况下返回一个用户的信息
+        void onFollowSucceed(UserCard userCard);
     }
 }

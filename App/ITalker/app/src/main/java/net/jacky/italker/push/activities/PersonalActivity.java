@@ -1,5 +1,6 @@
 package net.jacky.italker.push.activities;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -18,7 +19,10 @@ import com.bumptech.glide.Glide;
 
 import net.jacky.italker.common.app.PresenterToolbarActivity;
 import net.jacky.italker.common.widget.PortraitView;
+import net.jacky.italker.factory.model.card.UserCard;
 import net.jacky.italker.factory.model.db.User;
+import net.jacky.italker.factory.presenter.contact.FollowContract;
+import net.jacky.italker.factory.presenter.contact.FollowPresenter;
 import net.jacky.italker.factory.presenter.contact.PersonalContract;
 import net.jacky.italker.factory.presenter.contact.PersonalPresenter;
 import net.jacky.italker.push.R;
@@ -31,8 +35,8 @@ import butterknife.OnClick;
  * @author jacky
  * @version 1.0.0
  */
-public class PersonalActivity extends PresenterToolbarActivity<PersonalContract.Presenter>
-        implements PersonalContract.View {
+public  class PersonalActivity extends PresenterToolbarActivity<PersonalContract.Presenter>
+        implements PersonalContract.View{
     private static final String BOUND_KEY_ID = "BOUND_KEY_ID";
     private String userId;
 
@@ -96,7 +100,15 @@ public class PersonalActivity extends PresenterToolbarActivity<PersonalContract.
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.action_follow) {
-            // TODO 进行关注操作
+            //进行关注操作
+            //TODO 2020/5/11 有两种情况吧，如果已经关注了点击取消关注
+            if (mIsFollowUser){
+                //已经关注了
+                //do no thing
+            }else{
+                //没有关注
+                mPresenter.follow(userId);
+            }
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -133,6 +145,7 @@ public class PersonalActivity extends PresenterToolbarActivity<PersonalContract.
         return userId;
     }
 
+    @SuppressLint("StringFormatMatches")
     @Override
     public void onLoadDone(User user) {
         if (user == null)
@@ -154,6 +167,15 @@ public class PersonalActivity extends PresenterToolbarActivity<PersonalContract.
     public void setFollowStatus(boolean isFollow) {
         mIsFollowUser = isFollow;
         changeFollowItemStatus();
+    }
+
+    @Override
+    public void onFollowSucceed(UserCard userCard) {
+
+        //关注成功后更改当前页面图标状态
+        mIsFollowUser = true;
+        changeFollowItemStatus();
+
     }
 
     @Override

@@ -83,7 +83,7 @@ public class UserHelper {
         return call;
     }
 
-
+ //TODO 考虑一下取消关注的网络请求
     // 关注的网络请求
     public static void follow(String id, final DataSource.Callback<UserCard> callback) {
         RemoteService service = Network.remote();

@@ -1,7 +1,9 @@
 package net.jacky.italker.factory.presenter.contact;
 
 import net.jacky.italker.factory.Factory;
+import net.jacky.italker.factory.data.DataSource;
 import net.jacky.italker.factory.data.helper.UserHelper;
+import net.jacky.italker.factory.model.card.UserCard;
 import net.jacky.italker.factory.model.db.User;
 import net.jacky.italker.factory.presenter.BasePresenter;
 import net.qiujuer.genius.kit.handler.Run;
@@ -13,7 +15,7 @@ import net.jacky.italker.factory.persistence.Account;
  * @version 1.0.0
  */
 public class PersonalPresenter extends BasePresenter<PersonalContract.View>
-        implements PersonalContract.Presenter {
+        implements PersonalContract.Presenter, DataSource.Callback<UserCard>{
 
     private User user;
 
@@ -39,6 +41,12 @@ public class PersonalPresenter extends BasePresenter<PersonalContract.View>
             }
         });
 
+    }
+
+    @Override
+    public void follow(String id) {
+         start();
+         UserHelper.follow(id,this);
     }
 
     /**
@@ -72,5 +80,34 @@ public class PersonalPresenter extends BasePresenter<PersonalContract.View>
     @Override
     public User getUserPersonal() {
         return user;
+    }
+
+
+    @Override
+    public void onDataLoaded(final UserCard userCard) {
+        // 成功
+        final PersonalContract.View view = getView();
+        if (view != null) {
+            Run.onUiAsync(new Action() {
+                @Override
+                public void call() {
+                    view.onFollowSucceed(userCard);
+                }
+            });
+        }
+    }
+
+    @Override
+    public void onDataNotAvailable(final int strRes) {
+        //失败
+        final PersonalContract.View view = getView();
+        if (view != null){
+            Run.onUiAsync(new Action() {
+                @Override
+                public void call() {
+                    view.showError(strRes);
+                }
+            });
+        }
     }
 }
