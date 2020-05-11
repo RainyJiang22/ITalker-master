@@ -121,6 +121,29 @@
         app:layout_constraintRight_toRightOf="parent"
         tools:visibility="visible" />
 
+    <!--个人退出按钮-->
+    <net.qiujuer.genius.ui.widget.Button
+        android:id="@+id/btn_log_out"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/len_28"
+        android:layout_marginBottom="@dimen/len_16"
+        android:background="@drawable/sel_btn_bg_accent_44"
+        android:gravity="center"
+        android:minWidth="@dimen/len_156"
+        android:text="@string/btn_log_out"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        app:gTouchColor="@color/white_alpha_48"
+        app:gTouchCornerRadius="22dp"
+        app:gTouchEffect="ripple"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:visibility="visible" />
+
     <android.support.constraint.Guideline
         android:id="@+id/guideline1"
         android:layout_width="wrap_content"

@@ -26,6 +26,9 @@ public interface PersonalContract {
         // 是否发起聊天
         void allowSayHello(boolean isAllow);
 
+        // 是否退出登陆,只有用户本人才能退出登陆
+        void allowLogOut(boolean isSelf);
+
         // 设置关注状态
         void setFollowStatus(boolean isFollow);
 

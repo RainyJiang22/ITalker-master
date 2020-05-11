@@ -17,8 +17,10 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
+import net.jacky.italker.common.app.Application;
 import net.jacky.italker.common.app.PresenterToolbarActivity;
 import net.jacky.italker.common.widget.PortraitView;
+import net.jacky.italker.factory.Factory;
 import net.jacky.italker.factory.model.card.UserCard;
 import net.jacky.italker.factory.model.db.User;
 import net.jacky.italker.factory.presenter.contact.FollowContract;
@@ -54,6 +56,8 @@ public  class PersonalActivity extends PresenterToolbarActivity<PersonalContract
     TextView mFollowing;
     @BindView(R.id.btn_say_hello)
     Button mSayHello;
+    @BindView(R.id.btn_log_out)
+    Button mLogOut;
 
     // 关注
     private MenuItem mFollowItem;
@@ -101,7 +105,7 @@ public  class PersonalActivity extends PresenterToolbarActivity<PersonalContract
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.action_follow) {
             //进行关注操作
-            //TODO 2020/5/11 有两种情况吧，如果已经关注了点击取消关注
+            //TODO 有两种情况吧，如果已经关注了点击取消关注,后续扩展
             if (mIsFollowUser){
                 //已经关注了
                 //do no thing
@@ -121,6 +125,14 @@ public  class PersonalActivity extends PresenterToolbarActivity<PersonalContract
         if (user == null)
             return;
         MessageActivity.show(this, user);
+    }
+
+    @OnClick(R.id.btn_log_out)
+    void onLogOutClick(){
+        //跳转到账户登陆界面
+        Application.getInstance().finishAll();
+        AccountActivity.show(this);
+        //TODO 发送退出登陆推送
     }
 
 
@@ -161,6 +173,11 @@ public  class PersonalActivity extends PresenterToolbarActivity<PersonalContract
     @Override
     public void allowSayHello(boolean isAllow) {
         mSayHello.setVisibility(isAllow ? View.VISIBLE : View.GONE);
+    }
+
+    @Override
+    public void allowLogOut(boolean isSelf) {
+        mLogOut.setVisibility(isSelf ? View.GONE : View.GONE);
     }
 
     @Override
