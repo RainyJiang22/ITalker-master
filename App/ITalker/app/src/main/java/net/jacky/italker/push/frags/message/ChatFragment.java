@@ -537,6 +537,7 @@ public abstract class ChatFragment<InitModel>
                     .into(mContent);
 
         }
+        //TODO 可以点击ImageView进行放大处理
     }
 
 

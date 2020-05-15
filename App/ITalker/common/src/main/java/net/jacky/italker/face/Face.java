@@ -165,7 +165,7 @@ public class Face {
         String packageName = context.getApplicationInfo().packageName;
         for (int i = 1; i <= 142; i++) {
 
-            // i=1=>  001
+            // i=1=>  001 就相当于i为1的时候变为001
             String key = String.format(Locale.ENGLISH, "fb%03d", i);
             String resStr = String.format(Locale.ENGLISH, "face_base_%03d", i);
 

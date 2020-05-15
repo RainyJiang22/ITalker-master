@@ -44,7 +44,7 @@ public class GalleryFragment extends BottomSheetDialogFragment
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        //TODO 获取gallery
+        //获取gallery
 //        // 获取我们的GalleryView
 //        View root = inflater.inflate(R.layout.fragment_gallery, container, false);
 //        mGallery = (GalleryView) root.findViewById(R.id.galleryView);

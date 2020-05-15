@@ -206,6 +206,9 @@ public class PanelFragment extends Fragment {
                         // 删除和取消都代表想要取消
                         helper.stop(true);
                         break;
+                        //TODO 播放语音逻辑实现
+                        //这里将播放和发送都当成发送，
+                    // 如果想要播放的话可以另外做些处理，模拟QQ语音发送
                     case AudioRecordView.END_TYPE_NONE:
                     case AudioRecordView.END_TYPE_PLAY:
                         // 播放暂时当中就是想要发送

@@ -175,6 +175,7 @@ public class AudioRecordView extends FrameLayout implements View.OnTouchListener
     }
 
     // 监听用户的手指触摸，并相应对应的开始，停止，取消等操作
+    //TODO 可以在手指触摸的时候加入水波纹的动画，扩展
     @Override
     public boolean onTouch(View v, MotionEvent event) {
         switch (event.getActionMasked()) {
