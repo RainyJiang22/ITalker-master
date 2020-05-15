@@ -1,6 +1,7 @@
 package net.jacky.italker.push.frags.media;
 
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
@@ -11,10 +12,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.FrameLayout;
 
 import net.jacky.italker.common.tools.UiTool;
 import net.jacky.italker.common.widget.GalleryView;
 import net.jacky.italker.push.R;
+
+import java.util.Objects;
 
 /**
  * 图片选择Fragment
@@ -31,16 +35,29 @@ public class GalleryFragment extends BottomSheetDialogFragment
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // 返回一个我们复写的
-        return new TransStatusBottomSheetDialog(getContext());
+        // return new TransStatusBottomSheetDialog(getContext());
+
+        return new BottomSheetDialog(Objects.requireNonNull(getContext()));
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // 获取我们的GalleryView
-        View root = inflater.inflate(R.layout.fragment_gallery, container, false);
-        mGallery = (GalleryView) root.findViewById(R.id.galleryView);
-        return root;
+
+        //TODO 获取gallery
+//        // 获取我们的GalleryView
+//        View root = inflater.inflate(R.layout.fragment_gallery, container, false);
+//        mGallery = (GalleryView) root.findViewById(R.id.galleryView);
+//        return root;
+
+        final Context context = Objects.requireNonNull(getActivity());
+        final FrameLayout frameLayout = new FrameLayout(context);
+
+        inflater.inflate(R.layout.fragment_gallery, frameLayout, true);
+        mGallery = (GalleryView) frameLayout.findViewById(R.id.galleryView);
+
+        return frameLayout;
+
     }
 
     @Override
@@ -100,9 +117,9 @@ public class GalleryFragment extends BottomSheetDialogFragment
             super(context, theme);
         }
 
-        protected TransStatusBottomSheetDialog(@NonNull Context context, boolean cancelable, OnCancelListener cancelListener) {
-            super(context, cancelable, cancelListener);
-        }
+//        protected TransStatusBottomSheetDialog(@NonNull Context context, boolean cancelable, OnCancelListener cancelListener) {
+//            super(context, cancelable, cancelListener);
+//        }
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -112,14 +129,22 @@ public class GalleryFragment extends BottomSheetDialogFragment
             if (window == null)
                 return;
 
+            Activity ownerActivity = getOwnerActivity();
+            if (ownerActivity == null){
+                return;
+            }
+
 
             // 得到屏幕高度
-            int screenHeight = UiTool.getScreenHeight(getOwnerActivity());
+           // int screenHeight = UiTool.getScreenHeight(getOwnerActivity());
+            final int screenHeight = UiTool.getScreenHeight(ownerActivity);
+
             // 得到状态栏的高度
-            int statusHeight = UiTool.getStatusBarHeight(getOwnerActivity());
+            //int statusHeight = UiTool.getStatusBarHeight(getOwnerActivity());
+            final int statusHeight = UiTool.getStatusBarHeight(ownerActivity);
 
             // 计算dialog的高度并设置
-            int dialogHeight = screenHeight - statusHeight;
+           final int dialogHeight = screenHeight - statusHeight;
             window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT,
                     dialogHeight <= 0 ? ViewGroup.LayoutParams.MATCH_PARENT : dialogHeight);
 
