@@ -87,6 +87,12 @@
             android:label="@string/title_member_list"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.TransStatusBar" />
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="3" />
+        <meta-data
+            android:name="android.notch_support"
+            android:value="true" />
     </application>
 
 </manifest>

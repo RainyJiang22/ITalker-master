@@ -1,5 +1,6 @@
 package net.jacky.italker.push.frags.panel;
 
+import android.os.Bundle;
 import android.view.View;
 
 import net.jacky.italker.common.widget.recycler.RecyclerAdapter;

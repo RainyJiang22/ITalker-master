@@ -308,6 +308,7 @@ public abstract class ChatFragment<InitModel>
     @Override
     public void onAdapterDataChanged() {
         // 界面没有占位布局，Recycler是一直显示的，所有不需要做任何事情
+        //do not thing
     }
 
     @Override
